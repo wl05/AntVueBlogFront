@@ -48,19 +48,16 @@
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
     .about-container-wrap {
-        /*background: rgba(255, 255, 255, 0.95);*/
-        /*padding: 5px;*/
         width: 100%;
-        min-height: 100vh;
-        color: #ddd;
+        /*min-height: 50vh;*/
+        color: rgba(255, 255, 255, 0.6);
         .about-container {
             max-width: 800px;
             margin: 0 auto;
-            margin-top: 160px;
+            margin-top: 30px;
             background: rgba(0, 0, 0, 0.9);
             padding: 25px;
             border-radius: 5px;
-
             .about-item {
                 padding: 10px;
                 margin: 0 auto;

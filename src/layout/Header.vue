@@ -2,36 +2,47 @@
     <el-row :gutter="24" type="flex" align="middle" justify="space-between">
         <el-col :span="12">
             <div>
-                <a class="blog-title-container">
-                    <!--<img width="60" height="30" :src="logoImgUrl"/>-->
-                    <!--<span class="top-line"></span>-->
+                <a
+                    class="blog-title-container"
+                    @click="$router.push('/')"
+                >
                     <span class="blog-title">
                     ANT
                 </span>
-                    <!--<span class="bottom-line"></span>-->
                 </a>
             </div>
-
-
         </el-col>
         <el-col :span="12">
             <div class="menu-container">
                 <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"
                          @select="handleSelect">
-                    <el-menu-item index="/">
-                        <a class="menu-item-text">首页</a>
-                    </el-menu-item>
+                    <!--<el-menu-item index="/">-->
+                    <!--<a class="menu-item-text">首页</a>-->
+                    <!--</el-menu-item>-->
                     <el-menu-item index="categories">
-                        <a class="menu-item-text">分类</a>
+
+                        <a class="menu-item-text">
+                            <span class="fa fa-fw fa-th"></span>
+                            分类
+                        </a>
                     </el-menu-item>
                     <el-menu-item index="archives">
-                        <a class="menu-item-text">归档</a>
+                        <a class="menu-item-text">
+                            <span class="fa fa-fw fa-archive"></span>
+                            归档
+                        </a>
                     </el-menu-item>
                     <el-menu-item index="tags">
-                        <a class="menu-item-text">标签</a>
+                        <a class="menu-item-text">
+                            <span class="fa fa-fw fa-tags"></span>
+                            标签
+                        </a>
                     </el-menu-item>
                     <el-menu-item index="about">
-                        <a class="menu-item-text">关于我</a>
+                        <a class="menu-item-text">
+                            <span class="fa fa-fw fa-user"></span>
+                            关于我
+                        </a>
                     </el-menu-item>
                 </el-menu>
             </div>
@@ -51,15 +62,9 @@
 				logoImgUrl
 			}
 		},
-		created () {
-
-		},
-		components: {},
 		methods: {
 			handleSelect (key, keyPath) {
-
 				console.log(this.$route)
-
 				if (key === '/') {
 					this.$router.push('/')
 				} else if (key === 'categories') {
@@ -92,17 +97,10 @@
             background: transparent;
         }
         .el-menu--horizontal > .el-menu-item {
-            // border: none;
-            // height: inherit;
-            // line-height: inherit;
-            // border-radius: 2px
-        }
-        .el-menu--horizontal > .el-menu-item {
             .menu-item-text {
                 font-size: 13px;
             }
         }
-
         .el-menu.el-menu--horizontal {
             border: none;
         }
@@ -129,10 +127,13 @@
             .blog-title {
                 font-size: 22px;
                 font-weight: bolder;
-                color: #fff;
+                color: rgba(255, 255, 255, 0.6);
                 margin-top: 10px;
                 margin-bottom: 10px;
                 text-align: center;
+            }
+            .blog-title:hover {
+                color: rgba(255, 255, 255, 0.9);
             }
             .top-line, .bottom-line {
                 display: inline-block;

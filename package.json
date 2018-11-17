@@ -19,6 +19,7 @@
         "github-markdown-css": "^2.10.0",
         "particles.js": "^2.0.0",
         "vue": "^2.5.2",
+        "vue-loading-spinner": "^1.0.11",
         "vue-markdown": "^2.2.4",
         "vue-router": "^3.0.1",
         "vuex": "^3.0.1"
@@ -55,6 +56,7 @@
         "eslint-plugin-vue": "^4.0.0",
         "extract-text-webpack-plugin": "^3.0.0",
         "file-loader": "^1.1.4",
+        "font-awesome": "^4.7.0",
         "friendly-errors-webpack-plugin": "^1.6.1",
         "html-webpack-plugin": "^2.30.1",
         "inject-loader": "^3.0.0",

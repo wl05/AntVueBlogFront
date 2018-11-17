@@ -12,9 +12,9 @@
                         <router-view/>
                     </div>
                 </el-main>
-                <el-footer>
-                    <Footer/>
-                </el-footer>
+                <!--<el-footer>-->
+                    <!--<Footer/>-->
+                <!--</el-footer>-->
             </el-container>
         </el-container>
     </div>
@@ -62,7 +62,7 @@
     }
 
     .content-container {
-        min-height: 800px;
+        /*min-height: calc(100vh - 85px);*/
         /*max-width: 800px;*/
         margin: 0 auto;
     }

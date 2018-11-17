@@ -67,7 +67,7 @@
             width: 800px;
             margin: 0 auto;
             background: rgba(0, 0, 0, 0.9);
-            margin-top: 160px;
+            margin-top: 30px;
             border-radius: 5px;
             padding: 25px;
             .count {
