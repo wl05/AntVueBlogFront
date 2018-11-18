@@ -1,11 +1,9 @@
 <template>
     <div class="container" id="particles-js" ref="particles">
         <el-container>
-            <!--<div class="header-container">-->
             <el-header height="85px">
                 <Header/>
             </el-header>
-            <!--</div>-->
             <el-container style="margin-top:85px">
                 <el-main>
                     <div class="content-container">
@@ -25,11 +23,6 @@
 	import Header from './Header.vue'
 	import Sider from './Sider.vue'
 	import Footer from './Footer.vue'
-	// import particlesJS from 'particles.js'
-	// const particlesJS = require('particles.js')
-	import 'particles.js'
-	import particles from '@/assets/particles'
-
 	export default {
 		name: 'Layout',
 		components: {
@@ -38,10 +31,7 @@
 			Footer
 		},
 		mounted () {
-			console.log(particles)
-			particlesJS.load('particles-js', JSON.stringify(particles), function () {
-				console.log('callback - particles.js config loaded')
-			})
+
 		}
 	}
 </script>
@@ -62,8 +52,6 @@
     }
 
     .content-container {
-        /*min-height: calc(100vh - 85px);*/
-        /*max-width: 800px;*/
         margin: 0 auto;
     }
 

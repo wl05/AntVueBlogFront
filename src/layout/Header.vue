@@ -14,31 +14,29 @@
         </el-col>
         <el-col :span="12">
             <div class="menu-container">
-                <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"
-                         @select="handleSelect">
-                    <!--<el-menu-item index="/">-->
-                    <!--<a class="menu-item-text">首页</a>-->
-                    <!--</el-menu-item>-->
-                    <el-menu-item index="categories">
-
+                <el-menu
+                    class="el-menu-demo" mode="horizontal"
+                    :default-active="index"
+                    @select="handleSelect">
+                    <el-menu-item index="/categories">
                         <a class="menu-item-text">
                             <span class="fa fa-fw fa-th"></span>
                             分类
                         </a>
                     </el-menu-item>
-                    <el-menu-item index="archives">
+                    <el-menu-item index="/archives">
                         <a class="menu-item-text">
                             <span class="fa fa-fw fa-archive"></span>
                             归档
                         </a>
                     </el-menu-item>
-                    <el-menu-item index="tags">
+                    <el-menu-item index="/tags">
                         <a class="menu-item-text">
                             <span class="fa fa-fw fa-tags"></span>
                             标签
                         </a>
                     </el-menu-item>
-                    <el-menu-item index="about">
+                    <el-menu-item index="/about">
                         <a class="menu-item-text">
                             <span class="fa fa-fw fa-user"></span>
                             关于我
@@ -58,26 +56,18 @@
 		data () {
 			return {
 				tabPosition: 'top',
-				activeIndex: '/',
-				logoImgUrl
+				logoImgUrl,
+				index: {...this.$router.history.current}.path
 			}
 		},
+		mounted () {
+			// console.log('this.$router.history', this.$router.history, '\n')
+			// console.log('this.$router.history.current.path', this.$router.history.current)
+		},
+		computed: {},
 		methods: {
 			handleSelect (key, keyPath) {
-				console.log(this.$route)
-				if (key === '/') {
-					this.$router.push('/')
-				} else if (key === 'categories') {
-					this.$router.push({path: '/categories'})
-				} else if (key === 'archives') {
-					this.$router.push({path: '/archives'})
-				} else if (key === 'tags') {
-					this.$router.push({path: '/tags'})
-				} else if (key === 'about') {
-					this.$router.push({path: '/about'})
-				} else {
-					this.$router.push('/')
-				}
+				this.$router.push({path: key})
 			}
 		}
 	}
@@ -127,13 +117,14 @@
             .blog-title {
                 font-size: 22px;
                 font-weight: bolder;
-                color: rgba(255, 255, 255, 0.6);
+                /*color: rgba(255, 255, 255, 0.6);*/
+                color: #fff;
                 margin-top: 10px;
                 margin-bottom: 10px;
                 text-align: center;
             }
             .blog-title:hover {
-                color: rgba(255, 255, 255, 0.9);
+                color: rgba(255, 255, 255, 0.6);
             }
             .top-line, .bottom-line {
                 display: inline-block;

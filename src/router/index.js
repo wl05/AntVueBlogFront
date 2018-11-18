@@ -25,9 +25,19 @@ export default new Router({
 			component: () => import ('@/views/tags/tags'),
 		},
 		{
+			path: '/tags/:id',
+			name: 'TagsItem',
+			component: () => import ('@/views/tags/tagsItem'),
+		},
+		{
 			path: '/categories',
 			name: 'Categories',
 			component: () => import ('@/views/categories/categories'),
+		},
+		{
+			path: '/categories/:id',
+			name: 'CategoryItem',
+			component: () => import ('@/views/categories/categoryItem'),
 		},
 		{
 			path: '/archives',

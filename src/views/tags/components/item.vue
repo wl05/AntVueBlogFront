@@ -1,5 +1,7 @@
 <template>
-    <a class="tags-item-container">
+    <a class="tags-item-container"
+       @click="$router.push({ path:`/tags/${item._id}` })"
+    >
         {{item.name}}
     </a>
 </template>
@@ -9,12 +11,13 @@
 	export default {
 		props: [
 			'item',
-			'style'
+			'styles'
 		],
 		data () {
 			return {}
 		},
 		created () {
+			console.log(this.item)
 		},
 
 		methods: {}
@@ -22,11 +25,15 @@
 </script>
 <style lang="scss" scoped rel="stylesheet/scss">
     .tags-item-container {
-        border-bottom: 2px solid #ddd;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.6);
         cursor: pointer;
+        margin: 15px;
+        font-size: 18px;
+
     }
 
     .tags-item-container:hover {
-        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.9);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.9);
     }
 </style>

@@ -1,3 +1,23 @@
-.markdown-body .highlight pre, .markdown-body pre {
-    /*background: #272822;*/
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    /*margin-top: 0;*/
+    /*margin-bottom: 0;*/
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.markdown-body {
+    -webkit-font-smoothing: antialiased;
+    /*font-family: Lato,"PingFang SC","Microsoft YaHei",sans-serif;*/
+    line-height: 2;
+    color: #555;
+    font-family: inherit;
+}
+
+.markdown-body img {
+    display: block;
+    margin: 0 auto;
 }

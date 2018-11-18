@@ -7,9 +7,28 @@
             </a>
         </h1>
         <div class="date-tag">
-            <span class="icon fa fa-calendar"></span><span class="publish-date">{{formatTimestamp(Number(article.publishAt)/1000)}}</span>
-            <span class="icon fa fa-envelope"></span><a class="category">{{article.category.name}}</a>
-            <span class="icon fa fa-tags"></span><a class="tag">{{article.tag.name}}</a>
+            <span class="icon fa fa-calendar">
+                <span class="publish-date">{{formatTimestamp(Number(article.publishAt)/1000)}}</span>
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span class="icon fa fa-envelope">
+                <a class="category"
+                   @click="$router.push({path: `/categories/${article.category._id}`,query:{name:article.category.name}})"
+                >{{article.category.name}}</a>
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span class="icon fa fa-tags">
+                <a
+                    class="tag"
+                    @click="$router.push({ path:`/tags/${article.tag._id}` })"
+                >
+                    {{article.tag.name}}
+                </a>
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span class="fa fa-eye">
+                阅读次数 {{article.viewCount}}
+            </span>
         </div>
         <article ref="content" class="content">
         </article>
@@ -64,7 +83,10 @@
             color: rgba(255, 255, 255, 0.9);
         }
         .date-tag {
-
+            .post-meta-divider {
+                color: rgba(255, 255, 255, 0.6);
+                margin: 0 5px;
+            }
             margin-top: 15px;
             font-size: 12px;
             .publish-date, .tag, .category {
@@ -73,10 +95,11 @@
                 /*color: #ddd*/
             }
             .publish-date, .tag, .category {
-                margin-right: 15px;
+                /*margin-right: 15px;*/
+                margin-left: 5px;
             }
             .icon {
-                margin-right: 10px;
+                /*margin-right: 10px;*/
             }
         }
         .content {

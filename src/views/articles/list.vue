@@ -1,5 +1,5 @@
 <template>
-    <div class="articles-list-container">
+    <div class="articles-list-container" ref="articles-list-container">
         <Spin v-if="fetchArticleLoading"/>
         <item
             v-for="(item,index) in articles"
@@ -7,18 +7,9 @@
             :article="item"
             :index="index+1"
         />
-        <div class="pagination">
-            <!--<el-pagination-->
-            <!--background-->
-            <!--@size-change="handleSizeChange"-->
-            <!--@current-change="handleCurrentChange"-->
-            <!--:current-page="pageSize"-->
-            <!--:page-sizes="[10, 20, 30, 40]"-->
-            <!--:page-size="pageLimit"-->
-            <!--layout="total, sizes, prev, pager, next, jumper"-->
-            <!--:total="count">-->
-            <!--</el-pagination>-->
+        <div id="articlePaginationId">
             <el-pagination
+                v-if="count>pageLimit"
                 @size-change="handleSizeChange"
                 @current-change="handleCurrentChange"
                 :current-page.sync="pageSize"
@@ -31,7 +22,7 @@
 </template>
 
 <script>
-	import { fetchArticle, deleteArticle } from '@/api/article'
+	import { fetchArticle } from '@/api/article'
 	import formatTimestamp from '@/utils/formatTimestamp'
 	import item from './components/item'
 	import Spin from '@/components/Spin'
@@ -78,6 +69,11 @@
 					} else {
 						this.articles = result.data.data.article
 						this.count = result.data.data.count
+						// document.body.scrollTop = 0
+						// document.documentElement.scrollTop = 0
+						// scrollTo(0, 0)
+						// this.$refs['articles-list-container'].scrollTop = 0
+						// document.body.scrollTop = document.documentElement.scrollTop = 0
 					}
 				} catch (e) {
 					this.fetchArticleLoading = false
@@ -89,16 +85,19 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+    #topAnchor {
+        margin-top: 30px;
+    }
+
     .articles-list-container {
-        border-radius: 10px;
+        border-radius: 15px;
         margin-top: 30px;
         background: rgba(0, 0, 0, 0.9);
-        min-height: 800px;
+        /*min-height: 800px;*/
         margin-bottom: 60px;
-        padding: 15px;
+        padding: 40px;
         max-width: 800px;
         margin: 30px auto;
-
     }
 
 
