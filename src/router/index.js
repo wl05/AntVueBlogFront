@@ -1,11 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import AboutMe from '@/components/AboutMe'
-// import asasa from '@/view/articles/list'
 
 Vue.use(Router)
-
 export default new Router({
 	routes: [
 		{
@@ -29,9 +25,19 @@ export default new Router({
 			component: () => import ('@/views/tags/tags'),
 		},
 		{
+			path: '/tags/:id',
+			name: 'TagsItem',
+			component: () => import ('@/views/tags/tagsItem'),
+		},
+		{
 			path: '/categories',
 			name: 'Categories',
 			component: () => import ('@/views/categories/categories'),
+		},
+		{
+			path: '/categories/:id',
+			name: 'CategoryItem',
+			component: () => import ('@/views/categories/categoryItem'),
 		},
 		{
 			path: '/archives',

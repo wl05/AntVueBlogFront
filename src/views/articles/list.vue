@@ -1,18 +1,31 @@
 <template>
-    <div class="articles-list-container">
+    <div class="articles-list-container" ref="articles-list-container">
+        <Spin v-if="fetchArticleLoading"/>
         <item
-            v-for="item in articles"
+            v-for="(item,index) in articles"
             :key="item._id"
             :article="item"
+            :index="index+1"
         />
-
+        <div id="articlePaginationId">
+            <el-pagination
+                v-if="count>pageLimit"
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page.sync="pageSize"
+                :page-size="pageLimit"
+                layout="total, prev, pager, next"
+                :total="count">
+            </el-pagination>
+        </div>
     </div>
 </template>
 
 <script>
-	import { fetchArticle, deleteArticle } from '@/api/article'
+	import { fetchArticle } from '@/api/article'
 	import formatTimestamp from '@/utils/formatTimestamp'
 	import item from './components/item'
+	import Spin from '@/components/Spin'
 
 	export default {
 		data () {
@@ -21,13 +34,14 @@
 				pageSize: 1,
 				pageLimit: 10,
 				count: 0,
-				articles: []
+				articles: [],
+				loadMoreLoading: false
 			}
 		},
 		components: {
-			item
+			item,
+			Spin
 		},
-		computed: {},
 		created () {
 			this.fetchArticle(this.pageSize, this.pageLimit)
 		},
@@ -35,28 +49,31 @@
 			formatTimestamp (timestamp) {
 				return formatTimestamp(timestamp)
 			},
-			// handleSizeChange (val) {
-			// 	this.pageLimit = val
-			// 	this.fetchArticle(this.pageSize, val)
-			// 	console.log(`每页 ${val} 条`)
-			// },
-			// handleCurrentChange (val) {
-			// 	this.pageSize = val
-			// 	this.fetchArticle(val, this.pageLimit)
-			//
-			// 	console.log(`当前页: ${val}`)
-			// },
-
+			handleSizeChange (val) {
+				this.pageLimit = val
+				this.fetchArticle(this.pageSize, val)
+				console.log(`每页 ${val} 条`)
+			},
+			handleCurrentChange (val) {
+				this.pageSize = val
+				this.fetchArticle(val, this.pageLimit)
+				console.log(`当前页: ${val}`)
+			},
 			async fetchArticle (pageSize, pageLimit) {
 				this.fetchArticleLoading = true
 				try {
-					// await this.FetchArticle({pageSize, pageLimit})
 					const result = await fetchArticle({pageSize, pageLimit})
 					this.fetchArticleLoading = false
 					if (result.data.code) {
 						this.$message.error('获取列表失败')
 					} else {
 						this.articles = result.data.data.article
+						this.count = result.data.data.count
+						// document.body.scrollTop = 0
+						// document.documentElement.scrollTop = 0
+						// scrollTo(0, 0)
+						// this.$refs['articles-list-container'].scrollTop = 0
+						// document.body.scrollTop = document.documentElement.scrollTop = 0
 					}
 				} catch (e) {
 					this.fetchArticleLoading = false
@@ -68,14 +85,20 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-    .articles-list-container {
-        border-radius: 10px;
+    #topAnchor {
         margin-top: 30px;
-        background: rgba(0, 0, 0, 0.9) none repeat scroll !important;
-        min-height: 800px;
+    }
+
+    .articles-list-container {
+        border-radius: 15px;
+        margin-top: 30px;
+        background: rgba(0, 0, 0, 0.9);
+        /*min-height: 800px;*/
         margin-bottom: 60px;
-        padding: 15px;
+        padding: 40px;
         max-width: 800px;
         margin: 30px auto;
     }
+
+
 </style>

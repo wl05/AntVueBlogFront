@@ -1,33 +1,45 @@
 <template>
     <div class="archives-list-container">
+        <Spin v-if="fetchArticleLoading"/>
         <ul>
             <li
                 v-for="(value, key) in formatedArticles"
                 class="item-container"
             >
-                <span>{{key}}</span>
+                <span class="key">{{key}}</span>
                 <ul class="article-container">
                     <li
                         class="article-item"
                         v-for="(item,index) in value"
+                        @click="$router.push({name:'Detail',params:{id:item._id}})"
                     >
                         <span>{{item.date}}</span>
                         <span>{{item.title}}</span>
+
                     </li>
                 </ul>
 
             </li>
         </ul>
-
+        <div class="pagination">
+            <el-pagination
+                v-if="count>pageLimit"
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page.sync="pageSize"
+                :page-size="pageLimit"
+                layout="total, prev, pager, next"
+                :total="count">
+            </el-pagination>
+        </div>
     </div>
 </template>
 
 <script>
 	import { fetchArticle, deleteArticle } from '@/api/article'
 	import formatYearAndDate from '@/utils/formatYearAndDate'
-
-	import item from './components/item'
-
+	import Spin from '@/components/Spin'
+	// import item from './components/item'
 	export default {
 		data () {
 			return {
@@ -39,7 +51,8 @@
 			}
 		},
 		components: {
-			item
+			// item,
+			Spin
 		},
 		computed: {
 			formatedArticles () {
@@ -51,18 +64,17 @@
 			this.fetchArticle(this.pageSize, this.pageLimit)
 		},
 		methods: {
+			handleSizeChange (val) {
+				this.pageLimit = val
+				this.fetchArticle(this.pageSize, val)
+				console.log(`每页 ${val} 条`)
+			},
+			handleCurrentChange (val) {
+				this.pageSize = val
+				this.fetchArticle(val, this.pageLimit)
 
-			// handleSizeChange (val) {
-			// 	this.pageLimit = val
-			// 	this.fetchArticle(this.pageSize, val)
-			// 	console.log(`每页 ${val} 条`)
-			// },
-			// handleCurrentChange (val) {
-			// 	this.pageSize = val
-			// 	this.fetchArticle(val, this.pageLimit)
-			//
-			// 	console.log(`当前页: ${val}`)
-			// },
+				console.log(`当前页: ${val}`)
+			},
 			formatArticles (articles) {
 				for (let article of articles) {
 					article.year = formatYearAndDate(Number(article.publishAt) / 1000)[ 0 ]
@@ -95,13 +107,13 @@
 			async fetchArticle (pageSize, pageLimit) {
 				this.fetchArticleLoading = true
 				try {
-					// await this.FetchArticle({pageSize, pageLimit})
 					const result = await fetchArticle({pageSize, pageLimit})
 					this.fetchArticleLoading = false
 					if (result.data.code) {
 						this.$message.error('获取列表失败')
 					} else {
 						this.articles = result.data.data.article
+						this.count = result.data.data.count
 					}
 				} catch (e) {
 					this.fetchArticleLoading = false
@@ -114,24 +126,34 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped>
     .archives-list-container {
-        border-radius: 10px;
+        border-radius: 15px;
         margin-top: 30px;
         background: rgba(0, 0, 0, 0.9) none repeat scroll !important;
         min-height: 800px;
         margin-bottom: 60px;
-        padding: 15px;
+        padding: 40px;
         max-width: 800px;
         margin: 30px auto;
-        color: #fff;
+        color: rgba(255, 255, 255, 0.6);
+
         .item-container {
             padding: 20px;
+            .key {
+                font-size: 20px;
+            }
             .article-container {
-                margin-top: 100px;
+                margin-top: 40px;
                 padding: 15px;
                 .article-item {
                     padding: 15px 0;
                     margin-bottom: 60px;
-                    border-bottom: 1px dashed rgba(255, 255, 255, 0.7);
+                    border-bottom: 1px dashed rgba(255, 255, 255, 0.6);
+                    cursor: pointer;
+                }
+                .article-item:hover {
+                    color: rgba(255, 255, 255, 0.9);
+                    border-bottom: 1px dashed rgba(255, 255, 255, 0.9);
+
                 }
             }
         }

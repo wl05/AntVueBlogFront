@@ -1,4 +1,34 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.el-pagination__total {
+    color: rgba(255, 255, 255, 0.6);
+}
+.el-pagination button:disabled{
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.2);
+}
+.el-pagination button:disabled:hover{
+    color: rgba(255, 255, 255, 0.2);
+}
+.el-pagination .btn-next, .el-pagination .btn-prev{
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+}
+.el-pagination .btn-next:hover, .el-pagination .btn-prev:hover{
+    color: rgba(255, 255, 255, 0.9);;
+}
+.el-pager li{
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.el-pager li.active {
+    color: rgba(255, 255, 255, 0.9);;
+}
+.el-pager li:hover{
+    color: rgba(255, 255, 255, 0.9);;
 }

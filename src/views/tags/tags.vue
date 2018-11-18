@@ -3,8 +3,8 @@
         <div class="tags-container">
             <h1 class="title">
                 Tagscloud
-
             </h1>
+            <Spin v-if="listLoading"/>
             <p class="count">
                 目前标签共{{list.length}}个标签
             </p>
@@ -13,7 +13,6 @@
                     v-for="(i,index) in list"
                     :key="index"
                     :item="i"
-                    style="margin:15px;font-size: 18px"
                 />
             </div>
 
@@ -24,6 +23,7 @@
 <script>
 	import { getList } from '@/api/tags'
 	import item from './components/item'
+	import Spin from '@/components/Spin'
 
 	export default {
 		data () {
@@ -33,7 +33,8 @@
 			}
 		},
 		components: {
-			item
+			item,
+			Spin
 		},
 		created () {
 			this.getList()
@@ -62,14 +63,14 @@
 <style lang="scss" scoped rel="stylesheet/scss">
 
     .tags-container-wrap {
-        color: #ddd;
+        color: rgba(255, 255, 255, 0.6);
         .tags-container {
             width: 800px;
             margin: 0 auto;
             background: rgba(0, 0, 0, 0.9);
-            margin-top: 160px;
-            border-radius: 5px;
-            padding: 25px;
+            margin-top: 30px;
+            border-radius: 15px;
+            padding: 40px;
             .count {
                 font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
                 text-align: center;

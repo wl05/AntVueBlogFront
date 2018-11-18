@@ -1,17 +1,38 @@
 <template>
     <div class="articles-item-container">
         <h1>
-            <a class="title" @click="$router.push({name:'Detail',params:{id:article._id}})">
+            <a class="title"
+               @click="$router.push({name:'Detail',params:{id:article._id}})">
                 {{article.title}}
             </a>
         </h1>
         <div class="date-tag">
-            <span class="publish-date">{{formatTimestamp(Number(article.publishAt)/1000)}}</span>
-            <span class="tag">{{article.tag.name}}</span>
+            <span class="icon fa fa-calendar">
+                <span class="publish-date">{{formatTimestamp(Number(article.publishAt)/1000)}}</span>
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span class="icon fa fa-envelope">
+                <a class="category"
+                   @click="$router.push({path: `/categories/${article.category._id}`,query:{name:article.category.name}})"
+                >{{article.category.name}}</a>
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span class="icon fa fa-tags">
+                <a
+                    class="tag"
+                    @click="$router.push({ path:`/tags/${article.tag._id}` })"
+                >
+                    {{article.tag.name}}
+                </a>
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span class="fa fa-eye">
+                阅读次数 {{article.viewCount}}
+            </span>
         </div>
         <article ref="content" class="content">
         </article>
-        <a class="read-more" @click="$router.push({name:'Detail',params:{id:article._id}})">» 阅读全文 »</a>
+        <a class="read-more" @click="$router.push({name:'Detail',params:{id:article._id}})">阅读全文 »</a>
     </div>
 </template>
 
@@ -21,7 +42,8 @@
 	export default {
 
 		props: [
-			'article'
+			'article',
+			'index'
 		],
 		data () {
 			return {}
@@ -29,16 +51,9 @@
 		computed: {},
 		created () {
 			this.$nextTick(function () {
-
-				// console.log(typeof div, Object.keys(div))
-
 				this.$refs.content.innerHTML = this.article.htmlValue
 			})
-			// console.log('======', this.article)
 		},
-		// beforeCreate () {
-		// 	console.log(this.article)
-		// },
 		methods: {
 			formatTimestamp (timestamp) {
 				return formatTimestamp(timestamp)
@@ -51,27 +66,40 @@
 
     .articles-item-container {
         padding: 25px;
-        margin-bottom: 40px;
-        color: #ddd;
+        margin-bottom: 70px;
+        color: rgba(255, 255, 255, 0.6);
         .title {
             display: inline-block;
             color: #555;
             border-bottom: none;
             line-height: 1.2;
             vertical-align: top;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 400;
-            color: #ddd;
+            color: rgba(255, 255, 255, 0.7);
             cursor: pointer;
         }
+        .title:hover {
+            color: rgba(255, 255, 255, 0.9);
+        }
         .date-tag {
+            .post-meta-divider {
+                color: rgba(255, 255, 255, 0.6);
+                margin: 0 5px;
+            }
             margin-top: 15px;
-            .publish-date, .tag {
+            font-size: 12px;
+            .publish-date, .tag, .category {
                 font-size: 12px;
+                cursor: pointer;
                 /*color: #ddd*/
             }
-            .publish-date {
-                margin-right: 15px;
+            .publish-date, .tag, .category {
+                /*margin-right: 15px;*/
+                margin-left: 5px;
+            }
+            .icon {
+                /*margin-right: 10px;*/
             }
         }
         .content {
@@ -83,10 +111,17 @@
         }
         .read-more {
             font-size: 14px;
-            margin-top: 20px;
+            margin-top: 30px;
             display: inline-block;
             /*color: #ddd;*/
             cursor: pointer;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+        }
+        .read-more:hover {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+
         }
 
     }

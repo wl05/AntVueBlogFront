@@ -4,6 +4,7 @@
             <h1 class="title">
                 Categories
             </h1>
+            <Spin v-if="listLoading"/>
             <p class="count">
                 目前共{{list.length}}个分类
             </p>
@@ -12,6 +13,7 @@
                     v-for="(item,index) in list"
                     :key="index"
                     class="item"
+                    @click="$router.push({path: `/categories/${item._id}`,query:{name:item.name}})"
                 >
                     <a>{{item.name}}</a>
                     (<span>{{item.total}}</span>)
@@ -24,7 +26,7 @@
 
 <script>
 	import { getList, countCategotres } from '@/api/category'
-	// import item from './components/item'
+	import Spin from '@/components/Spin'
 
 	export default {
 		data () {
@@ -34,7 +36,7 @@
 			}
 		},
 		components: {
-			// item
+			Spin
 		},
 		created () {
 			this.countCategotres()
@@ -61,23 +63,21 @@
 </script>
 
 <style lang="scss" scoped rel="stylesheet/scss">
-
     .category-container-wrap {
-        color: #ddd;
+        color: rgba(255, 255, 255, 0.6);
         .category-container {
             width: 800px;
             margin: 0 auto;
             background: rgba(0, 0, 0, 0.9);
-            margin-top: 160px;
-            border-radius: 5px;
-            padding: 25px;
+            margin-top: 30px;
+            border-radius: 15px;
+            padding: 40px;
             .count {
                 font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
                 text-align: center;
             }
             .items {
                 display: flex;
-                /*justify-content: center;*/
                 padding: 20px;
                 flex-direction: column;
                 .item {
@@ -90,10 +90,7 @@
                 font-weight: 400;
                 text-align: center;
                 padding: 20px;
-
             }
         }
     }
-
-
 </style>

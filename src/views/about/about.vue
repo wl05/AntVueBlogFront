@@ -7,24 +7,26 @@
                 height="200"
                 :src="avatarUrl"
             />
-            <p class="about-item">
-                汪乐
-            </p>
-            <p class="about-item">
-                nickName： ANT
-            </p>
-            <p class="about-item">
-                qq： 2929712050@qq.com
-            </p>
-            <p class="about-item">
-                Github: <a href="https://github.com/antbaobao"> https://github.com/antbaobao</a>
-            </p>
-            <p class="about-item">
-                爱好： 养龟、动漫、打代码
-            </p>
-            <p class="about-item">
-                目前坐标： 新加坡
-            </p>
+            <div class="about-item-container">
+                <p class="about-item">
+                    <span class="icon fa fa-fw fa-user"></span> 汪乐(ANT)
+                </p>
+
+                <p class="about-item">
+                    <span class="icon fa fa-qq"></span> 2929712050@qq.com
+                </p>
+                <p class="about-item">
+                    <span class="icon fa fa-github"></span> <a class="github-url" href="https://github.com/antbaobao">
+                    https://github.com/antbaobao</a>
+                </p>
+                <p class="about-item">
+                    <span class="icon fa fa-heartbeat"></span> 养龟、动漫、打代码
+                </p>
+                <p class="about-item">
+                    <span class="icon fa fa-map-marker"></span> 新加坡
+                </p>
+            </div>
+
         </div>
     </div>
 
@@ -48,25 +50,34 @@
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
     .about-container-wrap {
-        /*background: rgba(255, 255, 255, 0.95);*/
-        /*padding: 5px;*/
         width: 100%;
-        min-height: 100vh;
-        color: #ddd;
+        color: rgba(255, 255, 255, 0.6);
         .about-container {
-            max-width: 800px;
             margin: 0 auto;
-            margin-top: 160px;
+            margin-top: 30px;
             background: rgba(0, 0, 0, 0.9);
-            padding: 25px;
-            border-radius: 5px;
-
-            .about-item {
-                padding: 10px;
-                margin: 0 auto;
-                text-align: center;
-                display: block;
+            padding: 40px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: row;
+            width: 800px;
+            justify-content: space-around;
+            .about-item-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 30px;
+                .about-item {
+                    padding: 10px;
+                    .icon {
+                        margin-right: 10px;
+                    }
+                    .github-url {
+                        color: rgba(255, 255, 255, 0.6);
+                    }
+                }
             }
+
             .avatar {
                 border-radius: 100%;
             }
