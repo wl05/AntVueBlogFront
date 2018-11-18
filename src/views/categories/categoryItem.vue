@@ -42,9 +42,7 @@
 			// item,
 			Spin
 		},
-		computed: {
-
-		},
+		computed: {},
 		created () {
 			this.getArticlesByCategory()
 		},
@@ -124,5 +122,11 @@
             }
         }
 
+    }
+
+    @media screen and (max-width: 768px) {
+        .category-item-list-container {
+            padding: 40px 10px;
+        }
     }
 </style>

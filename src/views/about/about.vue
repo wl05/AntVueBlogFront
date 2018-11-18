@@ -60,7 +60,7 @@
             border-radius: 15px;
             display: flex;
             flex-direction: row;
-            width: 800px;
+            max-width: 800px;
             justify-content: space-around;
             .about-item-container {
                 display: flex;
@@ -80,6 +80,19 @@
 
             .avatar {
                 border-radius: 100%;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .about-container-wrap {
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 10px;
+                .about-item-container {
+                    margin-top: 30px;
+                }
             }
         }
     }

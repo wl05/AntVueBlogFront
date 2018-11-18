@@ -85,7 +85,6 @@
     .tags-item-list-container {
         border-radius: 15px;
         background: rgba(0, 0, 0, 0.9) none repeat scroll !important;
-        /*min-height: 800px;*/
         margin-bottom: 60px;
         padding: 40px;
         max-width: 800px;
@@ -115,5 +114,11 @@
             }
         }
 
+    }
+
+    @media screen and (max-width: 768px) {
+        .tags-item-list-container {
+            padding: 40px 10px;
+        }
     }
 </style>

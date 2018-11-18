@@ -65,7 +65,7 @@
     .tags-container-wrap {
         color: rgba(255, 255, 255, 0.6);
         .tags-container {
-            width: 800px;
+            max-width: 800px;
             margin: 0 auto;
             background: rgba(0, 0, 0, 0.9);
             margin-top: 30px;
@@ -85,6 +85,17 @@
                 font-weight: 400;
                 text-align: center;
                 padding: 20px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .tags-container-wrap {
+            .tags-container {
+                padding: 40px 10px;
+                .items {
+                    flex-wrap:wrap;
+                }
             }
         }
     }

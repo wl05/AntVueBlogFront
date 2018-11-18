@@ -130,12 +130,11 @@
         margin-top: 30px;
         background: rgba(0, 0, 0, 0.9) none repeat scroll !important;
         min-height: 800px;
-        margin-bottom: 60px;
+        /*margin-bottom: 60px;*/
         padding: 40px;
         max-width: 800px;
         margin: 30px auto;
         color: rgba(255, 255, 255, 0.6);
-
         .item-container {
             padding: 20px;
             .key {
@@ -155,6 +154,16 @@
                     border-bottom: 1px dashed rgba(255, 255, 255, 0.9);
 
                 }
+            }
+        }
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .archives-list-container {
+            padding: 40px 10px;
+            .pagination {
+                overflow: scroll;
             }
         }
 

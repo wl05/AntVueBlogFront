@@ -1,17 +1,17 @@
 <template>
     <div class="container" id="particles-js" ref="particles">
         <el-container>
-            <el-header height="85px">
+            <el-header>
                 <Header/>
             </el-header>
-            <el-container style="margin-top:85px">
+            <el-container style="margin-top:60px">
                 <el-main>
                     <div class="content-container">
                         <router-view/>
                     </div>
                 </el-main>
                 <!--<el-footer>-->
-                    <!--<Footer/>-->
+                <!--<Footer/>-->
                 <!--</el-footer>-->
             </el-container>
         </el-container>
@@ -23,6 +23,7 @@
 	import Header from './Header.vue'
 	import Sider from './Sider.vue'
 	import Footer from './Footer.vue'
+
 	export default {
 		name: 'Layout',
 		components: {
@@ -42,6 +43,9 @@
         width: 100%;
         position: fixed;
         z-index: 10000;
+        color: rgba(0, 0, 0, 1);
+        height: auto;
+
     }
 
     .container {

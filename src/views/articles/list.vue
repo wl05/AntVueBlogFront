@@ -85,19 +85,26 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-    #topAnchor {
-        margin-top: 30px;
-    }
-
     .articles-list-container {
         border-radius: 15px;
-        margin-top: 30px;
         background: rgba(0, 0, 0, 0.9);
         /*min-height: 800px;*/
         margin-bottom: 60px;
         padding: 40px;
         max-width: 800px;
         margin: 30px auto;
+        /*margin-top: 30px;*/
+        /*border-bottom-left-radius: 0;*/
+        /*border-bottom-right-radius: 0;*/
+    }
+
+    @media screen and (max-width: 768px) {
+        .articles-list-container {
+            padding: 10px;
+        }
+        #articlePaginationId {
+            overflow: scroll;
+        }
     }
 
 

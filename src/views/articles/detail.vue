@@ -14,8 +14,8 @@
                            @click="$router.push({path: `/categories/${detail.category._id}`,query:{name:detail.category.name}})"
                         >{{detail.category.name}}</a>
                     </span>
-                        <span class="post-meta-divider">|</span>
-                        <span class="icon fa fa-tags">
+                        <span class="tagIcon post-meta-divider">|</span>
+                        <span class="tagIcon icon fa fa-tags">
                         <a
                             class="tag"
                             @click="$router.push({ path:`/tags/${detail.tag._id}` })"
@@ -102,7 +102,6 @@
             padding: 5px 0;
             width: 100%;
             min-height: 100vh;
-
             .detail-container {
                 background: rgba(255, 255, 255, 0.95);
                 border-radius: 15px;
@@ -138,11 +137,32 @@
                         color: rgba(0, 0, 0, 0.6);
                     }
                 }
-                .content{
+                .content {
                     padding: 40px;
                 }
             }
         }
 
+    }
+
+    @media screen and (max-width: 768px) {
+        .detail-background {
+            background: rgba(0, 0, 0, 0.8);
+            .detail-container-wrap {
+                .detail-container {
+                    margin: 30px auto;
+                    .header {
+                        padding: 10px;
+                        .tagIcon {
+                            display: none;
+                        }
+                    }
+                    .content {
+                        padding: 10px;
+                    }
+
+                }
+            }
+        }
     }
 </style>
