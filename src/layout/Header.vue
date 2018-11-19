@@ -42,13 +42,6 @@
                                 关于我
                             </a>
                         </el-dropdown-item>
-
-                        <el-dropdown-item>
-                            <a class="menu-item-text" href="https://github.com/antbaobao">
-                                <span class="fa fa-fw fa-github"></span>
-                                Github
-                            </a>
-                        </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
             </a>
@@ -83,13 +76,6 @@
                         <a class="menu-item-text">
                             <span class="fa fa-fw fa-user"></span>
                             关于我
-                        </a>
-                    </el-menu-item>
-
-                    <el-menu-item>
-                        <a class="menu-item-text" href="https://github.com/antbaobao">
-                            <span class="fa fa-fw fa-github"></span>
-                            Github
                         </a>
                     </el-menu-item>
                 </el-menu>

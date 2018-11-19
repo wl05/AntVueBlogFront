@@ -127,6 +127,8 @@
     @media screen and (max-width: 768px) {
         .category-item-list-container {
             padding: 40px 10px;
+            border-radius: 0px;
+
         }
     }
 </style>

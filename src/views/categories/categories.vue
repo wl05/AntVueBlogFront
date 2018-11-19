@@ -97,6 +97,7 @@
     @media screen and (max-width: 768px) {
         .category-container-wrap {
             .category-container {
+                border-radius: 0px;
                 padding: 40px 10px;
             }
         }

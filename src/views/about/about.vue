@@ -89,6 +89,7 @@
                 flex-direction: column;
                 align-items: center;
                 padding: 40px 10px;
+                border-radius: 0;
                 .about-item-container {
                     margin-top: 30px;
                 }

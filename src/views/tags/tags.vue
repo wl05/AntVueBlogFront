@@ -93,6 +93,8 @@
         .tags-container-wrap {
             .tags-container {
                 padding: 40px 10px;
+                border-radius: 0px;
+
                 .items {
                     flex-wrap:wrap;
                 }

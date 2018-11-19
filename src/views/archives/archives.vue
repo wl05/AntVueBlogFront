@@ -162,6 +162,7 @@
     @media screen and (max-width: 768px) {
         .archives-list-container {
             padding: 40px 10px;
+            border-radius: 0;
             .pagination {
                 overflow: scroll;
             }

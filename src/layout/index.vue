@@ -4,7 +4,7 @@
             <el-header>
                 <Header/>
             </el-header>
-            <el-container style="margin-top:45px">
+            <el-container class="content-el-container">
                 <el-main>
                     <div class="content-container">
                         <router-view/>
@@ -23,6 +23,7 @@
 	import Header from './Header.vue'
 	import Sider from './Sider.vue'
 	import Footer from './Footer.vue'
+
 	export default {
 		name: 'Layout',
 		components: {
@@ -63,5 +64,15 @@
 
     .el-footer {
         background: rgba(0, 0, 0, 0.9);
+    }
+
+    .content-el-container {
+        margin-top: 45px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .content-el-container {
+            margin-top: 31px;
+        }
     }
 </style>
