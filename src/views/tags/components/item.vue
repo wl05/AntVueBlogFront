@@ -17,7 +17,6 @@
 			return {}
 		},
 		created () {
-			console.log(this.item)
 		},
 
 		methods: {}

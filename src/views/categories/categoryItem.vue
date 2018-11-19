@@ -1,28 +1,27 @@
 <template>
-    <div class="category-item-list-container">
+    <div>
         <Spin v-if="getArticlesByCategoryLoading"/>
-        <div class="no-data" v-if="noData">
-            暂无数据
+
+        <div class="category-item-list-container">
+            <div class="no-data" v-if="noData">
+                暂无数据
+            </div>
+            <ul v-else>
+                <li class="item-container">
+                    <span class="key">{{$route.query.name}} 分类</span>
+                    <ul class="article-container">
+                        <li
+                            class="article-item"
+                            v-for="(item, key) in articles"
+                            @click="$router.push({name:'Detail',params:{id:item._id}})"
+                        >
+                            <span class="date">{{formatYearAndDate(Number(item.publishAt)/1000)}}</span>
+                            <span class="title">{{item.title}}</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-        <ul v-else>
-            <li class="item-container">
-                <span class="key">{{$route.query.name}} 分类</span>
-                <ul class="article-container">
-                    <li
-                        class="article-item"
-                        v-for="(item, key) in articles"
-                        @click="$router.push({name:'Detail',params:{id:item._id}})"
-                    >
-                        <span class="date">{{formatYearAndDate(Number(item.publishAt)/1000)}}</span>
-                        <span class="title">{{item.title}}</span>
-                    </li>
-                </ul>
-            </li>
-
-
-        </ul>
-
-
     </div>
 </template>
 

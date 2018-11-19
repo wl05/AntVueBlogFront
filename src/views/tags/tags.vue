@@ -1,21 +1,23 @@
 <template>
-    <div class="tags-container-wrap">
-        <div class="tags-container">
-            <h1 class="title">
-                Tagscloud
-            </h1>
-            <Spin v-if="listLoading"/>
-            <p class="count">
-                目前标签共{{list.length}}个标签
-            </p>
-            <div class="items">
-                <item
-                    v-for="(i,index) in list"
-                    :key="index"
-                    :item="i"
-                />
-            </div>
+    <div>
+        <Spin v-if="listLoading"/>
 
+        <div class="tags-container-wrap">
+            <div class="tags-container">
+                <h1 class="title">
+                    Tagscloud
+                </h1>
+                <p class="count">
+                    目前标签共{{list.length}}个标签
+                </p>
+                <div class="items">
+                    <item
+                        v-for="(i,index) in list"
+                        :key="index"
+                        :item="i"
+                    />
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -96,7 +98,7 @@
                 border-radius: 0px;
 
                 .items {
-                    flex-wrap:wrap;
+                    flex-wrap: wrap;
                 }
             }
         }

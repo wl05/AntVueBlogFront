@@ -1,36 +1,39 @@
 <template>
-    <div class="archives-list-container">
+    <div>
         <Spin v-if="fetchArticleLoading"/>
-        <ul>
-            <li
-                v-for="(value, key) in formatedArticles"
-                class="item-container"
-            >
-                <span class="key">{{key}}</span>
-                <ul class="article-container">
-                    <li
-                        class="article-item"
-                        v-for="(item,index) in value"
-                        @click="$router.push({name:'Detail',params:{id:item._id}})"
-                    >
-                        <span>{{item.date}}</span>
-                        <span>{{item.title}}</span>
+        <div class="archives-list-container">
 
-                    </li>
-                </ul>
+            <ul>
+                <li
+                    v-for="(value, key) in formatedArticles"
+                    class="item-container"
+                >
+                    <span class="key">{{key}}</span>
+                    <ul class="article-container">
+                        <li
+                            class="article-item"
+                            v-for="(item,index) in value"
+                            @click="$router.push({name:'Detail',params:{id:item._id}})"
+                        >
+                            <span>{{item.date}}</span>
+                            <span>{{item.title}}</span>
 
-            </li>
-        </ul>
-        <div class="pagination">
-            <el-pagination
-                v-if="count>pageLimit"
-                @size-change="handleSizeChange"
-                @current-change="handleCurrentChange"
-                :current-page.sync="pageSize"
-                :page-size="pageLimit"
-                layout="total, prev, pager, next"
-                :total="count">
-            </el-pagination>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+            <div class="pagination">
+                <el-pagination
+                    v-if="count>pageLimit"
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page.sync="pageSize"
+                    :page-size="pageLimit"
+                    layout="total, prev, pager, next"
+                    :total="count">
+                </el-pagination>
+            </div>
         </div>
     </div>
 </template>
@@ -39,7 +42,6 @@
 	import { fetchArticle, deleteArticle } from '@/api/article'
 	import formatYearAndDate from '@/utils/formatYearAndDate'
 	import Spin from '@/components/Spin'
-	// import item from './components/item'
 	export default {
 		data () {
 			return {
@@ -130,7 +132,6 @@
         margin-top: 30px;
         background: rgba(0, 0, 0, 0.9) none repeat scroll !important;
         min-height: 800px;
-        /*margin-bottom: 60px;*/
         padding: 40px;
         max-width: 800px;
         margin: 30px auto;
@@ -152,11 +153,9 @@
                 .article-item:hover {
                     color: rgba(255, 255, 255, 0.9);
                     border-bottom: 1px dashed rgba(255, 255, 255, 0.9);
-
                 }
             }
         }
-
     }
 
     @media screen and (max-width: 768px) {

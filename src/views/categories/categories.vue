@@ -1,25 +1,27 @@
 <template>
-    <div class="category-container-wrap">
-        <div class="category-container">
-            <h1 class="title">
-                Categories
-            </h1>
-            <Spin v-if="listLoading"/>
-            <p class="count">
-                目前共{{list.length}}个分类
-            </p>
-            <ul class="items">
-                <li
-                    v-for="(item,index) in list"
-                    :key="index"
-                    class="item"
-                    @click="$router.push({path: `/categories/${item._id}`,query:{name:item.name}})"
-                >
-                    <a>{{item.name}}</a>
-                    (<span>{{item.total}}</span>)
-                </li>
-            </ul>
+    <div>
+        <Spin v-if="listLoading"/>
 
+        <div class="category-container-wrap">
+            <div class="category-container">
+                <h1 class="title">
+                    Categories
+                </h1>
+                <p class="count">
+                    目前共{{list.length}}个分类
+                </p>
+                <ul class="items">
+                    <li
+                        v-for="(item,index) in list"
+                        :key="index"
+                        class="item"
+                        @click="$router.push({path: `/categories/${item._id}`,query:{name:item.name}})"
+                    >
+                        <a>{{item.name}}</a>
+                        (<span>{{item.total}}</span>)
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>

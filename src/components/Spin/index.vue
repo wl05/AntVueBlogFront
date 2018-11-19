@@ -38,7 +38,9 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        /*height: 100%;*/
+        /*height: 300px;*/
+        position: absolute;
     }
 </style>
 

@@ -29,7 +29,6 @@
         },
 
         created () {
-            console.log(this.content.htmlValue)
             this.$nextTick(function () {
                 this.$refs.content.innerHTML = this.content.htmlValue
             })

@@ -28,20 +28,15 @@
                         阅读次数 {{detail.viewCount}}
                     </span>
                     </div>
-
                 </header>
                 <div class="content">
                     <Markdown :content="content"/>
                 </div>
-
             </div>
             <Spin v-else/>
         </div>
-
     </div>
-
 </template>
-
 <script>
 	import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 	import { getArticleDetail } from '@/api/article'
@@ -99,18 +94,23 @@
     .detail-background {
         background: rgba(0, 0, 0, 0.8);
         .detail-container-wrap {
-            padding: 5px 0;
+            /*padding: 5px 0;*/
             width: 100%;
             min-height: 100vh;
+            padding: 20px 0;
+            margin-top: 15px;
             .detail-container {
+                /*padding: 5px 0;*/
                 background: rgba(255, 255, 255, 0.95);
                 border-radius: 5px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 max-width: 800px;
-                margin: 30px auto;
+                margin: 0px auto;
+
                 .header {
+
                     padding: 40px;
                     display: flex;
                     flex-direction: column;
@@ -148,6 +148,7 @@
     @media screen and (max-width: 768px) {
         .detail-background {
             background: rgba(0, 0, 0, 0.8);
+            margin-top: 30px;
             .detail-container-wrap {
                 .detail-container {
                     margin: 30px auto;

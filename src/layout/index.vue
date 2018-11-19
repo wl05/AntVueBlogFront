@@ -1,10 +1,10 @@
 <template>
     <div class="container" ref="particles">
         <el-container>
-            <el-header>
+            <el-header id="header">
                 <Header/>
             </el-header>
-            <el-container class="content-el-container">
+            <el-container ref="el-container" class="content-el-container">
                 <el-main>
                     <div class="content-container">
                         <router-view/>
@@ -23,15 +23,35 @@
 	import Header from './Header.vue'
 	import Sider from './Sider.vue'
 	import Footer from './Footer.vue'
+	import Headroom from 'headroom.js'
 
 	export default {
 		name: 'Layout',
+		data () {
+			return {
+				headroom: null
+			}
+		},
+		methods: {},
+
 		components: {
 			Header,
 			Sider,
 			Footer
 		},
-		created () {
+		mounted () {
+			const myElement = document.getElementById('header')
+			this.headroom = new Headroom(myElement)
+			this.headroom.init()
+			window.addEventListener('scroll', () => {
+				console.log(' scroll ' + this.$refs[ 'el-container' ].scrollTop)
+			}, false)
+
+		},
+		beforeDestroy () {
+			if (this.headroom) {
+				this.headroom.destroy()
+			}
 		}
 	}
 </script>

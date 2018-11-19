@@ -1,24 +1,27 @@
 <template>
-    <div class="articles-list-container" ref="articles-list-container">
+    <div>
         <Spin v-if="fetchArticleLoading"/>
-        <item
-            v-for="(item,index) in articles"
-            :key="item._id"
-            :article="item"
-            :index="index+1"
-        />
-        <div id="articlePaginationId">
-            <el-pagination
-                v-if="count>pageLimit"
-                @size-change="handleSizeChange"
-                @current-change="handleCurrentChange"
-                :current-page.sync="pageSize"
-                :page-size="pageLimit"
-                layout="total, prev, pager, next"
-                :total="count">
-            </el-pagination>
+        <div class="articles-list-container" ref="articles-list-container">
+            <item
+                v-for="(item,index) in articles"
+                :key="item._id"
+                :article="item"
+                :index="index+1"
+            />
+            <div id="articlePaginationId">
+                <el-pagination
+                    v-if="count>pageLimit"
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page.sync="pageSize"
+                    :page-size="pageLimit"
+                    layout="total, prev, pager, next"
+                    :total="count">
+                </el-pagination>
+            </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -69,11 +72,6 @@
 					} else {
 						this.articles = result.data.data.article
 						this.count = result.data.data.count
-						// document.body.scrollTop = 0
-						// document.documentElement.scrollTop = 0
-						// scrollTo(0, 0)
-						// this.$refs['articles-list-container'].scrollTop = 0
-						// document.body.scrollTop = document.documentElement.scrollTop = 0
 					}
 				} catch (e) {
 					this.fetchArticleLoading = false
@@ -103,6 +101,4 @@
             overflow: scroll;
         }
     }
-
-
 </style>
