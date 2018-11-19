@@ -84,7 +84,7 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped>
     .category-item-list-container {
-        border-radius: 15px;
+        border-radius: 5px;
         background: rgba(0, 0, 0, 0.9) none repeat scroll !important;
         /*min-height: 800px;*/
         margin-bottom: 60px;

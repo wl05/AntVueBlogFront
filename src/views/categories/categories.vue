@@ -70,7 +70,7 @@
             margin: 0 auto;
             background: rgba(0, 0, 0, 0.9);
             margin-top: 30px;
-            border-radius: 15px;
+            border-radius: 5px;
             padding: 40px;
             .count {
                 font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;

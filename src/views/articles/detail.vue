@@ -104,7 +104,7 @@
             min-height: 100vh;
             .detail-container {
                 background: rgba(255, 255, 255, 0.95);
-                border-radius: 15px;
+                border-radius: 5px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;

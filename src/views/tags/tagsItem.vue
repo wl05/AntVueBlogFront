@@ -83,7 +83,7 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped>
     .tags-item-list-container {
-        border-radius: 15px;
+        border-radius: 5px;
         background: rgba(0, 0, 0, 0.9) none repeat scroll !important;
         margin-bottom: 60px;
         padding: 40px;

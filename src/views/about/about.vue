@@ -53,11 +53,10 @@
         width: 100%;
         color: rgba(255, 255, 255, 0.6);
         .about-container {
-            margin: 0 auto;
-            margin-top: 30px;
+            margin: 30px auto 0;
             background: rgba(0, 0, 0, 0.9);
             padding: 40px;
-            border-radius: 15px;
+            border-radius: 5px;
             display: flex;
             flex-direction: row;
             max-width: 800px;

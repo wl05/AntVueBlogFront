@@ -86,7 +86,7 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped>
     .articles-list-container {
-        border-radius: 15px;
+        border-radius: 5px;
         background: rgba(0, 0, 0, 0.9);
         /*min-height: 800px;*/
         margin-bottom: 60px;

@@ -126,7 +126,7 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped>
     .archives-list-container {
-        border-radius: 15px;
+        border-radius: 5px;
         margin-top: 30px;
         background: rgba(0, 0, 0, 0.9) none repeat scroll !important;
         min-height: 800px;

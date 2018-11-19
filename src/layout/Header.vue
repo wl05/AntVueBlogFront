@@ -42,6 +42,13 @@
                                 关于我
                             </a>
                         </el-dropdown-item>
+
+                        <el-dropdown-item>
+                            <a class="menu-item-text" href="https://github.com/antbaobao">
+                                <span class="fa fa-fw fa-github"></span>
+                                Github
+                            </a>
+                        </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
             </a>
@@ -76,6 +83,13 @@
                         <a class="menu-item-text">
                             <span class="fa fa-fw fa-user"></span>
                             关于我
+                        </a>
+                    </el-menu-item>
+
+                    <el-menu-item>
+                        <a class="menu-item-text" href="https://github.com/antbaobao">
+                            <span class="fa fa-fw fa-github"></span>
+                            Github
                         </a>
                     </el-menu-item>
                 </el-menu>
@@ -119,7 +133,9 @@
             align-items: center;
             justify-content: space-between;
             height: 60px;
-
+            .menu-item-text {
+                text-decoration: none;
+            }
             .blog-title-container {
                 color: rgba(255, 255, 255, 0.95);
                 cursor: pointer;
