@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="particles-js" ref="particles">
+    <div class="container" ref="particles">
         <el-container>
             <el-header>
                 <Header/>
@@ -23,7 +23,6 @@
 	import Header from './Header.vue'
 	import Sider from './Sider.vue'
 	import Footer from './Footer.vue'
-
 	export default {
 		name: 'Layout',
 		components: {
@@ -31,8 +30,7 @@
 			Sider,
 			Footer
 		},
-		mounted () {
-
+		created () {
 		}
 	}
 </script>
@@ -49,7 +47,7 @@
     }
 
     .container {
-        background: url("../assets/background.jpg") no-repeat;
+        /*background: url("../assets/background.jpg") no-repeat;*/
         background-size: 100% 100%;
         height: 100vh;
         overflow: scroll
