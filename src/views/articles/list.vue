@@ -1,7 +1,7 @@
 <template>
     <div>
         <Spin v-if="fetchArticleLoading"/>
-        <div class="articles-list-container" ref="articles-list-container">
+        <div v-else class="articles-list-container" ref="articles-list-container">
             <item
                 v-for="(item,index) in articles"
                 :key="item._id"

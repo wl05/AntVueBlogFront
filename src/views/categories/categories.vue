@@ -2,7 +2,7 @@
     <div>
         <Spin v-if="listLoading"/>
 
-        <div class="category-container-wrap">
+        <div v-else class="category-container-wrap">
             <div class="category-container">
                 <h1 class="title">
                     Categories

@@ -1,7 +1,7 @@
 <template>
     <div>
         <Spin v-if="fetchArticleLoading"/>
-        <div class="archives-list-container">
+        <div v-else class="archives-list-container">
 
             <ul>
                 <li
@@ -42,6 +42,7 @@
 	import { fetchArticle, deleteArticle } from '@/api/article'
 	import formatYearAndDate from '@/utils/formatYearAndDate'
 	import Spin from '@/components/Spin'
+
 	export default {
 		data () {
 			return {

@@ -2,7 +2,7 @@
     <div>
         <Spin v-if="getArticlesByTagLoading"/>
 
-        <div class="tags-item-list-container">
+        <div v-else class="tags-item-list-container">
             <div class="no-data" v-if="noData">
                 暂无数据
             </div>

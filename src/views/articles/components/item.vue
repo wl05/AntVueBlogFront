@@ -51,7 +51,7 @@
 		computed: {},
 		created () {
 			this.$nextTick(function () {
-				this.$refs.content.innerHTML = this.article.htmlValue
+				this.$refs.content.innerHTML = this.article.htmlValue.split('</p>')[ 0 ] + '</p>'
 			})
 		},
 		methods: {

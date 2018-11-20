@@ -2,7 +2,7 @@
     <div>
         <Spin v-if="listLoading"/>
 
-        <div class="tags-container-wrap">
+        <div v-else class="tags-container-wrap">
             <div class="tags-container">
                 <h1 class="title">
                     Tagscloud
