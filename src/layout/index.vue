@@ -20,79 +20,39 @@
 </template>
 
 <script>
-	import Header from './Header.vue'
-	import Sider from './Sider.vue'
-	import Footer from './Footer.vue'
-	import Headroom from 'headroom.js'
+import Header from './Header.vue'
+import Sider from './Sider.vue'
+import Footer from './Footer.vue'
+export default {
+  name: 'Layout',
+  data () {
+    return {
+      headroom: null
+    }
+  },
+  components: {
+    Header,
+    Sider,
+    Footer
+  }
 
-	export default {
-		name: 'Layout',
-		data () {
-			return {
-				headroom: null
-			}
-		},
-		methods: {},
-
-		components: {
-			Header,
-			Sider,
-			Footer
-		},
-		mounted () {
-			const myElement = document.getElementById('header')
-			this.headroom = new Headroom(myElement)
-			this.headroom.init()
-			window.addEventListener('scroll', () => {
-				console.log(' scroll ' + this.$refs[ 'el-container' ].scrollTop)
-			}, false)
-
-		},
-		beforeDestroy () {
-			if (this.headroom) {
-				this.headroom.destroy()
-			}
-		}
-	}
+}
 </script>
 <style lang="scss" scoped rel="stylesheet/scss">
     .el-header {
         padding: 0;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.55);
         width: 100%;
         position: fixed;
         z-index: 10000;
         color: rgba(0, 0, 0, 1);
         height: auto;
-
     }
-
-    .container {
-        /*background: url("../assets/background.jpg") no-repeat;*/
-        background-size: 100% 100%;
-        height: 100vh;
-        overflow: scroll
-    }
-
-    .content-container {
-        margin: 0 auto;
-    }
-
     .el-main {
         padding: 0;
     }
 
     .el-footer {
         background: rgba(0, 0, 0, 0.9);
-    }
-
-    .content-el-container {
-        margin-top: 45px;
-    }
-
-    @media screen and (max-width: 768px) {
-        .content-el-container {
-            margin-top: 31px;
-        }
     }
 </style>
