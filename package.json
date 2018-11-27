@@ -21,6 +21,7 @@
         "gitment": "0.0.3",
         "particles.js": "^2.0.0",
         "vue": "^2.5.2",
+        "vue-cute-timeline": "^1.2.8",
         "vue-loading-spinner": "^1.0.11",
         "vue-markdown": "^2.2.4",
         "vue-router": "^3.0.1",

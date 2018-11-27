@@ -1,11 +1,11 @@
 <template>
   <div class="header-container-wrap">
-    <header class="header-container">
+    <div class="header-container">
       <a class="blog-title-container" @click="$router.push('/')">
         <span class="blog-title">
           ANT
         </span>
-        <!-- <img class="logo-img" :src="logoImgUrl" /> -->
+        <img class="logo-img" :src="logoImgUrl"/>
       </a>
       <a class="native-bar">
         <el-dropdown trigger="click">
@@ -67,113 +67,108 @@
           </el-menu-item>
         </el-menu>
       </div>
-    </header>
+    </div>
   </div>
 
 </template>
 
 <script>
-import logoImgUrl from '@/assets/active/9.gif'
-
+import logoImgUrl from '@/assets/active/7.gif'
 export default {
   name: 'Header',
   data () {
     return {
       tabPosition: 'top',
       logoImgUrl,
-      index: { ...this.$router.history.current }.path
+      index: {...this.$router.history.current}.path
     }
   },
-  mounted () {
-    // console.log('this.$router.history', this.$router.history, '\n')
-    console.log('this.$router.history.current.path', this.$router.history.current)
-  },
-  computed: {},
   methods: {
     handleSelect (key, keyPath) {
-      this.$router.push({ path: key })
+      this.$router.push({path: key})
     }
   }
 }
 </script>
 <style lang="scss" scoped rel="stylesheet/scss">
-.header-container-wrap {
-  .header-container {
-    display: flex;
-    max-width: 900px;
-    margin: 0 auto;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    .menu-item-text {
-      text-decoration: none;
-    }
-    .blog-title-container {
-      color: white;
-      cursor: pointer;
-      font-size: 20px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      .logo-img {
-        // width: 131px;
-        // height: 57px;
-      }
-    }
-    .blog-title-container:hover {
-      color: rgba(255, 255, 255, 0.6);
-    }
-    .native-bar {
-      display: none;
-    }
-    .native-bar:hover {
-      cursor: pointer;
-    }
-    .el-menu::after {
-      content: none;
-    }
-    .el-menu-item {
-      background-color: white;
-      color: white;
-    }
-    .el-menu-item:hover {
-      color: rgba(255, 255, 255, 0.6);
-    }
-    .el-menu--horizontal > .el-menu-item.is-active {
-      color: rgba(255, 255, 255, 0.6);
-      border-bottom: none;
-    }
-    .el-menu--horizontal > .el-menu-item {
-      height: auto;
-      line-height: inherit;
-      border-bottom: 0;
-      background-color: transparent;
-    }
-    .el-menu.el-menu--horizontal {
-      border-bottom: none;
-    }
-    .header-container-wrap .header-container {
-      background-color: transparent;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
+  .header-container-wrap {
     .header-container {
-      /*flex-direction: column;*/
-      /*justify-content: space-between;*/
-      padding: 0 25px;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      .menu-item-text {
+        text-decoration: none;
+      }
+      .blog-title-container {
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        .logo-img {
+          width: 36px;
+          height: 51px;
+          margin-left: 15px
+        }
+      }
+      .blog-title-container:hover {
+        color: rgba(255, 255, 255, 0.6);
+      }
       .native-bar {
-        display: block;
-      }
-      .fa-bars {
-        color: rgba(255, 255, 255, 0.95);
-        font-size: 28px;
-      }
-      .menu-container {
         display: none;
       }
+      .native-bar:hover {
+        cursor: pointer;
+      }
+      .el-menu::after {
+        content: none;
+      }
+      .el-menu-item {
+        background-color: white;
+        color: white;
+      }
+      .el-menu-item:hover {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .el-menu--horizontal > .el-menu-item.is-active {
+        color: rgba(255, 255, 255, 0.6);
+        border-bottom: none;
+      }
+      .el-menu--horizontal > .el-menu-item {
+        height: auto;
+        line-height: inherit;
+        border-bottom: 0;
+        background-color: transparent;
+      }
+      .el-menu.el-menu--horizontal {
+        border-bottom: none;
+      }
+      .header-container-wrap .header-container {
+        background-color: transparent;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .header-container {
+        /*flex-direction: column;*/
+        /*justify-content: space-between;*/
+        padding: 0 25px;
+        .native-bar {
+          display: block;
+        }
+        .fa-bars {
+          color: rgba(255, 255, 255, 0.95);
+          font-size: 28px;
+        }
+        .menu-container {
+          display: none;
+        }
+      }
     }
   }
-}
 </style>

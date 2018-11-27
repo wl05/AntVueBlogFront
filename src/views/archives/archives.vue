@@ -1,21 +1,43 @@
 <template>
   <div class="index" :style="bagStyle">
-    <Spin v-if="fetchArticleLoading" />
+    <Spin v-if="fetchArticleLoading"/>
     <div v-else class="archives-list-container">
-      <ul>
-        <li v-for="(value, key) in formatedArticles" class="item-container" :key="key">
-          <span class="key">{{key}}</span>
-          <ul class="article-container">
-            <li :key="index" class="article-item" v-for="(item,index) in value" @click="$router.push({name:'Detail',params:{id:item._id}})">
+      <timeline
+        timeline-bg="#000000"
+        timeline-theme="#000000"
+      >
+        <div v-for="(value, key) in formatedArticles" class="item-container" :key="key">
+          <timeline-title
+            bg-color="#000000"
+            font-color="#000000"
+            line-color="#000000"
+          >{{key}}
+          </timeline-title>
+          <timeline-item
+            :key="index"
+            v-for="(item,index) in value"
+            bg-color="#000000"
+            font-color="#000000"
+            line-color="#000000"
+          >
+            <div class="article-item" @click="$router.push({name:'Detail',params:{id:item._id}})">
               <span>{{item.date}}</span>
               <span>{{item.title}}</span>
-            </li>
-          </ul>
+            </div>
 
-        </li>
-      </ul>
+          </timeline-item>
+        </div>
+      </timeline>
       <div class="pagination">
-        <el-pagination v-if="count>pageLimit" @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="pageSize" :page-size="pageLimit" layout="total, prev, pager, next" :total="count">
+        <el-pagination
+          v-if="count>pageLimit"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="pageSize"
+          :page-size="pageLimit"
+          layout="total, prev, pager, next"
+          :total="count"
+        >
         </el-pagination>
       </div>
     </div>
@@ -26,7 +48,8 @@
 import { fetchArticle } from '@/api/article'
 import formatYearAndDate from '@/utils/formatYearAndDate'
 import Spin from '@/components/Spin'
-import {randomNumImg, randomNum} from '@/utils/randomNumImg'
+import { randomNumImg, randomNum } from '@/utils/randomNumImg'
+import { Timeline, TimelineItem, TimelineTitle } from 'vue-cute-timeline'
 
 export default {
   data () {
@@ -40,11 +63,14 @@ export default {
   },
   components: {
     // item,
-    Spin
+    Spin,
+    Timeline,
+    TimelineItem,
+    TimelineTitle
   },
   computed: {
     formatedArticles () {
-      let articles = [...this.articles]
+      let articles = [ ...this.articles ]
       return this.formatArticles(articles)
     },
     bagStyle: function () {
@@ -69,24 +95,24 @@ export default {
     },
     formatArticles (articles) {
       for (let article of articles) {
-        article.year = formatYearAndDate(Number(article.publishAt) / 1000)[0]
-        article.date = formatYearAndDate(Number(article.publishAt) / 1000)[1]
+        article.year = formatYearAndDate(Number(article.publishAt) / 1000)[ 0 ]
+        article.date = formatYearAndDate(Number(article.publishAt) / 1000)[ 1 ]
       }
       let data = {}
       try {
         for (let i = 0; i < articles.length; i++) {
-          if (data[articles[i].year]) {
-            data[articles[i].year].push({
-              _id: articles[i]._id,
-              date: articles[i].date,
-              title: articles[i].title
+          if (data[ articles[ i ].year ]) {
+            data[ articles[ i ].year ].push({
+              _id: articles[ i ]._id,
+              date: articles[ i ].date,
+              title: articles[ i ].title
             })
           } else {
-            data[articles[i].year] = [{
-              _id: articles[i]._id,
-              date: articles[i].date,
-              title: articles[i].title
-            }]
+            data[ articles[ i ].year ] = [ {
+              _id: articles[ i ]._id,
+              date: articles[ i ].date,
+              title: articles[ i ].title
+            } ]
           }
         }
       } catch (e) {
@@ -97,7 +123,7 @@ export default {
     async fetchArticle (pageSize, pageLimit) {
       this.fetchArticleLoading = true
       try {
-        const result = await fetchArticle({ pageSize, pageLimit })
+        const result = await fetchArticle({pageSize, pageLimit})
         this.fetchArticleLoading = false
         if (result.data.code) {
           this.$message.error('获取列表失败')
@@ -115,52 +141,55 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.index {
-  height: 100vh;
-  overflow: scroll;
-  padding-top: 45px;
-  box-sizing: border-box;
-  .archives-list-container {
-    border-radius: 5px;
-    margin-top: 30px;
-    background: rgba(255, 255, 255, 0.8);
-    min-height: 800px;
-    padding: 40px;
-    max-width: 800px;
-    margin: 30px auto;
-    .item-container {
-      padding: 20px;
+  .index {
+    height: 100vh;
+    overflow: scroll;
+    padding-top: 45px;
+    box-sizing: border-box;
+    .archives-list-container {
+      border-radius: 5px;
+      margin-top: 30px;
+      background: rgba(255, 255, 255, 0.8);
+      min-height: 800px;
+      padding: 40px;
+      max-width: 800px;
+      margin: 30px auto;
+
       .key {
         font-size: 20px;
       }
-      .article-container {
-        margin-top: 40px;
-        padding: 15px;
-        .article-item {
-          padding: 15px 0;
-          margin-bottom: 60px;
-          border-bottom: 1px dashed rgba(0, 0, 0, 0.6);
-          cursor: pointer;
-        }
-        .article-item:hover {
-          color: rgba(0, 0, 0, 0.9);
-          border-bottom: 1px dashed rgba(0, 0, 0, 0.9);
-        }
+      /*.article-container {*/
+      /*margin-top: 40px;*/
+      /*padding: 15px;*/
+      /*display: inline-block;*/
+      .article-item {
+        /*padding: 15px 0;*/
+        /*margin-bottom: 60px;*/
+        /*border-bottom: 1px dashed rgba(0, 0, 0, 0.6);*/
+        cursor: pointer;
       }
+      /*.article-item::before {*/
+      /*width: 2px;*/
+      /*border: 1px solid red;*/
+      /*}*/
+      /*.article-item:hover {*/
+      /*color: rgba(0, 0, 0, 0.9);*/
+      /*border-bottom: 1px dashed rgba(0, 0, 0, 0.9);*/
+      /*}*/
+      /*}*/
     }
   }
-}
 
-@media screen and (max-width: 768px) {
-  .index {
-    padding-top: 31px;
-    .archives-list-container {
-      padding: 40px 10px;
-      border-radius: 0;
-      .pagination {
-        overflow: scroll;
+  @media screen and (max-width: 768px) {
+    .index {
+      padding-top: 31px;
+      .archives-list-container {
+        padding: 40px 10px;
+        border-radius: 0;
+        .pagination {
+          overflow: scroll;
+        }
       }
     }
   }
-}
 </style>
