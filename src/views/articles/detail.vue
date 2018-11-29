@@ -80,8 +80,9 @@ export default {
       const img = require(`@/assets/detailImg/${num}.jpg`)
       const background = {
         background: `url(${img}) no-repeat`,
-        backgroundSize: '100vw 100vh',
-        backgroundAttachment: 'fixed'
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed',
+        backgroundColor: '#dddddd'
       }
       return background
     }
@@ -195,6 +196,9 @@ export default {
   @media screen and (max-width: 768px) {
     .index {
       padding-top: 31px;
+      .gifImg {
+        display: none;
+      }
       .detail-background {
         background: rgba(0, 0, 0, 0.8);
         margin-top: 30px;

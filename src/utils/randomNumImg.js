@@ -10,7 +10,8 @@ export function randomNumImg (num) {
   const background = {
     background: `url(${img}) no-repeat`,
     backgroundSize: 'cover',
-    backgroundAttachment: 'fixed'
+    backgroundAttachment: 'fixed',
+    backgroundColor: '#dddddd'
   }
   return background
 }

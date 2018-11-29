@@ -3,26 +3,24 @@
     <Spin v-if="fetchArticleLoading"/>
     <div v-else class="archives-list-container">
       <timeline
-        timeline-bg="#000000"
-        timeline-theme="#000000"
+        timeline-theme="rgba(0,0,0,0.3)"
+
       >
         <div v-for="(value, key) in formatedArticles" class="item-container" :key="key">
           <timeline-title
-            bg-color="#000000"
-            font-color="#000000"
-            line-color="#000000"
+            icon-size="large"
+            font-color="#555"
           >{{key}}
           </timeline-title>
           <timeline-item
+            icon-size="small"
             :key="index"
             v-for="(item,index) in value"
-            bg-color="#000000"
-            font-color="#000000"
-            line-color="#000000"
+            font-color="rgb(0,0,0)"
           >
             <div class="article-item" @click="$router.push({name:'Detail',params:{id:item._id}})">
-              <span>{{item.date}}</span>
-              <span>{{item.title}}</span>
+              <span class="date">{{item.date}}</span>
+              <span class="title">{{item.title}}</span>
             </div>
 
           </timeline-item>
@@ -150,16 +148,31 @@ export default {
       border-radius: 5px;
       margin-top: 30px;
       background: rgba(255, 255, 255, 0.8);
-      /*min-height: 800px;*/
       padding: 40px;
       max-width: 800px;
       margin: 30px auto;
-
       .key {
         font-size: 20px;
       }
       .article-item {
         cursor: pointer;
+      }
+      .timeline-title{
+        font-size: 30px;
+        font-weight: 700;
+        color: rgba(0,0,0,0.6);
+      }
+      .article-item {
+        .date {
+          margin-right: 15px;
+          font-size: 12px;
+          color: #282828;
+        }
+        .title {
+          font-size: 16px;
+          font-weight: 400;
+          color: #333;
+        }
       }
     }
   }

@@ -97,7 +97,7 @@ export default {
     }
     .content {
       max-width: 700px;
-      height: 40px;
+      /*height: 40px;*/
       font-size: 14px;
       overflow: hidden;
       margin-top: 15px;
