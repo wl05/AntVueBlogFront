@@ -3,7 +3,6 @@
   <!--<ant-gitment id="comments" :options="options" v-if="options"></ant-gitment>-->
   <!--</div>-->
   <div id="gitalk-container"></div>
-
 </template>
 
 <script>
@@ -52,6 +51,7 @@ export default {
   //   }
   // },
   mounted () {
+    const Gitalk = window.Gitalk
     var gitalk = new Gitalk({
       // gitalk的主要参数
       clientID: `ccaff36e451494dd4e12`,
@@ -59,7 +59,7 @@ export default {
       repo: `AntBlogComments`,
       owner: 'antbaobao',
       admin: [ 'antbaobao' ],
-      id: `${this.$route.params.id}`,
+      id: `${this.$route.params.id}`
     })
     gitalk.render(document.getElementById('gitalk-container'))
   }

@@ -150,7 +150,7 @@ export default {
       border-radius: 5px;
       margin-top: 30px;
       background: rgba(255, 255, 255, 0.8);
-      min-height: 800px;
+      /*min-height: 800px;*/
       padding: 40px;
       max-width: 800px;
       margin: 30px auto;
@@ -158,25 +158,9 @@ export default {
       .key {
         font-size: 20px;
       }
-      /*.article-container {*/
-      /*margin-top: 40px;*/
-      /*padding: 15px;*/
-      /*display: inline-block;*/
       .article-item {
-        /*padding: 15px 0;*/
-        /*margin-bottom: 60px;*/
-        /*border-bottom: 1px dashed rgba(0, 0, 0, 0.6);*/
         cursor: pointer;
       }
-      /*.article-item::before {*/
-      /*width: 2px;*/
-      /*border: 1px solid red;*/
-      /*}*/
-      /*.article-item:hover {*/
-      /*color: rgba(0, 0, 0, 0.9);*/
-      /*border-bottom: 1px dashed rgba(0, 0, 0, 0.9);*/
-      /*}*/
-      /*}*/
     }
   }
 
