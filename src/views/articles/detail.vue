@@ -34,6 +34,9 @@
           </header>
           <div class="content">
             <Markdown :content="content"/>
+            <div>
+              <PaymentCode/>
+            </div>
           </div>
         </div>
         <Spin v-else/>
@@ -41,6 +44,7 @@
       <div class="comments-container">
         <Comment :title="detail.title"/>
       </div>
+
     </div>
   </div>
 </template>
@@ -51,13 +55,15 @@ import { randomNum } from '@/utils/randomNumImg'
 import Markdown from '@/components/Markdown'
 import Spin from '@/components/Spin'
 import Comment from '@/components/Comment'
+import PaymentCode from '@/components/PaymentCode'
 import { randomGifNum, randomGifNumImg } from '@/utils/randomNumGif'
 
 export default {
   components: {
     Markdown,
     Spin,
-    Comment
+    Comment,
+    PaymentCode
   },
   data () {
     return {
@@ -82,7 +88,7 @@ export default {
         background: `url(${img}) no-repeat`,
         backgroundSize: 'cover',
         backgroundAttachment: 'fixed',
-        backgroundColor: '#dddddd'
+        backgroundColor: '#fff'
       }
       return background
     }
@@ -116,9 +122,7 @@ export default {
 }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
-  // @import 'gitment/style/default.css';
   .index {
-    // background: url("../../assets/011.jpg") no-repeat;
     height: 100vh;
     background-size: 100%;
     overflow: scroll;
@@ -137,7 +141,7 @@ export default {
         min-height: 100vh;
         margin-top: 15px;
         .detail-container {
-          background: rgba(255, 255, 255, 0.8);
+          background: rgba(255, 255, 255, 0.9);
           border-radius: 5px;
           display: flex;
           flex-direction: column;

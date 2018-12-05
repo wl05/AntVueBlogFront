@@ -13,7 +13,7 @@ import VueMarkdown from 'vue-markdown'
 
 import './style.css'
 import 'github-markdown-css'
-import './coverGithubCss.css'
+import './cover.css'
 
 export default {
   props: {

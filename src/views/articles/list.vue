@@ -89,7 +89,7 @@ export default {
     box-sizing: border-box;
     .articles-list-container {
       border-radius: 5px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       margin-bottom: 60px;
       padding: 40px;
       max-width: 800px;

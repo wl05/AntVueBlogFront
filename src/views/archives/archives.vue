@@ -147,7 +147,7 @@ export default {
     .archives-list-container {
       border-radius: 5px;
       margin-top: 30px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       padding: 40px;
       max-width: 800px;
       margin: 30px auto;

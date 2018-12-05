@@ -1,0 +1,9 @@
+.markdown-body .highlight pre, .markdown-body pre {
+  background-color: #eeeeee;
+}
+
+.markdown-body img {
+  border-radius: 5px;
+  margin: 0 auto;
+  display: block;
+}

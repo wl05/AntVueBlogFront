@@ -6,10 +6,10 @@
         Tagscloud
       </h1>
       <p class="count">
-        目前标签共{{list.length}}个标签
+        目前标签共 {{animatedNumber}} 个标签
       </p>
       <div class="items">
-        <item v-for="(i,index) in list" :key="index" :item="i"/>
+        <shuffle :list="list"/>
       </div>
     </div>
   </div>
@@ -17,20 +17,21 @@
 
 <script>
 import { getList } from '@/api/tags'
-import item from './components/item'
 import Spin from '@/components/Spin'
 import { randomNumImg, randomNum } from '@/utils/randomNumImg'
+import shuffle from './components/shuffle'
 
 export default {
   data () {
     return {
       list: [],
-      listLoading: false
+      listLoading: false,
+      count: 0
     }
   },
   components: {
-    item,
-    Spin
+    Spin,
+    shuffle
   },
   created () {
     this.getList()
@@ -38,6 +39,16 @@ export default {
   computed: {
     bagStyle: function () {
       return randomNumImg(randomNum())
+    },
+    animatedNumber () {
+      return this.count.toFixed(0)
+    }
+
+  },
+  watch: {
+    list (newValue) {
+      window.TweenLite.to(this.$data, 0.5, {count: newValue.length}
+      )
     }
   },
   methods: {
@@ -69,7 +80,7 @@ export default {
     .tags-container {
       max-width: 800px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       margin-top: 30px;
       border-radius: 5px;
       padding: 40px;

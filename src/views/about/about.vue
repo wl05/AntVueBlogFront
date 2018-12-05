@@ -70,10 +70,9 @@ export default {
     box-sizing: border-box;
     .about-container-wrap {
       width: 100%;
-      // color: rgba(255, 255, 255, 0.6);
       .about-container {
         margin: 30px auto 0;
-        background: rgba(255, 255, 255, .8);
+        background: rgba(255, 255, 255, .9);
         padding: 40px;
         border-radius: 5px;
         display: flex;
