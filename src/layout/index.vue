@@ -1,24 +1,18 @@
 <template>
   <div class="container" ref="particles">
     <el-container>
-      <transition
-        appear
-        appear-active-class="animated fadeIn"
-      >
-        <el-header v-if="true" id="header" ref="header">
+      <headroom>
+        <el-header v-if="true" id="header-container" class="headroom headroom--unpinned">
           <Header/>
         </el-header>
-      </transition>
+      </headroom>
+      <!--</transition>-->
       <el-container ref="el-container" class="content-el-container">
         <el-main>
-          <!--<button @click="show=true"></button>-->
           <div class="content-container">
             <router-view/>
           </div>
         </el-main>
-        <!--<el-footer>-->
-        <!--<Footer/>-->
-        <!--</el-footer>-->
       </el-container>
     </el-container>
   </div>
@@ -29,7 +23,7 @@
 import Header from './Header.vue'
 import Sider from './Sider.vue'
 import Footer from './Footer.vue'
-// import '@/utils/headroom'
+import headroom from './components/headroom'
 
 export default {
   name: 'Layout',
@@ -40,16 +34,11 @@ export default {
       timer: null
     }
   },
-  beforeDestroy () {
-    // this.headroom.destroy()
-  },
-  mounted () {
-    // window.headroom(this.$refs.header)
-  },
   components: {
     Header,
     Sider,
-    Footer
+    Footer,
+    headroom
   }
 }
 </script>

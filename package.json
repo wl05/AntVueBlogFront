@@ -14,11 +14,13 @@
         "build": "node build/build.js"
     },
     "dependencies": {
+        "animate.css": "^3.7.0",
         "ant-gitment": "^1.1.1",
         "axios": "^0.18.0",
         "element-ui": "^2.4.9",
         "github-markdown-css": "^2.10.0",
         "gitment": "0.0.3",
+        "jquery": "^3.3.1",
         "lodash": "^4.17.11",
         "particles.js": "^2.0.0",
         "vue": "^2.5.2",

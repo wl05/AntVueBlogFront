@@ -2,12 +2,13 @@
 
 > Vue.js+Egg.js+Mongodb的前后端分离的个人博客。
 
-> 博客地址：http://120.77.219.106/#/
+> 博客地址：[ANT](http://120.77.219.106/#/)
 
 ## 主要技术栈
-前端：vue.js、vue-router、vuex
 
-后端：Egg.js、Mongodb [后端传送门](https://github.com/antbaobao/AntEggBlogService)
+* 前端：vue.js、vue-router、vuex
+* 后端：Egg.js、Mongodb [AntEggBlogService](https://github.com/antbaobao/AntEggBlogService)
+* 后台管理: vue.js、vue-router、vuex [AntVueBlogFront](https://github.com/antbaobao/AntVueBlogFront)
 
 ## 博客功能
 ### 前台页面
@@ -22,8 +23,6 @@
 - 标签管理
 - 分类管理
 - 登录验证
-
-[传送门](https://github.com/antbaobao/AntVueBlogAdmin)
 
 ## Setup
 
@@ -118,5 +117,4 @@ npm run dev
 
 ### TODO
 - 服务端渲染(SSR)
-
 

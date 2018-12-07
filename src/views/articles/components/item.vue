@@ -2,11 +2,12 @@
   <div class="articles-item-container">
     <h1>
       <a class="title"
+         ref="title"
          @click="$router.push({name:'Detail',params:{id:article._id}})">
         {{article.title}}
       </a>
     </h1>
-    <div class="date-tag">
+    <div class="date-tag" ref="tag">
             <span class="icon fa fa-calendar">
                 <span class="publish-date">{{formatTimestamp(Number(article.publishAt)/1000)}}</span>
             </span>
@@ -32,12 +33,13 @@
     </div>
     <article ref="content" class="content">
     </article>
-    <a class="read-more" @click="$router.push({name:'Detail',params:{id:article._id}})">阅读全文 »</a>
+    <a ref="readMore" class="read-more" @click="$router.push({name:'Detail',params:{id:article._id}})">阅读全文 »</a>
   </div>
 </template>
 
 <script>
 import formatTimestamp from '@/utils/formatTimestamp'
+import animation from '@/utils/animation'
 
 export default {
 
@@ -53,6 +55,13 @@ export default {
     this.$nextTick(function () {
       this.$refs.content.innerHTML = this.article.htmlValue.split('</p>')[ 0 ] + '</p>'
     })
+  },
+  mounted () {
+    animation(this.$refs.title, 'animated  fadeInUp')
+    animation(this.$refs.tag, 'animated  fadeInUp')
+    animation(this.$refs.content, 'animated  fadeInUp')
+    animation(this.$refs.readMore, 'animated  fadeInUp')
+
   },
   methods: {
     formatTimestamp (timestamp) {

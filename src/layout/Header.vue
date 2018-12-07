@@ -2,7 +2,7 @@
   <div class="header-container-wrap">
     <div class="header-container">
       <a class="blog-title-container" @click="$router.push('/')">
-        <span class="blog-title">
+        <span class="blog-title animated  fadeInDown delay-1s">
           ANT
         </span>
         <img class="logo-img" :src="logoImgUrl"/>
@@ -41,25 +41,25 @@
 
       <div class="menu-container">
         <el-menu class="el-menu-demo" mode="horizontal" :default-active="index" @select="handleSelect">
-          <el-menu-item index="/categories">
+          <el-menu-item class="animated  fadeInDown delay-1s" index="/categories">
             <a class="menu-item-text">
               <span class="fa fa-fw fa-th"></span>
               分类
             </a>
           </el-menu-item>
-          <el-menu-item index="/archives">
+          <el-menu-item class="animated  fadeInDown delay-1s" index="/archives">
             <a class="menu-item-text">
               <span class="fa fa-fw fa-archive"></span>
               归档
             </a>
           </el-menu-item>
-          <el-menu-item index="/tags">
+          <el-menu-item class="animated  fadeInDown delay-1s" index="/tags">
             <a class="menu-item-text">
               <span class="fa fa-fw fa-tags"></span>
               标签
             </a>
           </el-menu-item>
-          <el-menu-item index="/about">
+          <el-menu-item class="animated  fadeInDown delay-1s" index="/about">
             <a class="menu-item-text">
               <span class="fa fa-fw fa-user"></span>
               关于我
@@ -74,6 +74,7 @@
 
 <script>
 import logoImgUrl from '@/assets/active/7.gif'
+
 export default {
   name: 'Header',
   data () {

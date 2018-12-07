@@ -3,7 +3,9 @@
     padding: 0;
     -webkit-font-smoothing: antialiased;
 }
-
+body{
+  overflow: scroll;
+}
 .el-pagination__total {
     color: rgba(0, 0, 0, 0.6);
 }
