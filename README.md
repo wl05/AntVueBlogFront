@@ -6,9 +6,9 @@
 
 ## 主要技术栈
 
-* 前端：vue.js、vue-router、vuex
+* 前端：vue.js、vue-router、vuex [AntVueBlogFront](https://github.com/antbaobao/AntVueBlogFront)
 * 后端：Egg.js、Mongodb [AntEggBlogService](https://github.com/antbaobao/AntEggBlogService)
-* 后台管理: vue.js、vue-router、vuex [AntVueBlogFront](https://github.com/antbaobao/AntVueBlogFront)
+* 后台管理: vue.js、vue-router、vuex [AntVueBlogAdmin](https://github.com/antbaobao/AntVueBlogAdmin)
 
 ## 博客功能
 ### 前台页面
@@ -117,4 +117,6 @@ npm run dev
 
 ### TODO
 - 服务端渲染(SSR)
-- 文章检索
+- 很多细节需要优化，有空再继续撸
+(完)
+

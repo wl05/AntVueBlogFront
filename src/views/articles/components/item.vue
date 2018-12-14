@@ -61,7 +61,6 @@ export default {
     animation(this.$refs.tag, 'animated  fadeInUp')
     animation(this.$refs.content, 'animated  fadeInUp')
     animation(this.$refs.readMore, 'animated  fadeInUp')
-
   },
   methods: {
     formatTimestamp (timestamp) {
