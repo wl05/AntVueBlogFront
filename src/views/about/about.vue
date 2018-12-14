@@ -2,17 +2,24 @@
   <div class="index" :style="bagStyle">
     <div class="about-container-wrap">
       <div class="about-container">
-        <pre class="poem">
-          长相思·山一程
-
-          山一程，水一程，
-          身向榆关那畔行，
-          夜深千帐灯。
-
-          风一更，雪一更，
-          聒碎乡心梦不成，
-          故园无此声。
-        </pre>
+        <p class="poem">
+          抱着学习的心态工作，充实自己，提升自己，目标明确，方向清晰。
+        </p>
+        <p class="poem">
+          保持对工作的热忱，对新事物的好奇，砥砺前行！
+        </p>
+        <p class="poem">目前在工作中使用的技术栈主要包括:
+          react、react native、vue、nodejs、koa、egg、mongo等。
+        </p>
+        <p class="poem">
+          <span class="icon fa fa-qq"></span>
+          <span class="info">2929712050@qq.com</span>
+        </p>
+        <p class="poem">
+          <span class="icon fa fa-github"></span>
+          <a class="github-url info" href="https://github.com/antbaobao">https://github.com/antbaobao</a>
+        </p>
+        <!--<pictures/>-->
       </div>
     </div>
   </div>
@@ -20,33 +27,12 @@
 <script>
 import avatarUrl from '@/assets/about.jpeg'
 import { randomNumImg, randomNum } from '@/utils/randomNumImg'
-// <img
-// class="about-item avatar"
-// width="200"
-// height="200"
-// :src="avatarUrl"
-//   />
-//   <div class="about-item-container">
-//   <p class="about-item">
-//   <span class="icon fa fa-fw fa-user"></span> 汪乐(ANT)
-//   </p>
-//
-//   <p class="about-item">
-//   <span class="icon fa fa-qq"></span> 2929712050@qq.com
-//   </p>
-//   <p class="about-item">
-//   <span class="icon fa fa-github"></span> <a class="github-url" href="https://github.com/antbaobao">
-// https://github.com/antbaobao</a>
-//   </p>
-// <p class="about-item">
-//   <span class="icon fa fa-heartbeat"></span> 养龟、动漫、打代码
-//   </p>
-//   <p class="about-item">
-//   <span class="icon fa fa-map-marker"></span> 新加坡
-//   </p>
-//   </div>
+import pictures from './pictures'
+
 export default {
-  components: {},
+  components: {
+    pictures
+  },
   data () {
     return {
       avatarUrl
@@ -56,10 +42,7 @@ export default {
     bagStyle: function () {
       return randomNumImg(randomNum())
     }
-  },
-  mounted () {
-  },
-  methods: {}
+  }
 }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
@@ -68,6 +51,7 @@ export default {
     overflow: scroll;
     padding-top: 45px;
     box-sizing: border-box;
+    /*background-color: #d1d5da;*/
     .about-container-wrap {
       width: 100%;
       .about-container {
@@ -76,9 +60,9 @@ export default {
         padding: 40px;
         border-radius: 5px;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         max-width: 800px;
-        justify-content: space-around;
+        align-items: center;
         .about-item-container {
           display: flex;
           flex-direction: column;
@@ -97,7 +81,14 @@ export default {
         }
         .poem {
           line-height: 28px;
-          font-size: 16px;
+          font-size: 14px;
+          padding: 10px;
+          font-family: FontAwesome;
+          .info {
+            font-size: 14px;
+            color: #1b1f23;
+            text-decoration: none;
+          }
         }
         .avatar {
           border-radius: 100%;

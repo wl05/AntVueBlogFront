@@ -4,14 +4,14 @@
     <div v-else class="archives-list-container">
       <timeline
         timeline-theme="rgba(0,0,0,0.3)"
-
       >
         <div v-for="(value, key) in formatedArticles" class="item-container" :key="key">
-          <timeline-title
-            icon-size="large"
-            font-color="#555"
-          >{{key}}
-          </timeline-title>
+            <timeline-title
+              icon-size="large"
+              font-color="#555"
+            >
+              {{key}}
+            </timeline-title>
           <timeline-item
             icon-size="small"
             :key="index"
@@ -22,7 +22,6 @@
               <span class="date">{{item.date}}</span>
               <span class="title">{{item.title}}</span>
             </div>
-
           </timeline-item>
         </div>
       </timeline>
@@ -41,7 +40,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import { fetchArticle } from '@/api/article'
 import formatYearAndDate from '@/utils/formatYearAndDate'
@@ -60,7 +58,6 @@ export default {
     }
   },
   components: {
-    // item,
     Spin,
     Timeline,
     TimelineItem,
@@ -79,7 +76,6 @@ export default {
     this.fetchArticle(this.pageSize, this.pageLimit)
   },
   methods: {
-
     handleSizeChange (val) {
       this.pageLimit = val
       this.fetchArticle(this.pageSize, val)
@@ -157,10 +153,10 @@ export default {
       .article-item {
         cursor: pointer;
       }
-      .timeline-title{
+      .timeline-title {
         font-size: 30px;
         font-weight: 700;
-        color: rgba(0,0,0,0.6);
+        color: rgba(0, 0, 0, 0.6);
       }
       .article-item {
         .date {

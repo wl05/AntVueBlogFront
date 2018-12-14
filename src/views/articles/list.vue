@@ -14,9 +14,7 @@
       </div>
     </div>
   </div>
-
 </template>
-
 <script>
 import { fetchArticle } from '@/api/article'
 import formatTimestamp from '@/utils/formatTimestamp'

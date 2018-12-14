@@ -5,7 +5,7 @@
       <span style="font-weight: bold">↑</span>
       <span>打发点吧</span>
     </div>
-    <div v-if="visible">
+    <div class="image-container" v-if="visible">
       <img class="url" width="150" height="150" :src="alipayUrl"/>
       <img class="url" width="150" height="150" :src="weixinUrl"/>
     </div>
@@ -38,13 +38,6 @@ export default {
     align-items: center;
     padding: 30px;
   }
-
-  .title {
-    font-size: 24px;
-    /*font-weight: bold;*/
-    font-family: Sana
-  }
-
   .url {
     padding: 10px;
     border: 1px solid #ffffff;
@@ -60,13 +53,13 @@ export default {
     font-size: 12px;
   }
 
-  .el-button--warning {
-    background-color: #f5a10c;
-    border-color: #f5a10c;
+  @media screen and (max-width: 768px) {
+    .image-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+    }
   }
 
-  .el-button.is-circle {
-    padding: 13px;
-    font-size: 30px;
-  }
 </style>

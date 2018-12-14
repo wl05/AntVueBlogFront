@@ -57,7 +57,7 @@ export default {
     })
   },
   mounted () {
-    animation(this.$refs.title, 'animated  fadeInUp')
+    // animation(this.$refs.title, 'animated  fadeInUp')
     animation(this.$refs.tag, 'animated  fadeInUp')
     animation(this.$refs.content, 'animated  fadeInUp')
     animation(this.$refs.readMore, 'animated  fadeInUp')
@@ -105,7 +105,6 @@ export default {
     }
     .content {
       max-width: 700px;
-      /*height: 40px;*/
       font-size: 14px;
       overflow: hidden;
       margin-top: 15px;
@@ -118,10 +117,8 @@ export default {
       border-bottom: 2px solid #555;
     }
     .read-more:hover {
-      // font-size: 15px;
       color: rgba(0, 0, 0, 0.9);
       border-bottom: 2px solid rgba(0, 0, 0, 0.9);
-
     }
   }
 
