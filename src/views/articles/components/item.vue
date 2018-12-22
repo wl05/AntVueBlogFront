@@ -40,24 +40,17 @@
 <script>
 import formatTimestamp from '@/utils/formatTimestamp'
 import animation from '@/utils/animation'
-
 export default {
-
   props: [
     'article',
     'index'
   ],
-  data () {
-    return {}
-  },
-  computed: {},
   created () {
     this.$nextTick(function () {
       this.$refs.content.innerHTML = this.article.htmlValue.split('</p>')[ 0 ] + '</p>'
     })
   },
   mounted () {
-    // animation(this.$refs.title, 'animated  fadeInUp')
     animation(this.$refs.tag, 'animated  fadeInUp')
     animation(this.$refs.content, 'animated  fadeInUp')
     animation(this.$refs.readMore, 'animated  fadeInUp')
@@ -71,7 +64,6 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-
   .articles-item-container {
     padding: 25px;
     margin-bottom: 70px;

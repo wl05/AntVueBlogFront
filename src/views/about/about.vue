@@ -2,6 +2,15 @@
   <div class="index" :style="bagStyle">
     <div class="about-container-wrap">
       <div class="about-container">
+        <img class="avatar" width="100" height="100" :src="avatarUrl"/>
+        <p class="poem">
+          <span class="icon fa fa-qq"></span>
+          <span class="info">2929712050@qq.com</span>
+        </p>
+        <p class="poem">
+          <span class="icon fa fa-github"></span>
+          <a class="github-url info" href="https://github.com/antbaobao">https://github.com/antbaobao</a>
+        </p>
         <p class="poem">
           抱着学习的心态工作，充实自己，提升自己，目标明确，方向清晰。
         </p>
@@ -11,16 +20,8 @@
         <p class="poem">目前在工作中使用的技术栈主要包括:
           react、react native、vue、nodejs、koa、egg、mongo等。
         </p>
-        <p class="poem">
-          <span class="icon fa fa-qq"></span>
-          <span class="info">2929712050@qq.com</span>
-        </p>
-        <p class="poem">
-          <span class="icon fa fa-github"></span>
-          <a class="github-url info" href="https://github.com/antbaobao">https://github.com/antbaobao</a>
-        </p>
-        <!--<pictures/>-->
       </div>
+      <pictures/>
     </div>
   </div>
 </template>
@@ -28,6 +29,7 @@
 import avatarUrl from '@/assets/about.jpeg'
 import { randomNumImg, randomNum } from '@/utils/randomNumImg'
 import pictures from './pictures'
+import debounce from '@/utils/debounce'
 
 export default {
   components: {
@@ -40,8 +42,31 @@ export default {
   },
   computed: {
     bagStyle: function () {
+      // return ''
       return randomNumImg(randomNum())
     }
+  },
+  methods: {
+    scroll (e) {
+      let scrollTop = e.target.scrollTop
+      if (!this.scrollTop) this.scrollTop = scrollTop
+
+      if (scrollTop - this.scrollTop > 60) {
+        this.animationClass = 'slideUp'
+        this.scrollTop = scrollTop
+      }
+      if (scrollTop - this.scrollTop < -60) {
+        this.animationClass = 'slideDown'
+        this.scrollTop = scrollTop
+      }
+    }
+  },
+  destroyed () {
+    document.removeEventListener('scroll', this.scroll)
+  },
+  created () {
+    console.log('dada')
+    document.addEventListener('scroll', debounce((e) => this.scroll(e), 100), true)
   }
 }
 </script>
@@ -51,22 +76,21 @@ export default {
     overflow: scroll;
     padding-top: 45px;
     box-sizing: border-box;
-    /*background-color: #d1d5da;*/
+    background-color: #EEEEEE;
     .about-container-wrap {
       width: 100%;
       .about-container {
-        margin: 30px auto 0;
-        background: rgba(255, 255, 255, .9);
+        margin: 30px auto;
         padding: 40px;
         border-radius: 5px;
         display: flex;
         flex-direction: column;
-        max-width: 800px;
         align-items: center;
+        background-color: white;
+        width: 300px;
+        /*box-shadow: 0px 5px 5px #ddd;*/
+        transition: box-shadow 1s;
         .about-item-container {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
           padding-left: 30px;
           .about-item {
             padding: 10px;
@@ -81,9 +105,10 @@ export default {
         }
         .poem {
           line-height: 28px;
-          font-size: 14px;
+          font-size: 12px;
           padding: 10px;
           font-family: FontAwesome;
+          width: 100%;
           .info {
             font-size: 14px;
             color: #1b1f23;
@@ -92,7 +117,14 @@ export default {
         }
         .avatar {
           border-radius: 100%;
+          transition: transform 4s;
         }
+        .avatar:hover {
+          transform: rotate(360deg);
+        }
+      }
+      .about-container:hover {
+        box-shadow: 0px 8px 8px #888888;
       }
     }
   }
@@ -106,6 +138,7 @@ export default {
           align-items: center;
           padding: 40px 10px;
           border-radius: 0;
+          width: 100%;
           .about-item-container {
             margin-top: 30px;
           }
