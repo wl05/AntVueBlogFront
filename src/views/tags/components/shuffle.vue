@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import lodash from 'lodash'
-
 export default {
 
   props: [
@@ -28,27 +26,12 @@ export default {
           _id: _._id
         }
       })
-      this.shuffleInterval()
     }
   },
   data () {
     return {
-      timer: null,
       cells: []
     }
-  },
-  mounted () {
-    this.shuffleInterval()
-  },
-  methods: {
-    shuffleInterval () {
-      this.timer = setInterval(() => {
-        this.cells = lodash.shuffle(this.cells)
-      }, 4000)
-    }
-  },
-  beforeDestroy () {
-    clearInterval(this.timer)
   }
 }
 </script>

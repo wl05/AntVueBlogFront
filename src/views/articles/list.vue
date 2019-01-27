@@ -27,7 +27,7 @@ export default {
     return {
       fetchArticleLoading: false,
       pageSize: 1,
-      pageLimit: 10,
+      pageLimit: 30,
       count: 0,
       articles: [],
       loadMoreLoading: false

@@ -5,7 +5,7 @@
         <span class="blog-title animated  fadeInDown delay-1s">
           ANT
         </span>
-        <img class="logo-img" :src="logoImgUrl"/>
+        <!--<img class="logo-img" :src="logoImgUrl"/>-->
       </a>
       <a class="native-bar">
         <el-dropdown trigger="click">
