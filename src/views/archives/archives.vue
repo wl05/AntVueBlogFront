@@ -52,7 +52,7 @@
       return {
         fetchArticleLoading : false,
         pageSize : 1,
-        pageLimit : 30,
+        pageLimit : 15,
         count : 0,
         articles : []
       }
