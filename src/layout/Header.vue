@@ -2,9 +2,7 @@
   <div class="header-container-wrap">
     <div class="header-container">
       <a class="blog-title-container" @click="goToHome">
-        <span class="blog-title">
-          汪乐的个人网站
-        </span>
+        汪乐的个人网站
       </a>
       <a class="native-bar">
         <el-dropdown trigger="click">
@@ -106,39 +104,35 @@ export default {
 </script>
 <style lang="scss" scoped rel="stylesheet/scss">
   .header-container-wrap {
-    background: rgba(0, 0, 0, 0.1);
     .header-container {
       display: flex;
-      /*max-width: 900px;*/
       padding: 0 20px;
       margin: 0 auto;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      height: 40px;
+      height: 50px;
       .menu-item-text {
         text-decoration: none;
         padding: 0 15px;
         font-size: 18px;
-        height: 40px;
+        height: 50px;
         display: inline-block;
-        line-height: 40px;
+        line-height: 50px;
       }
       .menu-item-text:hover {
-        /*background: #d1d5da;*/
-        color: #555;
+        color: #000;
       }
       .activeClass {
-        background: #d1d5da;
-        color: #555;
+        background: #eeeeee;
+        color: #000;
       }
       .blog-title-container {
         cursor: pointer;
         font-size: 20px;
-        font-weight: bold;
         display: flex;
         align-items: center;
-        color: #555;
+        color: #000;
         font-weight: 500;
         font-size: 24px;
         .logo-img {
@@ -146,9 +140,6 @@ export default {
           height: 51px;
           margin-left: 15px
         }
-      }
-      .blog-title-container:hover {
-        color: rgba(255, 255, 255, 0.6);
       }
       .native-bar {
         display: none;
@@ -161,15 +152,15 @@ export default {
       }
       .el-menu-item {
         background-color: white;
-        color: #555;
+        color: #000;
         padding: 0;
         height: 40px;
       }
       .el-menu-item:hover {
-        color: rgba(255, 255, 255, 0.6);
+        color: #000;
       }
       .el-menu--horizontal > .el-menu-item.is-active {
-        color: rgba(255, 255, 255, 0.6);
+        color: #000;
         border-bottom: none;
       }
       .el-menu--horizontal > .el-menu-item {
@@ -193,7 +184,7 @@ export default {
           display: block;
         }
         .fa-bars {
-          color: rgba(255, 255, 255, 0.95);
+          color: #000;
           font-size: 28px;
         }
         .menu-container {

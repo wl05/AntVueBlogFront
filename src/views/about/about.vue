@@ -37,8 +37,8 @@ export default {
   },
   computed: {
     bagStyle: function () {
-      // return ''
-      return randomNumImg(randomNum())
+      return ''
+      // return randomNumImg(randomNum())
     }
   },
   methods: {
@@ -66,11 +66,7 @@ export default {
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
   .index {
-    height: 100vh;
-    overflow: scroll;
-    padding-top: 45px;
     box-sizing: border-box;
-    background-color: #EEEEEE;
     .about-container-wrap {
       width: 100%;
       .about-container {
@@ -82,7 +78,6 @@ export default {
         align-items: center;
         background-color: white;
         width: 300px;
-        /*box-shadow: 0px 5px 5px #ddd;*/
         transition: box-shadow 1s;
         .about-item-container {
           padding-left: 30px;

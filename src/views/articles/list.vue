@@ -49,7 +49,8 @@ export default {
   },
   computed: {
     bagStyle: function () {
-      return randomNumImg(randomNum())
+      return ''
+      // return randomNumImg(randomNum())
     }
   },
   methods: {

@@ -36,7 +36,7 @@ export default {
 </script>
 <style lang="scss" scoped rel="stylesheet/scss">
   .top-container {
-    background: url("../assets/bgs/17.jpg");
+    /*background: url("../assets/bgs/17.jpg");*/
     background-size: 100%;
     background-repeat: no-repeat;
     display: flex;
@@ -44,6 +44,7 @@ export default {
     color: #333333;
     overflow: scroll;
     height: 100vh;
+    background-color: #f5f5d5;
   }
 
   .el-header {

@@ -1,11 +1,9 @@
 <template>
   <div class="articles-item-container">
-    <h1>
-      <a class="title"
-         @click="$router.push({name:'Detail',params:{id:article._id}})">
-        {{article.title}}
-      </a>
-    </h1>
+    <a class="title"
+       @click="$router.push({name:'Detail',params:{id:article._id}})">
+      {{article.title}}
+    </a>
     <div class="date-tag">
             <span class="icon fa fa-calendar">
                 <span class="publish-date">{{formatTimestamp(Number(article.publishAt)/1000)}}</span>
@@ -29,7 +27,7 @@
       <span class="fa fa-eye">阅读次数 {{article.viewCount}}</span>
       <a class="read-more" @click="$router.push({name:'Detail',params:{id:article._id}})">阅读全文 »</a>
     </div>
-    <hr class="divider-line"/>
+    <!--<hr class="divider-line"/>-->
   </div>
 </template>
 
@@ -55,18 +53,17 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
   .articles-item-container {
     padding: 15px 0;
-    .divider-line {
-      margin-top: 10px;
-    }
+    border-bottom: 1px solid #d3d3d3;
     .title {
       display: inline-block;
       color: #555;
       border-bottom: none;
       line-height: 1.2;
       vertical-align: top;
-      font-size: 24px;
-      font-weight: 400;
+      font-size: 20px;
+      /*font-weight: 400;*/
       cursor: pointer;
+      color: #000;
     }
     .title:hover {
       color: rgba(0, 0, 0, 0.9);

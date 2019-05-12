@@ -52,7 +52,7 @@ const home = {
         },
         FETCH_NEWEST_ARTICLE: ({ commit }) => {
             return new Promise((resolve, reject) => {
-                fetchArticle({ pageSize: 1, pageLimit: 15 })
+                fetchArticle({ pageSize: 1, pageLimit: 10 })
                     .then(response => {
                         const data = response.data
                         if (data.code) {

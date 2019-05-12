@@ -38,7 +38,8 @@
     },
     computed : {
       bagStyle : function () {
-        return randomNumImg(randomNum())
+        // return randomNumImg(randomNum())
+        return ''
       },
       animatedNumber () {
         return this.count.toFixed(0)
@@ -73,14 +74,11 @@
 
 <style lang="scss" scoped rel="stylesheet/scss">
     .index {
-        height: 100vh;
-        overflow: scroll;
         padding-top: 45px;
         box-sizing: border-box;
         .tags-container {
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.9);
             margin-top: 30px;
             border-radius: 5px;
             padding: 40px;
