@@ -2,7 +2,7 @@ import axios from 'axios'
 import queryString from 'query-string'
 // import { getToken } from './auth'
 
-axios.defaults.timeout = 6000
+// axios.defaults.timeout = 6000
 
 const HTTP_HEADER = {
     'Content-Type': 'application/json'

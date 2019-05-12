@@ -1,19 +1,25 @@
 import _request from '@/utils/request'
 
 export function fetchArticle (params) {
-	return _request.get('/articles', params)
+  return _request.get('/articles', params)
 }
 
 export function getArticleDetail (id) {
-	return _request.get(`/articles/${id}`)
+  return _request.get(`/articles/${id}`)
 }
 
 export function getArticlesByTag (id) {
-	return _request.get(`/articles/tags/${id}`)
+  return _request.get(`/articles/tags/${id}`)
 }
 
 export function getArticlesByCategory (id) {
-	return _request.get(`/articles/category/${id}`)
+  return _request.get(`/articles/category/${id}`)
 }
 
+export function fetchArchives () {
+  return _request.get('/archives')
+}
 
+export function getArticlesByArchives (timeline, pageSize = 0, pageLimit = 0) {
+  return _request.get(`/archives/${timeline}?pageSize=${pageSize}&pageLimit=${pageLimit}`)
+}

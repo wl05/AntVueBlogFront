@@ -1,15 +1,22 @@
 <template>
-  <div class="index" :style="bagStyle">
+  <div class="index">
     <Spin v-if="fetchArticleLoading"/>
     <div v-else class="articles-list-container" ref="articles-list-container">
       <item
-        v-for="(item,index) in articles" :key="item._id" :article="item"
-        :index="index+1"
+        v-for="(item) in articles"
+        :key="item._id"
+        :article="item"
       />
       <div id="articlePaginationId">
-        <el-pagination v-if="count>pageLimit" @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                       :current-page.sync="pageSize" :page-size="pageLimit" layout="total, prev, pager, next"
-                       :total="count">
+        <el-pagination
+          v-if="count>pageLimit"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="pageSize"
+          :page-size="pageLimit"
+          layout="total, prev, pager, next"
+          :total="count"
+        >
         </el-pagination>
       </div>
     </div>
@@ -67,6 +74,7 @@ export default {
         if (result.data.code) {
           this.$message.error('获取列表失败')
         } else {
+          console.log(result.data.data.article)
           this.articles = result.data.data.article
           this.count = result.data.data.count
         }
@@ -81,17 +89,13 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   .index {
-    height: 100vh;
-    overflow: scroll;
-    padding-top: 45px;
     box-sizing: border-box;
     .articles-list-container {
       border-radius: 5px;
-      background: rgba(255, 255, 255, 0.9);
       margin-bottom: 60px;
       padding: 40px;
       max-width: 800px;
-      margin: 30px auto;
+      margin: 0px auto;
     }
   }
 

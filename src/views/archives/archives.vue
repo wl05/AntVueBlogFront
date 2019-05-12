@@ -79,12 +79,10 @@
       handleSizeChange (val) {
         this.pageLimit = val
         this.fetchArticle(this.pageSize, val)
-        console.log(`每页 ${val} 条`)
       },
       handleCurrentChange (val) {
         this.pageSize = val
         this.fetchArticle(val, this.pageLimit)
-        console.log(`当前页: ${val}`)
       },
       formatArticles (articles) {
         for (let article of articles) {

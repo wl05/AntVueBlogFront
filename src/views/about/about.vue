@@ -21,20 +21,15 @@
           react、react native、vue、nodejs、koa、egg、mongo等。
         </p>
       </div>
-      <pictures/>
     </div>
   </div>
 </template>
 <script>
 import avatarUrl from '@/assets/about.jpeg'
 import { randomNumImg, randomNum } from '@/utils/randomNumImg'
-import pictures from './pictures'
 import debounce from '@/utils/debounce'
 
 export default {
-  components: {
-    pictures
-  },
   data () {
     return {
       avatarUrl
@@ -65,7 +60,6 @@ export default {
     document.removeEventListener('scroll', this.scroll)
   },
   created () {
-    console.log('dada')
     document.addEventListener('scroll', debounce((e) => this.scroll(e), 100), true)
   }
 }

@@ -1,29 +1,22 @@
 <template>
-  <div class="container" ref="particles">
-    <el-container>
-      <headroom>
-        <el-header v-if="true" id="header-container" class="headroom headroom--unpinned">
-          <Header/>
-        </el-header>
-      </headroom>
-      <!--</transition>-->
-      <el-container ref="el-container" class="content-el-container">
-        <el-main>
-          <div class="content-container">
-            <router-view/>
-          </div>
-        </el-main>
-      </el-container>
+  <el-container class="top-container">
+    <Header/>
+    <el-container ref="el-container" class="content-el-container">
+      <el-main>
+        <div class="content-container">
+          <router-view/>
+        </div>
+        <Sider/>
+      </el-main>
     </el-container>
-  </div>
+  </el-container>
 
 </template>
 
 <script>
 import Header from './Header.vue'
-import Sider from './Sider.vue'
+import Sider from './sider/index.vue'
 import Footer from './Footer.vue'
-import headroom from './components/headroom'
 
 export default {
   name: 'Layout',
@@ -37,31 +30,40 @@ export default {
   components: {
     Header,
     Sider,
-    Footer,
-    headroom
+    Footer
   }
 }
 </script>
 <style lang="scss" scoped rel="stylesheet/scss">
+  .top-container {
+    background: url("../assets/bgs/17.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    color: #333333;
+    overflow: scroll;
+    height: 100vh;
+  }
+
   .el-header {
     padding: 0;
-    background: rgba(0, 0, 0, 0.55);
     width: 100%;
-    position: fixed;
-    z-index: 10000;
-    color: rgba(0, 0, 0, 1);
+    color: #333333;
     height: auto;
   }
 
   .el-main {
     padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .content-container {
+      flex: 1;
+    }
   }
 
   .el-footer {
     background: rgba(0, 0, 0, 0.9);
-  }
-
-  .header-transition-enter {
-    /*display: none;*/
   }
 </style>
