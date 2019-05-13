@@ -76,14 +76,12 @@
 </template>
 
 <script>
-import logoImgUrl from '@/assets/active/7.gif'
 
 export default {
   name: 'Header',
   data () {
     return {
       tabPosition: 'top',
-      logoImgUrl,
       index: '',
       activeIndex: '1'
     }
