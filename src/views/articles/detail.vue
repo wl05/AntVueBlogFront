@@ -31,7 +31,7 @@
             </div>
           </header>
           <div class="content">
-            <Markdown :content="content"/>
+            <Markdown :htmlValue="content.htmlValue"/>
             <div>
               <PaymentCode/>
             </div>
@@ -77,8 +77,8 @@ export default {
     }
   },
   beforeRouteUpdate (to, from, next) {
-    // next()
-    // this.getArticleDetail(this.$route.params.id)
+    next()
+    this.getArticleDetail(this.$route.params.id)
   },
   mounted () {
     this.getArticleDetail(this.$route.params.id)
@@ -88,6 +88,7 @@ export default {
       return formatTimestamp(timestamp)
     },
     async getArticleDetail (id) {
+      console.log('------', id)
       this.getArticleDetailLoading = true
       try {
         const result = await getArticleDetail(id)

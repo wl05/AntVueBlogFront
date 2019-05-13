@@ -87,7 +87,6 @@ export default {
           this.articles = result.data.data.article
           this.noData = !(this.articles.length > 0)
           this.count = result.data.data.count
-          console.log(this.articles)
         }
       } catch (e) {
         console.log(e)

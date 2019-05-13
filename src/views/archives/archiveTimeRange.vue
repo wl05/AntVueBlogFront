@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <Spin v-if="fetchArticleLoading"/>
+    <Spin v-if="getArticlesByArchivesLoading"/>
     <div v-else class="archives-list-container">
       <timeline
         timeline-theme="rgba(0,0,0,0.3)"
@@ -41,7 +41,7 @@
   </div>
 </template>
 <script>
-import { fetchArticle } from '@/api/article'
+import { getArticlesByArchives } from '@/api/article'
 import formatYearAndDate from '@/utils/formatYearAndDate'
 import Spin from '@/components/Spin'
 import { randomNumImg, randomNum } from '@/utils/randomNumImg'
@@ -50,7 +50,7 @@ import { Timeline, TimelineItem, TimelineTitle } from 'vue-cute-timeline'
 export default {
   data () {
     return {
-      fetchArticleLoading: false,
+      getArticlesByArchivesLoading: false,
       pageSize: 1,
       pageLimit: 15,
       count: 0,
@@ -69,17 +69,21 @@ export default {
       return this.formatArticles(articles)
     }
   },
+  beforeRouteUpdate (to, from, next) {
+    next()
+    this.getArticlesByArchives(1, 15, this.$route.params.timeline)
+  },
   mounted () {
-    this.fetchArticle(this.pageSize, this.pageLimit)
+    this.getArticlesByArchives(this.pageSize, this.pageLimit, this.$route.params.timeline)
   },
   methods: {
     handleSizeChange (val) {
       this.pageLimit = val
-      this.fetchArticle(this.pageSize, val)
+      this.getArticlesByArchives(this.pageSize, val, this.$route.params.timeline)
     },
     handleCurrentChange (val) {
       this.pageSize = val
-      this.fetchArticle(val, this.pageLimit)
+      this.getArticlesByArchives(val, this.pageLimit, this.$route.params.timeline)
     },
     formatArticles (articles) {
       for (let article of articles) {
@@ -114,11 +118,11 @@ export default {
       }
       return data
     },
-    async fetchArticle (pageSize, pageLimit) {
-      this.fetchArticleLoading = true
+    async getArticlesByArchives (pageSize, pageLimit, timeline) {
+      this.getArticlesByArchivesLoading = true
       try {
-        const result = await fetchArticle({pageSize, pageLimit})
-        this.fetchArticleLoading = false
+        const result = await getArticlesByArchives({pageSize, pageLimit, timeline})
+        this.getArticlesByArchivesLoading = false
         if (result.data.code) {
           this.$message.error('获取列表失败')
         } else {
@@ -126,7 +130,7 @@ export default {
           this.count = result.data.data.count
         }
       } catch (e) {
-        this.fetchArticleLoading = false
+        this.getArticlesByArchivesLoading = false
         this.$message.error('出错了')
       }
     }

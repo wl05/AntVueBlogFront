@@ -51,7 +51,13 @@ export default new Router({
       name: 'Archives',
       component: () =>
         import('@/views/archives/archives')
-    }
+    },
+    {
+      path: '/archive/:timeline',
+      name: 'ArchiveTimeline',
+      component: () =>
+        import('@/views/archives/archiveTimeRange')
+    },
   
   ]
 })
