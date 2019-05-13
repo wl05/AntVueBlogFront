@@ -2,7 +2,7 @@
   <div class="index" :style="bagStyle">
     <div class="about-container-wrap">
       <div class="about-container">
-        <img class="avatar" width="100" height="100" :src="avatarUrl"/>
+        <!--<img class="avatar" width="100" height="100" :src="avatarUrl"/>-->
         <p class="poem">
           <span class="icon fa fa-qq"></span>
           <span class="info">2929712050@qq.com</span>
@@ -76,7 +76,6 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: white;
         width: 300px;
         transition: box-shadow 1s;
         .about-item-container {

@@ -4,10 +4,10 @@
     <img class="profile__photo" src="../../../assets/profile.jpeg"/>
     <div class="profile__info">
       <div>汪乐,</div>
-      <div>17年毕业于<a href="https://www.uestc.edu.cn/">电子科技大学，</a></div>
+      <div>17年毕业于<a href="https://www.uestc.edu.cn/">电子科技大学</a></div>
       <div></div>
       <div>2929712050@qq.com</div>
-      <a class="profile__github" href="https://github.com/antbaobao">同性交友账号ANT1994</a>
+      <a class="profile__github" href="https://github.com/antbaobao">github(ANT1994)</a>
     </div>
   </div>
 </template>

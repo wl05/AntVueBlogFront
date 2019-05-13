@@ -124,7 +124,7 @@ export default {
         color: #000;
       }
       .activeClass {
-        background: #eeeeee;
+        background: #fff;
         color: #000;
       }
       .blog-title-container {
