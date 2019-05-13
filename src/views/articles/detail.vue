@@ -53,7 +53,6 @@ import Markdown from '@/components/Markdown'
 import Spin from '@/components/Spin'
 import Comment from '@/components/Comment'
 import PaymentCode from '@/components/PaymentCode'
-import { randomNum, randomNumImg } from '@/utils/randomNumImg'
 
 export default {
   components: {

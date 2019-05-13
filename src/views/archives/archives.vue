@@ -44,7 +44,6 @@
 import { fetchArticle } from '@/api/article'
 import formatYearAndDate from '@/utils/formatYearAndDate'
 import Spin from '@/components/Spin'
-import { randomNumImg, randomNum } from '@/utils/randomNumImg'
 import { Timeline, TimelineItem, TimelineTitle } from 'vue-cute-timeline'
 
 export default {

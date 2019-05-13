@@ -6,7 +6,7 @@
                 Tagscloud
             </h1>
             <p class="count">
-                目前标签共 {{animatedNumber}} 个标签
+                目前标签共 {{count}} 个标签
             </p>
             <div class="items">
                 <shuffle :list="list"/>
@@ -18,7 +18,6 @@
 <script>
   import { getList } from '@/api/tags'
   import Spin from '@/components/Spin'
-  import { randomNumImg, randomNum } from '@/utils/randomNumImg'
   import shuffle from './components/shuffle'
 
   export default {
@@ -35,16 +34,6 @@
     },
     created () {
       this.getList()
-    },
-    computed : {
-      bagStyle : function () {
-        // return randomNumImg(randomNum())
-        return ''
-      },
-      animatedNumber () {
-        return this.count.toFixed(0)
-      }
-
     },
     watch : {
       list (newValue) {

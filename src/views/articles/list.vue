@@ -27,8 +27,6 @@ import { fetchArticle } from '@/api/article'
 import formatTimestamp from '@/utils/formatTimestamp'
 import item from './components/item'
 import Spin from '@/components/Spin'
-import { randomNumImg, randomNum } from '@/utils/randomNumImg'
-
 export default {
   data () {
     return {

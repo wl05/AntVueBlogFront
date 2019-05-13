@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="index" :style="bagStyle">
+  <div class="index">
     <div class="about-container-wrap">
       <div class="about-container">
         <!--<img class="avatar" width="100" height="100" :src="avatarUrl"/>-->
@@ -26,19 +26,12 @@
 </template>
 <script>
 import avatarUrl from '@/assets/about.jpeg'
-import { randomNumImg, randomNum } from '@/utils/randomNumImg'
 import debounce from '@/utils/debounce'
 
 export default {
   data () {
     return {
       avatarUrl
-    }
-  },
-  computed: {
-    bagStyle: function () {
-      return ''
-      // return randomNumImg(randomNum())
     }
   },
   methods: {

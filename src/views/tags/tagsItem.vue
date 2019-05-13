@@ -1,5 +1,5 @@
 <template>
-  <div class="index" :style="bagStyle">
+  <div class="index">
     <Spin v-if="getArticlesByTagLoading"/>
     <div v-else class="tags-item-list-container">
       <div class="no-data" v-if="noData">
@@ -24,7 +24,6 @@
 <script>
 import { getArticlesByTag } from '@/api/article'
 import Spin from '@/components/Spin'
-import { randomNumImg, randomNum } from '@/utils/randomNumImg'
 import { Timeline, TimelineItem, TimelineTitle } from 'vue-cute-timeline'
 
 export default {
@@ -40,11 +39,6 @@ export default {
     TimelineItem,
     TimelineTitle,
     Spin
-  },
-  computed: {
-    bagStyle: function () {
-      return randomNumImg(randomNum())
-    }
   },
   created () {
     this.getArticlesByTag()

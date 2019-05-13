@@ -27,7 +27,6 @@
 <script>
 import { countCategotres } from '@/api/category'
 import Spin from '@/components/Spin'
-import { randomNumImg, randomNum } from '@/utils/randomNumImg'
 
 export default {
   data () {
