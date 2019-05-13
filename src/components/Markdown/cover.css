@@ -7,3 +7,7 @@
   margin: 0 auto;
   display: block;
 }
+
+.markdown-body pre {
+  border: 5px solid #e0dfcc;
+}

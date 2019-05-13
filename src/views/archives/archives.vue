@@ -73,7 +73,7 @@ export default {
       return ''
     }
   },
-  created () {
+  mounted () {
     this.fetchArticle(this.pageSize, this.pageLimit)
   },
   methods: {

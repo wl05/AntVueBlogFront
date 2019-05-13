@@ -129,12 +129,11 @@ export default {
       }
       .blog-title-container {
         cursor: pointer;
-        font-size: 20px;
+        font-size: 24px;
         display: flex;
         align-items: center;
-        color: #000;
-        font-weight: 500;
-        font-size: 24px;
+        color: #556677;
+        font-weight: normal;
         .logo-img {
           width: 36px;
           height: 51px;

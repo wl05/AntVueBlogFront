@@ -1,15 +1,12 @@
 <template>
-  <div class="index" :style="bagStyle">
+  <div class="index">
     <Spin v-if="getArticlesByCategoryLoading"/>
-
     <div v-else class="category-item-list-container">
       <div class="no-data" v-if="noData">
         暂无数据
       </div>
-
       <timeline timeline-theme="rgba(0,0,0,0.3)" v-else>
         <timeline-title font-color="#555" class="key">{{$route.query.name}} 分类</timeline-title>
-
         <timeline-item
           v-for="(item, key) in articles"
           :key="key"
@@ -23,6 +20,15 @@
           </a>
         </timeline-item>
       </timeline>
+      <el-pagination
+        v-if="count>pageLimit"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page.sync="pageSize"
+        :page-size="pageLimit"
+        layout="total, prev, pager, next"
+        :total="count"
+      />
     </div>
   </div>
 </template>
@@ -30,7 +36,6 @@
 <script>
 import { getArticlesByCategory } from '@/api/article'
 import Spin from '@/components/Spin'
-import { randomNumImg, randomNum } from '@/utils/randomNumImg'
 import { Timeline, TimelineItem, TimelineTitle } from 'vue-cute-timeline'
 
 export default {
@@ -38,8 +43,15 @@ export default {
     return {
       getArticlesByCategoryLoading: false,
       articles: [],
-      noData: false
+      noData: false,
+      count: 0,
+      pageLimit: 10,
+      pageSize: 1
     }
+  },
+  beforeRouteUpdate (to, from, next) {
+    next()
+    this.getArticlesByCategory()
   },
   components: {
     Timeline,
@@ -47,16 +59,10 @@ export default {
     TimelineTitle,
     Spin
   },
-  computed: {
-    bagStyle: function () {
-      return randomNumImg(randomNum())
-    }
-  },
-  created () {
+  mounted () {
     this.getArticlesByCategory()
   },
   methods: {
-
     formatYearAndDate (timestamp) {
       const add0 = (m) => {
         return m < 10 ? '0' + m : m
@@ -73,37 +79,44 @@ export default {
     async getArticlesByCategory () {
       this.getArticlesByCategoryLoading = true
       try {
-        console.log(this.$route.params.id)
-        const result = await getArticlesByCategory(this.$route.params.id)
+        const result = await getArticlesByCategory(this.$route.params.id, this.pageSize, this.pageLimit)
         this.getArticlesByCategoryLoading = false
         if (result.data.code) {
           this.$message.error('获取列表失败')
         } else {
-          this.articles = result.data.data
+          this.articles = result.data.data.article
           this.noData = !(this.articles.length > 0)
+          this.count = result.data.data.count
+          console.log(this.articles)
         }
       } catch (e) {
+        console.log(e)
         this.getArticlesByCategoryLoading = false
         this.$message.error('出错了')
       }
-    }
+    },
+    handleSizeChange (val) {
+      this.pageLimit = val
+      this.getArticlesByCategory()
+    },
+    handleCurrentChange (val) {
+      this.pageSize = val
+      this.getArticlesByCategory()
+    },
   }
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   .index {
-    height: 100vh;
-    overflow: scroll;
-    padding-top: 45px;
     box-sizing: border-box;
+    padding-top: 30px;
     .category-item-list-container {
       border-radius: 5px;
-      background: rgba(255, 255, 255, 0.9);
       margin-bottom: 60px;
       padding: 40px;
       max-width: 800px;
-      margin: 30px auto;
+      margin: 0px auto;
       .no-data {
         text-align: center;
         font-size: 16px;

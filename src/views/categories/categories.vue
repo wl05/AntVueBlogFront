@@ -1,5 +1,5 @@
 <template>
-  <div class="index" :style="bagStyle">
+  <div class="index">
     <Spin v-if="listLoading"/>
     <div v-else class="category-container-wrap">
       <div class="category-container">
@@ -7,11 +7,15 @@
           Categories
         </h1>
         <p class="count">
-          目前共 {{animatedNumber}} 个分类
+          目前共 {{count}} 个分类
         </p>
         <ul class="items">
-          <li v-for="(item,index) in list" :key="index" class="item"
-              @click="$router.push({path: `/categories/${item._id}`,query:{name:item.name}})">
+          <li
+            v-for="(item,index) in list"
+            :key="index"
+            class="item"
+            @click="$router.push({path: `/categories/${item._id}`,query:{name:item.name}})"
+          >
             <a>{{item.name}}</a>
             (<span>{{item.total}}</span>)
           </li>
@@ -38,15 +42,6 @@ export default {
   },
   created () {
     this.countCategotres()
-  },
-  computed: {
-    bagStyle: function () {
-      // return randomNumImg(randomNum())
-      return ''
-    },
-    animatedNumber () {
-      return this.count.toFixed(0)
-    }
   },
   watch: {
     list (newValue) {

@@ -8,7 +8,10 @@
         class="categories__item"
       >
         »
-        <a class="categories__info" @click="$router.push({ path: `/category/${item._id}` })">
+        <a
+          class="categories__info"
+          @click="$router.push({ path: `/categories/${item._id}`,query:{name: item.name} })"
+        >
           {{ item.name }} ({{item.total}})
         </a>
       </li>
