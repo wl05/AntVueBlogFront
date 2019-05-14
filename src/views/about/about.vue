@@ -26,34 +26,12 @@
 </template>
 <script>
 import avatarUrl from '@/assets/about.jpeg'
-import debounce from '@/utils/debounce'
 
 export default {
   data () {
     return {
       avatarUrl
     }
-  },
-  methods: {
-    scroll (e) {
-      let scrollTop = e.target.scrollTop
-      if (!this.scrollTop) this.scrollTop = scrollTop
-
-      if (scrollTop - this.scrollTop > 60) {
-        this.animationClass = 'slideUp'
-        this.scrollTop = scrollTop
-      }
-      if (scrollTop - this.scrollTop < -60) {
-        this.animationClass = 'slideDown'
-        this.scrollTop = scrollTop
-      }
-    }
-  },
-  destroyed () {
-    document.removeEventListener('scroll', this.scroll)
-  },
-  created () {
-    document.addEventListener('scroll', debounce((e) => this.scroll(e), 100), true)
   }
 }
 </script>

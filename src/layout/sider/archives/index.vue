@@ -16,7 +16,6 @@
           {{ item._id}} ({{item.count}})
         </a>
       </li>
-
     </ul>
   </div>
 </template>
@@ -39,6 +38,7 @@ export default {
     border: 1px solid #d3d3d3;;
     .archives__title {
       font-size: 20px;
+
     }
     .archives__items-container {
       margin: 0;

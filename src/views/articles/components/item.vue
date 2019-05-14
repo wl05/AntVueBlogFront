@@ -63,7 +63,7 @@ export default {
       vertical-align: top;
       font-size: 18px;
       cursor: pointer;
-      color: #000;
+      color: #556677;
     }
     .title:hover {
       color: rgba(0, 0, 0, 0.9);

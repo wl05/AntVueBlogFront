@@ -49,10 +49,10 @@ export default {
         return m < 10 ? '0' + m : m
       }
       const format = (timestamps) => {
-        var time = new Date(parseInt(timestamps) * 1000)
-        var y = time.getFullYear()
-        var m = time.getMonth() + 1
-        var d = time.getDate()
+        let time = new Date(parseInt(timestamps) * 1000)
+        const y = time.getFullYear()
+        const m = time.getMonth() + 1
+        const d = time.getDate()
         return `${y}-${add0(m)}-${add0(d)}`
       }
       return format(timestamp)
@@ -60,7 +60,6 @@ export default {
     async getArticlesByTag () {
       this.getArticlesByTagLoading = true
       try {
-        console.log(this.$route.params.id)
         const result = await getArticlesByTag(this.$route.params.id)
         this.getArticlesByTagLoading = false
         if (result.data.code) {
@@ -80,15 +79,11 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   .index {
-    height: 100vh;
-    overflow: scroll;
-    padding-top: 45px;
     box-sizing: border-box;
     .tags-item-list-container {
       border-radius: 5px;
-      background: rgba(255, 255, 255, 0.9);
       margin-bottom: 60px;
-      padding: 40px;
+      padding: 0 40px;
       max-width: 800px;
       margin: 30px auto;
       .no-data {

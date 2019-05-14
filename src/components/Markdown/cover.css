@@ -4,7 +4,7 @@
 }
 
 .markdown-body img {
-  /*border-radius: 10px;*/
+  border-radius: 15px;
   margin: 0 auto;
   display: block;
   border: 5px solid #e0dfcc;
@@ -12,4 +12,5 @@
 
 .markdown-body pre {
   border: 5px solid #e0dfcc;
+  border-radius: 15px;
 }

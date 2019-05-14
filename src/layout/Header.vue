@@ -72,9 +72,7 @@
       </div>
     </div>
   </div>
-
 </template>
-
 <script>
 
 export default {
@@ -117,20 +115,20 @@ export default {
         height: 50px;
         display: inline-block;
         line-height: 50px;
+        color: #828282;
       }
       .menu-item-text:hover {
-        color: #000;
+        color: #828282;
       }
       .activeClass {
         background: rgba(255, 255, 255, 0.4);
-        color: #000;
+        color: #828282;
       }
       .blog-title-container {
         cursor: pointer;
         font-size: 24px;
         display: flex;
         align-items: center;
-        color: #556677;
         font-weight: normal;
         .logo-img {
           width: 36px;
