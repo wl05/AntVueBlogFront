@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [ {
     path: '/',
-    name: 'HelloWorld',
+    name: 'ArticlesList',
     component: () =>
       import('@/views/articles/list')
   },
@@ -61,3 +61,8 @@ export default new Router({
   
   ]
 })
+router.afterEach((to, from, next) => {
+  window.scrollTo(0, 0)
+})
+
+export default router

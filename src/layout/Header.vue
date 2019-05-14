@@ -113,7 +113,7 @@ export default {
       .menu-item-text {
         text-decoration: none;
         padding: 0 15px;
-        font-size: 18px;
+        font-size: 16px;
         height: 50px;
         display: inline-block;
         line-height: 50px;
@@ -122,7 +122,7 @@ export default {
         color: #000;
       }
       .activeClass {
-        background: #fff;
+        background: rgba(255, 255, 255, 0.4);
         color: #000;
       }
       .blog-title-container {

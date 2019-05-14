@@ -28,7 +28,6 @@
       <div class="pagination">
         <el-pagination
           v-if="count>pageLimit"
-          @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           :current-page.sync="pageSize"
           :page-size="pageLimit"
@@ -69,23 +68,24 @@ export default {
     }
   },
   mounted () {
-    this.fetchArticle(this.pageSize, this.pageLimit)
+    const pageSize = this.$route.query.pageSize ? this.$route.query.pageSize : 1
+    this.fetchArticle(pageSize, this.pageLimit)
+  },
+  beforeRouteUpdate (to, from, next) {
+    const pageSize = to.query.pageSize
+    this.fetchArticle(pageSize, this.pageLimit)
+    next()
   },
   methods: {
-    handleSizeChange (val) {
-      this.pageLimit = val
-      this.fetchArticle(this.pageSize, val)
-    },
     handleCurrentChange (val) {
-      this.pageSize = val
-      this.fetchArticle(val, this.pageLimit)
+      this.$router.push({path: '/archives', query: {pageSize: val}})
     },
     formatArticles (articles) {
       for (let article of articles) {
         article.year = formatYearAndDate(Number(article.publishAt) / 1000)[ 0 ]
         article.date = formatYearAndDate(Number(article.publishAt) / 1000)[ 1 ]
       }
-      let data = []
+      const data = []
       try {
         for (let i = 0; i < articles.length; i++) {
           let existValue = data.find((val) => val.year === articles[ i ].year)
@@ -121,8 +121,11 @@ export default {
         if (result.data.code) {
           this.$message.error('获取列表失败')
         } else {
-          this.articles = result.data.data.article
-          this.count = result.data.data.count
+          const {article, count, pageSize, pageLimit} = result.data.data
+          this.articles = article
+          this.count = count
+          this.pageSize = pageSize
+          this.pageLimit = pageLimit
         }
       } catch (e) {
         this.fetchArticleLoading = false
@@ -139,7 +142,7 @@ export default {
     box-sizing: border-box;
     .archives-list-container {
       border-radius: 5px;
-      padding: 40px;
+      padding: 0 40px 40px;
       max-width: 800px;
       margin: 0px auto;
       .key {

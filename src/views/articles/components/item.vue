@@ -5,29 +5,30 @@
       {{article.title}}
     </a>
     <div class="date-tag">
-            <span class="icon fa fa-calendar">
-                <span class="publish-date">{{formatTimestamp(Number(article.publishAt)/1000)}}</span>
-            </span>
+      <span class="icon fa fa-calendar">
+        <span class="publish-date">{{formatTimestamp(Number(article.publishAt)/1000)}}</span>
+      </span>
       <span class="post-meta-divider">|</span>
       <span class="icon fa fa-envelope">
-                <a class="category"
-                   @click="$router.push({path: `/categories/${article.category}`,query:{name:article.category_detail.name}})"
-                >{{article.category_detail.name}}</a>
-            </span>
+        <a class="category"
+           @click="$router.push({path: `/categories/${article.category}`,query:{name:article.category_detail.name}})"
+        >
+          {{article.category_detail.name}}
+        </a>
+      </span>
       <span class="tagIcon post-meta-divider">|</span>
       <span class="tagIcon icon fa fa-tags">
-                <a
-                  class="tag"
-                  @click="$router.push({ path:`/tags/${article.tag}` })"
-                >
-                    {{article.tag_detail.name}}
-                </a>
-            </span>
+        <a
+          class="tag"
+          @click="$router.push({ path:`/tags/${article.tag}` })"
+        >
+            {{article.tag_detail.name}}
+        </a>
+      </span>
       <span class="post-meta-divider">|</span>
       <span class="fa fa-eye">阅读次数 {{article.viewCount}}</span>
       <a class="read-more" @click="$router.push({name:'Detail',params:{id:article._id}})">阅读全文 »</a>
     </div>
-    <!--<hr class="divider-line"/>-->
   </div>
 </template>
 
@@ -60,8 +61,7 @@ export default {
       border-bottom: none;
       line-height: 1.2;
       vertical-align: top;
-      font-size: 20px;
-      /*font-weight: 400;*/
+      font-size: 18px;
       cursor: pointer;
       color: #000;
     }
@@ -74,6 +74,7 @@ export default {
         margin: 0 5px;
       }
       font-size: 12px;
+      color: #828282;
       .publish-date, .tag, .category {
         font-size: 12px;
         cursor: pointer;

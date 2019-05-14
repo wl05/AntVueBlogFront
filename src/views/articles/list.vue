@@ -10,7 +10,6 @@
       <div id="articlePaginationId">
         <el-pagination
           v-if="count>pageLimit"
-          @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           :current-page.sync="pageSize"
           :page-size="pageLimit"
@@ -27,6 +26,7 @@ import { fetchArticle } from '@/api/article'
 import formatTimestamp from '@/utils/formatTimestamp'
 import item from './components/item'
 import Spin from '@/components/Spin'
+
 export default {
   data () {
     return {
@@ -42,28 +42,21 @@ export default {
     item,
     Spin
   },
-  created () {
-    this.fetchArticle(this.pageSize, this.pageLimit)
+  mounted () {
+    const pageSize = this.$route.query.pageSize ? this.$route.query.pageSize : 1
+    this.fetchArticle(pageSize, this.pageLimit)
   },
-  computed: {
-    bagStyle: function () {
-      return ''
-      // return randomNumImg(randomNum())
-    }
+  beforeRouteUpdate (to, from, next) {
+    const pageSize = to.query.pageSize
+    this.fetchArticle(pageSize, this.pageLimit)
+    next()
   },
   methods: {
     formatTimestamp (timestamp) {
       return formatTimestamp(timestamp)
     },
-    handleSizeChange (val) {
-      this.pageLimit = val
-      this.fetchArticle(this.pageSize, val)
-      console.log(`每页 ${val} 条`)
-    },
     handleCurrentChange (val) {
-      this.pageSize = val
-      this.fetchArticle(val, this.pageLimit)
-      console.log(`当前页: ${val}`)
+      this.$router.push({path: '/', query: {pageSize: val}})
     },
     async fetchArticle (pageSize, pageLimit) {
       this.fetchArticleLoading = true
@@ -73,9 +66,11 @@ export default {
         if (result.data.code) {
           this.$message.error('获取列表失败')
         } else {
-          console.log(result.data.data.article)
-          this.articles = result.data.data.article
-          this.count = result.data.data.count
+          const {article, count, pageSize, pageLimit} = result.data.data
+          this.articles = article
+          this.count = count
+          this.pageSize = pageSize
+          this.pageLimit = pageLimit
         }
       } catch (e) {
         this.fetchArticleLoading = false

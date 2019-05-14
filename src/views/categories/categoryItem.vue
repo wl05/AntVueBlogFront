@@ -22,7 +22,6 @@
       </timeline>
       <el-pagination
         v-if="count>pageLimit"
-        @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page.sync="pageSize"
         :page-size="pageLimit"
@@ -49,18 +48,20 @@ export default {
       pageSize: 1
     }
   },
-  beforeRouteUpdate (to, from, next) {
-    next()
-    this.getArticlesByCategory()
-  },
   components: {
     Timeline,
     TimelineItem,
     TimelineTitle,
     Spin
   },
+  beforeRouteUpdate (to, from, next) {
+    const pageSize = to.query.pageSize ? to.query.pageSize : 1
+    this.getArticlesByCategory(to.params.id, pageSize, this.pageLimit)
+    next()
+  },
   mounted () {
-    this.getArticlesByCategory()
+    const pageSize = this.$route.query.pageSize ? this.$route.query.pageSize : 1
+    this.getArticlesByCategory(this.$route.params.id, pageSize, this.pageLimit)
   },
   methods: {
     formatYearAndDate (timestamp) {
@@ -68,18 +69,18 @@ export default {
         return m < 10 ? '0' + m : m
       }
       const format = (timestamps) => {
-        var time = new Date(parseInt(timestamps) * 1000)
-        var y = time.getFullYear()
-        var m = time.getMonth() + 1
-        var d = time.getDate()
+        let time = new Date(parseInt(timestamps) * 1000)
+        const y = time.getFullYear()
+        const m = time.getMonth() + 1
+        const d = time.getDate()
         return `${y}-${add0(m)}-${add0(d)}`
       }
       return format(timestamp)
     },
-    async getArticlesByCategory () {
+    async getArticlesByCategory (id, pageSize, pageLimit) {
       this.getArticlesByCategoryLoading = true
       try {
-        const result = await getArticlesByCategory(this.$route.params.id, this.pageSize, this.pageLimit)
+        const result = await getArticlesByCategory(id, pageSize, pageLimit)
         this.getArticlesByCategoryLoading = false
         if (result.data.code) {
           this.$message.error('获取列表失败')
@@ -87,6 +88,8 @@ export default {
           this.articles = result.data.data.article
           this.noData = !(this.articles.length > 0)
           this.count = result.data.data.count
+          this.pageSize = result.data.data.pageSize
+          this.pageLimit = result.data.data.pageLimit
         }
       } catch (e) {
         console.log(e)
@@ -94,13 +97,8 @@ export default {
         this.$message.error('出错了')
       }
     },
-    handleSizeChange (val) {
-      this.pageLimit = val
-      this.getArticlesByCategory()
-    },
     handleCurrentChange (val) {
-      this.pageSize = val
-      this.getArticlesByCategory()
+      this.$router.push({path: `/categories/${this.$route.params.id}`, query: {pageSize: val}})
     },
   }
 }

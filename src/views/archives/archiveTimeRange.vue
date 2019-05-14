@@ -28,7 +28,6 @@
       <div class="pagination">
         <el-pagination
           v-if="count>pageLimit"
-          @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           :current-page.sync="pageSize"
           :page-size="pageLimit"
@@ -69,27 +68,24 @@ export default {
     }
   },
   beforeRouteUpdate (to, from, next) {
+    const pageSize = to.query.pageSize ? to.query.pageSize : 1
+    this.getArticlesByArchives(pageSize, this.pageLimit, to.params.timeline)
     next()
-    this.getArticlesByArchives(1, 15, this.$route.params.timeline)
   },
   mounted () {
-    this.getArticlesByArchives(this.pageSize, this.pageLimit, this.$route.params.timeline)
+    const pageSize = this.$route.query.pageSize ? this.$route.query.pageSize : 1
+    this.getArticlesByArchives(pageSize, this.pageLimit, this.$route.params.timeline)
   },
   methods: {
-    handleSizeChange (val) {
-      this.pageLimit = val
-      this.getArticlesByArchives(this.pageSize, val, this.$route.params.timeline)
-    },
     handleCurrentChange (val) {
-      this.pageSize = val
-      this.getArticlesByArchives(val, this.pageLimit, this.$route.params.timeline)
+      this.$router.push({path: `/archive/${this.$route.params.timeline}`, query: {pageSize: val}})
     },
     formatArticles (articles) {
       for (let article of articles) {
         article.year = formatYearAndDate(Number(article.publishAt) / 1000)[ 0 ]
         article.date = formatYearAndDate(Number(article.publishAt) / 1000)[ 1 ]
       }
-      let data = []
+      const data = []
       try {
         for (let i = 0; i < articles.length; i++) {
           let existValue = data.find((val) => val.year === articles[ i ].year)
@@ -125,8 +121,11 @@ export default {
         if (result.data.code) {
           this.$message.error('获取列表失败')
         } else {
-          this.articles = result.data.data.article
-          this.count = result.data.data.count
+          const {article, count, pageSize, pageLimit} = result.data.data
+          this.articles = article
+          this.count = count
+          this.pageSize = pageSize
+          this.pageLimit = pageLimit
         }
       } catch (e) {
         this.getArticlesByArchivesLoading = false

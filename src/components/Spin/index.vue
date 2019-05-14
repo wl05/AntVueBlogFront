@@ -1,5 +1,5 @@
 <template>
-  <div class="spin-container" :style="height + 'px'">
+  <div class="spin-container" :style="`height:${height}px`">
     <i class="el-icon-loading" size="large"></i>
   </div>
 
@@ -10,7 +10,7 @@ export default {
   props: {
     height: {
       type: Number,
-      default: 400
+      default: 200
     }
   }
 
@@ -23,6 +23,6 @@ export default {
     width: 100%;
     justify-content: center;
     align-items: center;
-    min-height: 400px;
+    /*min-height: 400px;*/
   }
 </style>

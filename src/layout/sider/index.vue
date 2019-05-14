@@ -38,11 +38,18 @@ export default {
     box-sizing: border-box;
     .sider__left {
       float: left;
-      width: 45%;
+      width: 49%;
     }
     .sider__right {
       float: right;
-      width: 45%;
+      width: 49%;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .sider {
+      padding: 0;
+      width: 100%;
     }
   }
 
@@ -57,13 +64,6 @@ export default {
         float: none;
         width: 100%;
       }
-    }
-  }
-
-  @media (max-width: 960px) {
-    .sider {
-      padding: 0;
-      width: 100%;
     }
   }
 
