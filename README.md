@@ -2,7 +2,7 @@
 
 > Vue.js+Egg.js+Mongodb的前后端分离的个人博客。
 
-> 博客地址：[ANT](http://120.77.219.106:8080/) （博客已经更新为ssr渲染，重构了前端页面）
+> 博客地址:[ANT](http://120.77.219.106) （ssr渲染参考[AntVueBlogFrontSSR](https://github.com/antbaobao/AntVueBlogFrontSSR)）
 
 ## 主要技术栈
 
@@ -113,10 +113,4 @@ npm run dev
 ├─test
 └─static            静态文件
 ```
-
-
-### TODO
-- 服务端渲染(SSR)
-- 很多细节需要优化，有空再继续撸
-(完)
 
