@@ -87,7 +87,6 @@ export default {
       return formatTimestamp(timestamp)
     },
     async getArticleDetail (id) {
-      console.log('------', id)
       this.getArticleDetailLoading = true
       try {
         const result = await getArticleDetail(id)

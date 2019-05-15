@@ -17,6 +17,12 @@ const router = new Router({
         import('@/views/articles/detail')
     },
     {
+      path: '/article/keywords',
+      name: 'SearchResult',
+      component: () =>
+        import('@/views/articles/searchResult')
+    },
+    {
       path: '/about',
       name: 'AboutMe',
       component: () =>

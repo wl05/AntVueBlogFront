@@ -38,8 +38,22 @@
       </a>
 
       <div class="menu-container">
+        <el-input
+          placeholder="请输入内容"
+          v-model="keywords"
+          clearable
+          size="small"
+          class="menu-container__search"
+          @keyup.enter.native="goToSearchResultPage"
+        >
+          <el-button
+            slot="append"
+            icon="el-icon-search"
+            @click.native="goToSearchResultPage"
+          ></el-button>
+        </el-input>
         <el-menu
-          class="el-menu-demo"
+          class="el-menu-container"
           mode="horizontal"
           :default-active="index"
           @select="handleSelect"
@@ -81,7 +95,8 @@ export default {
     return {
       tabPosition: 'top',
       index: '',
-      activeIndex: '1'
+      activeIndex: '1',
+      keywords: ''
     }
   },
   methods: {
@@ -91,6 +106,19 @@ export default {
     },
     goToHome () {
       window.location = '/'
+    },
+    goToSearchResultPage () {
+      if (!this.keywords) {
+        return this.$router.push({path: '/'})
+      }
+      this.$router.push({path: '/article/keywords', query: {s: this.keywords}})
+    }
+  },
+  updated () {
+    const path = window.location.pathname
+    const navRoutes = [ '/categories', '/archives', '/tags', '/about' ]
+    if (navRoutes.indexOf(path) === -1) {
+      this.index = ''
     }
   },
   mounted () {
@@ -98,7 +126,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped rel="stylesheet/scss">
+<style lang="scss" rel="stylesheet/scss">
   .header-container-wrap {
     .header-container {
       display: flex;
@@ -108,6 +136,29 @@ export default {
       align-items: center;
       justify-content: space-between;
       height: 50px;
+      .menu-container {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+      }
+      .el-menu-container {
+        min-width: 368px;
+      }
+      .menu-container__search {
+        margin-right: 20px;
+        .el-input__inner {
+          background-color: transparent;
+        }
+        .el-input__inner:focus {
+          border-color: #dcdfe6;
+        }
+        .el-input-group__append {
+          background: transparent;
+        }
+      }
+      .el-menu {
+        background-color: transparent;
+      }
       .menu-item-text {
         text-decoration: none;
         padding: 0 15px;
@@ -170,6 +221,7 @@ export default {
       .header-container-wrap .header-container {
         background-color: transparent;
       }
+
     }
 
     @media screen and (max-width: 768px) {

@@ -26,7 +26,9 @@
         </a>
       </span>
       <span class="post-meta-divider">|</span>
-      <span class="fa fa-eye">阅读次数 {{article.viewCount}}</span>
+      <span class="fa fa-eye">
+        <span class="viewCount">阅读次数 {{article.viewCount}}</span>
+      </span>
       <a class="read-more" @click="$router.push({name:'Detail',params:{id:article._id}})">阅读全文 »</a>
     </div>
   </div>
@@ -34,7 +36,6 @@
 
 <script>
 import formatTimestamp from '@/utils/formatTimestamp'
-import animation from '@/utils/animation'
 
 export default {
   props: {
@@ -65,9 +66,6 @@ export default {
       cursor: pointer;
       color: #556677;
     }
-    .title:hover {
-      color: rgba(0, 0, 0, 0.9);
-    }
     .date-tag {
       .post-meta-divider {
         color: rgba(0, 0, 0, 0.6);
@@ -79,7 +77,7 @@ export default {
         font-size: 12px;
         cursor: pointer;
       }
-      .publish-date, .tag, .category {
+      .publish-date, .tag, .category, .viewCount {
         margin-left: 5px;
       }
     }
