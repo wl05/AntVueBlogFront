@@ -83,11 +83,13 @@
             </a>
           </el-menu-item>
         </el-menu>
+        <!--<PcMenu/>-->
       </div>
     </div>
   </div>
 </template>
 <script>
+import PcMenu from './PcMenu'
 
 export default {
   name: 'Header',
@@ -98,6 +100,9 @@ export default {
       activeIndex: '1',
       keywords: ''
     }
+  },
+  components: {
+    PcMenu
   },
   methods: {
     handleSelect (key) {
