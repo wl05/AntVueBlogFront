@@ -114,3 +114,18 @@ npm run dev
 └─static            静态文件
 ```
 
+## 部署
+
+部署流程可以参考[使用docker部署网站](https://github.com/antbaobao/AntBlog/issues/20)
+
+## [0.81] - 2019-05-15
+### Added
+- 新增了全文检索功能
+
+### Changed
+- 重构了整个前端页面，包括页面背景，首页布局。
+
+### Fixed
+- 修复了路由跳转的bug
+
+
