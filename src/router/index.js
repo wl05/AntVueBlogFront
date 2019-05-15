@@ -4,12 +4,13 @@ import Router from 'vue-router'
 Vue.use(Router)
 const router = new Router({
   mode: 'history',
-  routes: [ {
-    path: '/',
-    name: 'ArticlesList',
-    component: () =>
-      import('@/views/articles/list')
-  },
+  routes: [
+    {
+      path: '/',
+      name: 'ArticlesList',
+      component: () =>
+        import('@/views/articles/list')
+    },
     {
       path: '/article/detail/:id',
       name: 'Detail',
@@ -63,12 +64,8 @@ const router = new Router({
       name: 'ArchiveTimeline',
       component: () =>
         import('@/views/archives/archiveTimeRange')
-    },
-  
+    }
   ]
-})
-router.afterEach((to, from, next) => {
-  window.scrollTo(0, 0)
 })
 
 export default router
