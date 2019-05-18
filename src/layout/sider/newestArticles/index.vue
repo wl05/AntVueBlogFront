@@ -35,21 +35,22 @@ export default {
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #d3d3d3;;
-    .newest-articles__title {
+    &__title {
       font-size: 20px;
+      color: #567;
     }
-    .newest-articles__items-container {
+    &__items-container {
       margin: 0;
       padding: 0;
-      .newest-articles__item {
-        padding: 5px;
-        list-style-type: none;
-        color: #828282;
-        font-size: 0.9em;
-      }
-      .newest-articles__item:hover {
-        cursor: pointer;
-      }
+    }
+    &__item {
+      padding: 5px;
+      list-style-type: none;
+      color: #828282;
+      font-size: 0.9em;
+    }
+    &__item:hover {
+      cursor: pointer;
     }
   }
 

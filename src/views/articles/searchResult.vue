@@ -1,13 +1,17 @@
 <template>
-  <div class="index">
+  <div class="articles-result">
     <Spin v-if="getArticlesByKeywordsLoading"/>
-    <div v-else class="articles-list-container" ref="articles-list-container">
+    <div
+      v-else
+      class="articles-result__container"
+      ref="articles-list-container"
+    >
       <item
         v-for="(item) in articles"
         :key="item._id"
         :article="item"
       />
-      <div id="articlePaginationId">
+      <div id="article-pagination-id">
         <el-pagination
           v-if="count>pageLimit"
           @current-change="handleCurrentChange"
@@ -82,9 +86,9 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .index {
+  .articles-result {
     box-sizing: border-box;
-    .articles-list-container {
+    &__container {
       border-radius: 5px;
       margin-bottom: 60px;
       padding: 40px;
@@ -94,13 +98,13 @@ export default {
   }
 
   @media screen and (max-width: 768px) {
-    .index {
+    .articles-result {
       padding-top: 31px;
-      .articles-list-container {
+      &__container {
         padding: 10px;
         border-radius: 0;
       }
-      #articlePaginationId {
+      #article-pagination-id {
         overflow: scroll;
       }
     }

@@ -1,8 +1,8 @@
 <template>
-  <div class="index">
+  <div class="tag-item">
     <Spin v-if="getArticlesByTagLoading"/>
-    <div v-else class="tags-item-list-container">
-      <div class="no-data" v-if="noData">
+    <div v-else class="tags-item__container">
+      <div class="tags-item__no-data" v-if="noData">
         暂无数据
       </div>
       <timeline v-else timeline-theme="rgba(0,0,0,0.3)">
@@ -11,9 +11,9 @@
           v-for="(item, key) in articles"
           :key="key"
         >
-          <a @click="$router.push({name:'Detail',params:{id:item._id}})" class="timeline-item-container">
-            <span class="date">{{formatYearAndDate(Number(item.publishAt)/1000)}}</span>
-            <span class="title">{{item.title}}</span>
+          <a @click="$router.push({name:'Detail',params:{id:item._id}})" class="tags-item__timeline-item-container">
+            <span class="tags-item__date">{{formatYearAndDate(Number(item.publishAt)/1000)}}</span>
+            <span class="tags-item__title">{{item.title}}</span>
           </a>
         </timeline-item>
       </timeline>
@@ -40,7 +40,7 @@ export default {
     TimelineTitle,
     Spin
   },
-  created () {
+  mounted () {
     this.getArticlesByTag()
   },
   methods: {
@@ -78,46 +78,44 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .index {
+  .tag-item {
     box-sizing: border-box;
-    .tags-item-list-container {
+    .tags-item__container {
       border-radius: 5px;
       margin-bottom: 60px;
       padding: 0 40px;
       max-width: 800px;
       margin: 30px auto;
-      .no-data {
-        text-align: center;
-        font-size: 16px;
-      }
-      .timeline-item:hover {
-        cursor: pointer;
-
-      }
-      .timeline-item-container {
-        .date {
-          margin-right: 15px;
-          font-size: 12px;
-          color: #282828;
-        }
-        .title {
-          font-size: 16px;
-          font-weight: 400;
-          color: #333;
-        }
-      }
-
+    }
+    .tags-item__no-data {
+      text-align: center;
+      font-size: 16px;
+    }
+    .tags-item__timeline-item:hover {
+      cursor: pointer;
+    }
+    .tags-item__date {
+      margin-right: 15px;
+      font-size: 12px;
+      color: #282828;
+    }
+    .tags-item__title {
+      font-size: 16px;
+      font-weight: 400;
+      color: #333;
+    }
+    .tags-item__timeline-item-container:hover {
+      cursor: pointer;
     }
   }
 
   @media screen and (max-width: 768px) {
-    .index {
+    .tag-item {
       padding-top: 31px;
-      .tags-item-list-container {
+      .tags-item__container {
         padding: 40px 10px;
         border-radius: 0px;
       }
-
     }
   }
 </style>

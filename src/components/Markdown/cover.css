@@ -1,6 +1,6 @@
 .markdown-body {
   color: #828282;
-  text-align: justify;
+  /*text-align: justify;*/
 }
 
 .markdown-body img {
@@ -13,4 +13,28 @@
 .markdown-body pre {
   border: 5px solid #e0dfcc;
   border-radius: 15px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: #333333;
+  font-weight: 500;
+}
+
+.markdown-body code {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+  /*font-size: 1;*/
+  background-color: pink;
+  border-radius: 5px;
+  margin: auto 3px;
+}
+
+.markdown-body pre {
+  background-color: #f5f2f0;
 }

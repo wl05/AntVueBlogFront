@@ -19,11 +19,11 @@
     border: 1px solid #d3d3d3;
     color: #828282;
     font-size: 14px;
-    .profile__title {
+    &__title {
       font-size: 20px;
       display: none;
     }
-    .profile__photo {
+    &__photo {
       width: 90px;
       height: 110px;
       float: left;
@@ -31,7 +31,15 @@
       border-radius: 5px;
       margin-right: 10px;
     }
-    .profile__school {
+    &__school {
+      color: #34495e;
+      text-decoration: none;
+    }
+    &__info {
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    &__github {
       color: #34495e;
       text-decoration: none;
     }
@@ -43,21 +51,11 @@
     clear: both;
   }
 
-  .profile__info {
-    font-size: 0.9em;
-    line-height: 1.5;
-  }
-
-  .profile__github {
-    color: #34495e;
-    text-decoration: none;
-  }
-
   @media (max-width: 960px) {
     .profile {
       margin-top: 45px;
       box-shadow: none;
-      .profile__title {
+      &__title {
         display: block;
       }
     }

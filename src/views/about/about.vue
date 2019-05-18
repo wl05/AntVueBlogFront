@@ -1,23 +1,23 @@
 <template lang="html">
-  <div class="index">
-    <div class="about-container-wrap">
-      <div class="about-container">
-        <!--<img class="avatar" width="100" height="100" :src="avatarUrl"/>-->
-        <p class="poem">
-          <span class="icon fa fa-qq"></span>
-          <span class="info">2929712050@qq.com</span>
+  <div class="about">
+    <div class="about__wrap">
+      <div class="about__container">
+        <p class="about__info">
+          <span class="about__icon fa fa-qq"></span>
+          <span class="about__info-text">2929712050@qq.com</span>
         </p>
-        <p class="poem">
-          <span class="icon fa fa-github"></span>
-          <a class="github-url info" href="https://github.com/antbaobao">https://github.com/antbaobao</a>
+        <p class="about__info">
+          <span class="about__icon fa fa-github"></span>
+          <a class="about__github-url about__info-text"
+             href="https://github.com/antbaobao">https://github.com/antbaobao</a>
         </p>
-        <p class="poem">
+        <p class="about__info">
           抱着学习的心态工作，充实自己，提升自己，目标明确，方向清晰。
         </p>
-        <p class="poem">
+        <p class="about__info">
           保持对工作的热忱，对新事物的好奇，砥砺前行！
         </p>
-        <p class="poem">目前在工作中使用的技术栈主要包括:
+        <p class="about__info">目前在工作中使用的技术栈主要包括:
           react、react native、vue、nodejs、koa、egg、mongo等。
         </p>
       </div>
@@ -36,72 +36,54 @@ export default {
 }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .index {
+  .about {
     box-sizing: border-box;
-    .about-container-wrap {
+    &__wrap {
       width: 100%;
-      .about-container {
-        margin: 30px auto;
-        padding: 40px;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 300px;
-        transition: box-shadow 1s;
-        .about-item-container {
-          padding-left: 30px;
-          .about-item {
-            padding: 10px;
-            .icon {
-              margin-right: 10px;
-            }
-            .github-url {
-              color: rgba(0, 0, 0, 1);
-              text-decoration: none
-            }
-          }
-        }
-        .poem {
-          line-height: 28px;
-          font-size: 12px;
-          padding: 10px;
-          font-family: FontAwesome;
-          width: 100%;
-          .info {
-            font-size: 14px;
-            color: #1b1f23;
-            text-decoration: none;
-          }
-        }
-        .avatar {
-          border-radius: 100%;
-          transition: transform 4s;
-        }
-        .avatar:hover {
-          transform: rotate(360deg);
-        }
-      }
-      .about-container:hover {
-        box-shadow: 0px 8px 8px #888888;
-      }
+    }
+    &__container {
+      margin: 30px auto;
+      padding: 40px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      transition: box-shadow 1s;
+    }
+    &__container:hover {
+      box-shadow: 0px 8px 8px #888888;
+    }
+    &__icon {
+      margin-right: 10px;
+    }
+    &__github-url {
+      color: rgba(0, 0, 0, 1);
+      text-decoration: none
+    }
+    &__info {
+      line-height: 28px;
+      font-size: 12px;
+      padding: 10px;
+      font-family: FontAwesome;
+      width: 100%;
+    }
+    &__info-text {
+      font-size: 14px;
+      color: #1b1f23;
+      text-decoration: none;
     }
   }
 
   @media screen and (max-width: 768px) {
-    .index {
+    .about {
       padding-top: 31px;
-      .about-container-wrap {
-        .about-container {
-          flex-direction: column;
-          align-items: center;
-          padding: 40px 10px;
-          border-radius: 0;
-          width: 100%;
-          .about-item-container {
-            margin-top: 30px;
-          }
-        }
+      &__container {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 10px;
+        border-radius: 0;
+        width: 100%;
       }
     }
   }

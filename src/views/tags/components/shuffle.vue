@@ -13,7 +13,6 @@
 
 <script>
 export default {
-
   props: [
     'list'
   ],

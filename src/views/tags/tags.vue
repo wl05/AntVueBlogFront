@@ -1,14 +1,14 @@
 <template>
-  <div class="index">
+  <div class="tags-wrap">
     <Spin v-if="listLoading"/>
-    <div class="tags-container">
-      <h1 class="title">
+    <div class="tags-wrap__container">
+      <h1 class="tags-wrap__title">
         Tagscloud
       </h1>
-      <p class="count">
+      <p class="tags-wrap__count">
         目前标签共 {{count}} 个标签
       </p>
-      <div class="items">
+      <div class="tags-wrap__items">
         <shuffle :list="list"/>
       </div>
     </div>
@@ -61,43 +61,43 @@ export default {
 </script>
 
 <style lang="scss" scoped rel="stylesheet/scss">
-  .index {
+  .tags-wrap {
     padding-top: 45px;
     box-sizing: border-box;
-    .tags-container {
+    &__container {
       max-width: 800px;
       margin: 0 auto;
       margin-top: 30px;
       border-radius: 5px;
       padding: 40px;
-      .count {
-        font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
-        text-align: center;
-      }
-      .items {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-        flex-wrap: wrap;
-      }
-      .title {
-        font-size: 26px;
-        font-weight: 400;
-        text-align: center;
-        padding: 20px;
-      }
+    }
+    &__count {
+      font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+      text-align: center;
+    }
+    &__items {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    &__title {
+      font-size: 26px;
+      font-weight: 400;
+      text-align: center;
+      padding: 20px;
     }
   }
 
   @media screen and (max-width: 768px) {
-    .index {
+    .tags-wrap {
       padding-top: 31px;
-      .tags-container {
+      &__container {
         padding: 40px 10px;
         border-radius: 0px;
-        .items {
-          flex-wrap: wrap;
-        }
+      }
+      &__items {
+        flex-wrap: wrap;
       }
     }
   }

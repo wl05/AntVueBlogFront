@@ -1,22 +1,22 @@
 <template>
-  <div class="index">
+  <div class="category-item">
     <Spin v-if="getArticlesByCategoryLoading"/>
-    <div v-else class="category-item-list-container">
-      <div class="no-data" v-if="noData">
+    <div v-else class="category-item__list-container">
+      <div class="category-item__no-data" v-if="noData">
         暂无数据
       </div>
       <timeline timeline-theme="rgba(0,0,0,0.3)" v-else>
-        <timeline-title font-color="#555" class="key">{{$route.query.name}} 分类</timeline-title>
+        <timeline-title font-color="#555" class="category-item__key">{{$route.query.name}} 分类</timeline-title>
         <timeline-item
           v-for="(item, key) in articles"
           :key="key"
         >
           <a
             @click="$router.push({name:'Detail',params:{id:item._id}})"
-            class="timeline-item-container"
+            class="category-item__timeline-item-container"
           >
-            <span class="date">{{formatYearAndDate(Number(item.publishAt)/1000)}}</span>
-            <span class="title">{{item.title}}</span>
+            <span class="category-item__date">{{formatYearAndDate(Number(item.publishAt)/1000)}}</span>
+            <span class="category-item__title">{{item.title}}</span>
           </a>
         </timeline-item>
       </timeline>
@@ -105,48 +105,44 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .index {
+  .category-item {
     box-sizing: border-box;
     padding-top: 30px;
-    .category-item-list-container {
+    &__list-container {
       border-radius: 5px;
       margin-bottom: 60px;
       padding: 40px;
       max-width: 800px;
       margin: 0px auto;
-      .no-data {
-        text-align: center;
-        font-size: 16px;
-      }
-      .timeline-item:hover {
-        cursor: pointer;
-      }
-      .timeline-title {
-        font-size: 30px;
-        font-weight: 700;
-        color: rgba(0, 0, 0, 0.6);
-      }
-      .timeline-item-container {
-
-        .date {
-          margin-right: 15px;
-          font-size: 12px;
-          color: #282828;
-        }
-        .title {
-          font-size: 16px;
-          font-weight: 400;
-          color: #333;
-        }
-      }
-
+    }
+    &__no-data {
+      text-align: center;
+      font-size: 16px;
+    }
+    .timeline-item:hover {
+      cursor: pointer;
+    }
+    .timeline-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.6);
+    }
+    &__date {
+      margin-right: 15px;
+      font-size: 12px;
+      color: #282828;
+    }
+    &__title {
+      font-size: 16px;
+      font-weight: 400;
+      color: #333;
     }
   }
 
   @media screen and (max-width: 768px) {
-    .index {
+    .category-item {
       padding-top: 31px;
-      .category-item-list-container {
+      &__list-container {
         padding: 40px 10px;
         border-radius: 0px;
       }

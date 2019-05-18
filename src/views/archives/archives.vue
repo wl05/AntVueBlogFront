@@ -1,11 +1,13 @@
 <template>
-  <div class="index">
+  <div class="archives">
     <Spin v-if="fetchArticleLoading"/>
-    <div v-else class="archives-list-container">
-      <timeline
-        timeline-theme="rgba(0,0,0,0.3)"
-      >
-        <div v-for="(value, key) in formatedArticles" class="item-container" :key="key">
+    <div v-else class="archives__list-container">
+      <timeline timeline-theme="rgba(0,0,0,0.3)">
+        <div
+          v-for="(value, key) in formatedArticles"
+          class="archives__item-container"
+          :key="key"
+        >
           <timeline-title
             icon-size="large"
             font-color="#555"
@@ -18,14 +20,17 @@
             v-for="(item,index) in value.value"
             font-color="rgb(0,0,0)"
           >
-            <div class="article-item" @click="$router.push({name:'Detail',params:{id:item._id}})">
-              <span class="date">{{item.date}}</span>
-              <span class="title">{{item.title}}</span>
+            <div
+              class="archives__article-item"
+              @click="$router.push({name:'Detail',params:{id:item._id}})"
+            >
+              <span class="archives__date">{{item.date}}</span>
+              <span class="archives__title">{{item.title}}</span>
             </div>
           </timeline-item>
         </div>
       </timeline>
-      <div class="pagination">
+      <div class="archives__pagination">
         <el-pagination
           v-if="count>pageLimit"
           @current-change="handleCurrentChange"
@@ -137,49 +142,44 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .index {
+  .archives {
     padding-top: 45px;
     box-sizing: border-box;
-    .archives-list-container {
+    &__list-container {
       border-radius: 5px;
       padding: 0 40px 40px;
       max-width: 800px;
       margin: 0px auto;
-      .key {
-        font-size: 20px;
-      }
-      .article-item {
-        cursor: pointer;
-      }
-      .timeline-title {
-        font-size: 30px;
-        font-weight: 700;
-        color: rgba(0, 0, 0, 0.6);
-      }
-      .article-item {
-        .date {
-          margin-right: 15px;
-          font-size: 12px;
-          color: #282828;
-        }
-        .title {
-          font-size: 16px;
-          font-weight: 400;
-          color: #333;
-        }
-      }
+    }
+    &__article-item {
+      cursor: pointer;
+    }
+    .timeline-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.6);
+    }
+    &__date {
+      margin-right: 15px;
+      font-size: 12px;
+      color: #282828;
+    }
+    &__title {
+      font-size: 16px;
+      font-weight: 400;
+      color: #333;
     }
   }
 
   @media screen and (max-width: 768px) {
-    .index {
+    .archives {
       padding-top: 31px;
-      .archives-list-container {
+      &__list-container {
         padding: 40px 10px;
         border-radius: 0;
-        .pagination {
-          overflow: scroll;
-        }
+      }
+      &__pagination {
+        overflow: scroll;
       }
     }
   }

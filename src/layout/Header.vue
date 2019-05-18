@@ -1,0 +1,201 @@
+<template>
+  <div class="header">
+    <a class="header__blog-title-container" @click="goToHome">
+      汪乐的个人网站
+    </a>
+    <a class="header__native-bar">
+      <el-dropdown trigger="click">
+        <span class="fa fa-bars"></span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>
+            <a @click="$router.push({path:'/categories'})"
+               :class="['menu-item-text',index==='/categories' ? 'header__active-class' : '' ]">
+              <span class="fa fa-fw fa-th"></span>
+              分类
+            </a>
+          </el-dropdown-item>
+          <el-dropdown-item>
+            <a @click="$router.push({path:'/archives'})" class="header__menu-item-text">
+              <span class="fa fa-fw fa-archive"></span>
+              归档
+            </a>
+          </el-dropdown-item>
+          <el-dropdown-item>
+            <a @click="$router.push({path:'/tags'})" class="header__menu-item-text">
+              <span class="fa fa-fw fa-tags"></span>
+              标签
+            </a>
+          </el-dropdown-item>
+          <el-dropdown-item>
+            <a @click="$router.push({path:'/about'})" class="header__menu-item-text">
+              <span class="fa fa-fw fa-user"></span>
+              关于我
+            </a>
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </a>
+
+    <div class="header__menu-container">
+      <el-input
+        placeholder="请输入内容"
+        v-model="keywords"
+        clearable
+        size="small"
+        class="header__search"
+        @keyup.enter.native="goToSearchResultPage"
+      >
+        <el-button
+          slot="append"
+          icon="el-icon-search"
+          @click.native="goToSearchResultPage"
+        ></el-button>
+      </el-input>
+      <el-menu
+        class="el-menu-container"
+        mode="horizontal"
+        :default-active="index"
+        @select="handleSelect"
+      >
+        <el-menu-item index="/categories">
+          <a :class="['menu-item-text',index==='/categories' ? 'header__active-class' : '' ]">
+            <span class="fa fa-fw fa-th"></span>
+            分类
+          </a>
+        </el-menu-item>
+        <el-menu-item index="/archives">
+          <a :class="['header__menu-item-text',index==='/archives' ? 'header__active-class' : '' ]">
+            <span class="fa fa-fw fa-archive"></span>
+            归档
+          </a>
+        </el-menu-item>
+        <el-menu-item index="/tags">
+          <a :class="['header__menu-item-text',index==='/tags' ? 'header__active-class' : '' ]">
+            <span class="fa fa-fw fa-tags"></span>
+            标签
+          </a>
+        </el-menu-item>
+        <el-menu-item index="/about">
+          <a :class="['header__menu-item-text',index==='/about' ? 'header__active-class' : '' ]">
+            <span class="fa fa-fw fa-user"></span>
+            关于我
+          </a>
+        </el-menu-item>
+      </el-menu>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: 'Header',
+  data () {
+    return {
+      tabPosition: 'top',
+      index: '',
+      activeIndex: '1',
+      keywords: ''
+    }
+  },
+  methods: {
+    handleSelect (key) {
+      this.index = key
+      this.$router.push({path: key})
+    },
+    goToHome () {
+      window.location = '/'
+    },
+    goToSearchResultPage () {
+      if (!this.keywords) {
+        return this.$router.push({path: '/'})
+      }
+      this.$router.push({path: '/article/keywords', query: {s: this.keywords}})
+    }
+  },
+  updated () {
+    const path = window.location.pathname
+    const navRoutes = [ '/categories', '/archives', '/tags', '/about' ]
+    if (navRoutes.indexOf(path) === -1) {
+      this.index = ''
+    }
+  },
+  mounted () {
+    this.index = window.location.pathname
+  }
+}
+</script>
+<style lang="scss" rel="stylesheet/scss">
+  .header {
+    display: flex;
+    padding: 0 20px;
+    margin: 0 auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    background-color: transparent;
+    &__menu-container {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+    &__search {
+      margin-right: 20px;
+    }
+    .el-input__inner {
+      background-color: transparent;
+    }
+    .el-input__inner:focus {
+      border-color: #dcdfe6;
+    }
+    .el-input-group__append {
+      background: transparent;
+    }
+    &__menu-item-text {
+      text-decoration: none;
+      padding: 0 15px;
+      font-size: 16px;
+      height: 50px;
+      display: inline-block;
+      line-height: 50px;
+      color: #828282;
+    }
+    &__menu-item-text:hover {
+      color: #828282;
+    }
+    &__active-class {
+      background: rgba(255, 255, 255, 0.4);
+      color: #828282;
+    }
+    &__blog-title-container {
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      font-weight: normal;
+      font-weight: 600;
+    }
+    &__native-bar {
+      display: none;
+    }
+    &__native-bar:hover {
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .header {
+      padding: 0 25px;
+      &__native-bar {
+        display: block;
+      }
+      .fa-bars {
+        color: #000;
+        font-size: 28px;
+      }
+      &__menu-container {
+        display: none;
+      }
+    }
+  }
+
+</style>

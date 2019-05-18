@@ -36,14 +36,21 @@ export default {
     width: 800px;
     padding: 40px 50px;
     box-sizing: border-box;
-    .sider__left {
+    &__left {
       float: left;
       width: 49%;
     }
-    .sider__right {
+    &__right {
       float: right;
       width: 49%;
     }
+  }
+
+  .sider:after {
+    content: '';
+    height: 0;
+    display: block;
+    clear: both;
   }
 
   @media (max-width: 960px) {
@@ -56,7 +63,7 @@ export default {
   @media (max-width: 1600px) {
     .sider {
       width: 500px;
-      .sider__left {
+      &__left {
         float: none;
         width: 100%;
       }
@@ -67,10 +74,4 @@ export default {
     }
   }
 
-  .sider:after {
-    content: '';
-    height: 0;
-    display: block;
-    clear: both;
-  }
 </style>

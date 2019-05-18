@@ -1,9 +1,9 @@
 <template>
   <el-container class="top-container">
     <Header/>
-    <el-container ref="el-container" class="content-el-container">
+    <el-container ref="el-container" class="top-container__content-el-container">
       <el-main>
-        <div class="content-container">
+        <div class="top-container__content-container">
           <router-view/>
         </div>
         <Sider/>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Header from './Header/Header.vue'
+import Header from './Header.vue'
 import Sider from './sider/index.vue'
 import Footer from './Footer.vue'
 
@@ -36,7 +36,6 @@ export default {
 </script>
 <style lang="scss" scoped rel="stylesheet/scss">
   .top-container {
-    /*background: url("../assets/bgs/17.jpg");*/
     background-size: 100%;
     background-repeat: no-repeat;
     display: flex;
@@ -45,26 +44,24 @@ export default {
     overflow: scroll;
     height: 100vh;
     background-color: #f5f5d5;
-  }
-
-  .el-header {
-    padding: 0;
-    width: 100%;
-    color: #333333;
-    height: auto;
-  }
-
-  .el-main {
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    .content-container {
+    .el-header {
+      padding: 0;
+      width: 100%;
+      color: #333333;
+      height: auto;
+    }
+    .el-main {
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &__content-container {
       flex: 1;
+    }
+    .el-footer {
+      background: rgba(0, 0, 0, 0.9);
     }
   }
 
-  .el-footer {
-    background: rgba(0, 0, 0, 0.9);
-  }
 </style>
