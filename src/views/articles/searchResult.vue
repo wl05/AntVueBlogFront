@@ -9,7 +9,7 @@
       class="articles-result__container"
       ref="articles-list-container"
     >
-      <p>
+      <p class="articles-result__tip-info">
         {{`"${this.$route.query.s}"的搜索结果`}}
       </p>
       <item
@@ -42,6 +42,7 @@ export default {
       getArticlesByKeywordsLoading: false,
       pageLimit: 15,
       count: 0,
+      pageSize: 1,
       articles: [],
       loadMoreLoading: false
     }
@@ -51,21 +52,14 @@ export default {
   },
   mounted () {
     const pageSize = this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
+    this.pageSize = pageSize
     this.getArticlesByKeywords(this.$route.query.s, pageSize, this.pageLimit)
   },
-  computed: {
-    pageSize: {
-      get: function () {
-        return this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
-      },
-      set: function (pageSize) {
-        return pageSize
-      }
-    }
-  },
   watch: {
-    pageSize () {
-      this.fetchArticle(this.pageSize, this.pageLimit)
+    $route () {
+      const pageSize = this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
+      this.pageSize = pageSize
+      this.getArticlesByKeywords(this.$route.query.s, pageSize, this.pageLimit)
     }
   },
   methods: {
@@ -103,10 +97,13 @@ export default {
     box-sizing: border-box;
     &__container {
       border-radius: 5px;
-      margin-bottom: 60px;
       padding: 40px;
       max-width: 800px;
       margin: 0px auto;
+    }
+    &__tip-info {
+      font-size: 24px;
+      margin-bottom: 15px;
     }
   }
 

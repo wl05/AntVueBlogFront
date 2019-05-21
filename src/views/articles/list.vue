@@ -36,29 +36,24 @@ export default {
       pageLimit: 15,
       count: 0,
       articles: [],
-      loadMoreLoading: false
+      loadMoreLoading: false,
+      pageSize: 1
     }
   },
   components: {
     item
   },
-  computed: {
-    pageSize: {
-      get: function () {
-        return this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
-      },
-      set: function (pageSize) {
-        return pageSize
-      }
-    }
-  },
   watch: {
-    pageSize () {
-      this.fetchArticle(this.pageSize, this.pageLimit)
+    $route () {
+      const pageSize = this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
+      this.pageSize = pageSize
+      this.fetchArticle(pageSize, this.pageLimit)
     }
   },
   mounted () {
-    this.fetchArticle(this.pageSize, this.pageLimit)
+    const pageSize = this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
+    this.pageSize = pageSize
+    this.fetchArticle(pageSize, this.pageLimit)
   },
   methods: {
     formatTimestamp (timestamp) {

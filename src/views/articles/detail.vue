@@ -73,18 +73,15 @@ export default {
         htmlValue: this.detail.htmlValue,
         markdownValue: this.detail.markdownValue
       }
-    },
-    articleId () {
-      return this.$route.params.id
     }
   },
   watch: {
-    articleId () {
-      this.getArticleDetail(this.articleId)
+    $route () {
+      this.getArticleDetail(this.$route.params.id)
     }
   },
   mounted () {
-    this.getArticleDetail(this.articleId)
+    this.getArticleDetail(this.$route.params.id)
   },
   methods: {
     formatTimestamp (timestamp) {

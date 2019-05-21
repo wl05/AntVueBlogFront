@@ -54,6 +54,7 @@ export default {
     return {
       fetchArticleLoading: false,
       pageLimit: 15,
+      pageSize: 1,
       count: 0,
       articles: []
     }
@@ -67,22 +68,18 @@ export default {
     formatedArticles () {
       let articles = [ ...this.articles ]
       return this.formatArticles(articles)
-    },
-    pageSize: {
-      get: function () {
-        return this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
-      },
-      set: function (pageSize) {
-        return pageSize
-      }
     }
   },
   watch: {
-    pageSize () {
-      this.fetchArticle(this.pageSize, this.pageLimit)
+    $route () {
+      const pageSize = this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
+      this.pageSize = pageSize
+      this.fetchArticle(pageSize, this.pageLimit)
     }
   },
   mounted () {
+    const pageSize = this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
+    this.pageSize = pageSize
     this.fetchArticle(this.pageSize, this.pageLimit)
   },
   methods: {
