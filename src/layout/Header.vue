@@ -1,8 +1,8 @@
 <template>
   <div class="header">
     <a class="header__blog-title-container" @click="goToHome">
-      <!--汪乐的个人网站-->
-      Ant Blog
+      汪乐的个人网站
+      <!--Ant Blog-->
     </a>
     <a class="header__native-bar">
       <el-dropdown trigger="click">
@@ -46,11 +46,6 @@
         class="header__search"
         @keyup.enter.native="goToSearchResultPage"
       >
-        <el-button
-          slot="append"
-          icon="el-icon-search"
-          @click.native="goToSearchResultPage"
-        ></el-button>
       </el-input>
       <PcNavMenu/>
     </div>
@@ -150,12 +145,13 @@ export default {
     }
     .el-input__inner {
       background-color: transparent;
+      border-radius: 0;
     }
     .el-input__inner:focus {
       border-color: #dcdfe6;
     }
-    .el-input-group__append {
-      background: transparent;
+    .el-input__inner:hover {
+      border-color: #dcdfe6;
     }
   }
 

@@ -6,6 +6,7 @@
 
 body {
   overflow: scroll;
+  font-family: Georgia, serif;
 }
 
 .el-pagination__total {
