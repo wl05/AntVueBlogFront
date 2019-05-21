@@ -2,24 +2,7 @@
   <div class="about">
     <div class="about__wrap">
       <div class="about__container">
-        <p class="about__info">
-          <span class="about__icon fa fa-qq"></span>
-          <span class="about__info-text">2929712050@qq.com</span>
-        </p>
-        <p class="about__info">
-          <span class="about__icon fa fa-github"></span>
-          <a class="about__github-url about__info-text"
-             href="https://github.com/antbaobao">https://github.com/antbaobao</a>
-        </p>
-        <p class="about__info">
-          抱着学习的心态工作，充实自己，提升自己，目标明确，方向清晰。
-        </p>
-        <p class="about__info">
-          保持对工作的热忱，对新事物的好奇，砥砺前行！
-        </p>
-        <p class="about__info">目前在工作中使用的技术栈主要包括:
-          react、react native、vue、nodejs、koa、egg、mongo等。
-        </p>
+        <p class="about__info">目前在工作中使用的技术栈主要包括: react、react native、vue、nodejs、koa、egg、mongo等。</p>
       </div>
     </div>
   </div>
@@ -48,11 +31,7 @@ export default {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 300px;
-      transition: box-shadow 1s;
-    }
-    &__container:hover {
-      box-shadow: 0px 8px 8px #888888;
+      width: 360px;
     }
     &__icon {
       margin-right: 10px;
@@ -63,9 +42,8 @@ export default {
     }
     &__info {
       line-height: 28px;
-      font-size: 12px;
+      font-size: 14px;
       padding: 10px;
-      font-family: FontAwesome;
       width: 100%;
     }
     &__info-text {

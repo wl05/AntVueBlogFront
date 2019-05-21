@@ -90,6 +90,7 @@ export default {
     &__category,
     &__viewCount {
       margin-left: 5px;
+      font-family: Georgia, serif;
     }
     &__content {
       max-width: 700px;

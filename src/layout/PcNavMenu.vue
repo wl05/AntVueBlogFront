@@ -72,8 +72,8 @@ export default {
       color: #828282;
     }
     &__active-class {
-      background: rgba(255, 255, 255, 0.4);
-      color: #828282;
+      /*background: rgba(255, 255, 255, 0.4);*/
+      /*color: #828282;*/
     }
   }
 </style>

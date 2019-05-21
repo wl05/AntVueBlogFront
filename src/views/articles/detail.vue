@@ -139,6 +139,7 @@ export default {
       font-size: 12px;
       cursor: pointer;
       margin-left: 5px;
+      font-family: Georgia, serif;
     }
     .articles-detail__title {
       margin: 5px 0;

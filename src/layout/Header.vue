@@ -39,7 +39,7 @@
 
     <div class="header__menu-container">
       <el-input
-        placeholder="请输入内容"
+        placeholder="请输入搜索内容"
         v-model="keywords"
         clearable
         size="small"
@@ -131,11 +131,10 @@ export default {
     }
     &__blog-title-container {
       cursor: pointer;
-      font-size: 20px;
+      font-size: 30px;
       display: flex;
       align-items: center;
-      font-weight: normal;
-      font-weight: 600;
+      color: #828282;
     }
     &__native-bar {
       display: none;
@@ -146,6 +145,7 @@ export default {
     .el-input__inner {
       background-color: transparent;
       border-radius: 0;
+      font-family: Georgia, serif;
     }
     .el-input__inner:focus {
       border-color: #dcdfe6;

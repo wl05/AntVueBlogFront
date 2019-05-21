@@ -1,7 +1,7 @@
 <template>
   <div class="tags-wrap">
     <CustomSpin v-if="listLoading"/>
-    <div class="tags-wrap__container">
+    <div v-else class="tags-wrap__container">
       <h1 class="tags-wrap__title">
         Tagscloud
       </h1>
@@ -47,7 +47,9 @@ export default {
         if (result.data.code) {
           this.$message.error('获取列表失败')
         } else {
-          this.list = result.data.data
+          this.$nextTick(function () {
+            this.list = result.data.data
+          })
         }
       } catch (e) {
         this.listLoading = false

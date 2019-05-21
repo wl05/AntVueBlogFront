@@ -2,6 +2,7 @@
   color: #828282;
   /*text-align: justify;*/
   font-family: Georgia, serif;
+  line-height: 1.5;
 }
 
 .markdown-body img {
