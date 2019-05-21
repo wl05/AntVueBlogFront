@@ -48,7 +48,6 @@ export default {
   data () {
     return {
       getArticlesByArchivesLoading: false,
-      pageSize: 1,
       pageLimit: 15,
       count: 0,
       articles: []
@@ -63,20 +62,33 @@ export default {
     formatedArticles () {
       let articles = [ ...this.articles ]
       return this.formatArticles(articles)
+    },
+    pageSize: {
+      get: function () {
+        return this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
+      },
+      set: function (pageSize) {
+        return pageSize
+      }
+    },
+    timeline () {
+      return this.$route.params.timeline
     }
   },
-  beforeRouteUpdate (to, from, next) {
-    const pageSize = to.query.pageSize ? to.query.pageSize : 1
-    this.getArticlesByArchives(pageSize, this.pageLimit, to.params.timeline)
-    next()
+  watch: {
+    pageSize () {
+      this.getArticlesByArchives(this.pageSize, this.pageLimit, this.timeline)
+    },
+    timeline () {
+      this.getArticlesByArchives(this.pageSize, this.pageLimit, this.timeline)
+    }
   },
   mounted () {
-    const pageSize = this.$route.query.pageSize ? this.$route.query.pageSize : 1
-    this.getArticlesByArchives(pageSize, this.pageLimit, this.$route.params.timeline)
+    this.getArticlesByArchives(this.pageSize, this.pageLimit, this.timeline)
   },
   methods: {
     handleCurrentChange (val) {
-      this.$router.push({path: `/archive/${this.$route.params.timeline}`, query: {pageSize: val}})
+      this.$router.push({path: `/archive/${this.timeline}`, query: {pageSize: val}})
     },
     formatArticles (articles) {
       for (let article of articles) {
@@ -122,8 +134,8 @@ export default {
           const {article, count, pageSize, pageLimit} = result.data.data
           this.articles = article
           this.count = count
-          this.pageSize = pageSize
           this.pageLimit = pageLimit
+          this.pageSize = pageSize
         }
       } catch (e) {
         this.getArticlesByArchivesLoading = false

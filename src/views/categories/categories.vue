@@ -35,7 +35,7 @@ export default {
       count: 0
     }
   },
-  created () {
+  mounted () {
     this.countCategotres()
   },
   watch: {

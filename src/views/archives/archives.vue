@@ -53,7 +53,6 @@ export default {
   data () {
     return {
       fetchArticleLoading: false,
-      pageSize: 1,
       pageLimit: 15,
       count: 0,
       articles: []
@@ -68,16 +67,23 @@ export default {
     formatedArticles () {
       let articles = [ ...this.articles ]
       return this.formatArticles(articles)
+    },
+    pageSize: {
+      get: function () {
+        return this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
+      },
+      set: function (pageSize) {
+        return pageSize
+      }
+    }
+  },
+  watch: {
+    pageSize () {
+      this.fetchArticle(this.pageSize, this.pageLimit)
     }
   },
   mounted () {
-    const pageSize = this.$route.query.pageSize ? this.$route.query.pageSize : 1
-    this.fetchArticle(pageSize, this.pageLimit)
-  },
-  beforeRouteUpdate (to, from, next) {
-    const pageSize = to.query.pageSize
-    this.fetchArticle(pageSize, this.pageLimit)
-    next()
+    this.fetchArticle(this.pageSize, this.pageLimit)
   },
   methods: {
     handleCurrentChange (val) {
@@ -127,8 +133,8 @@ export default {
           const {article, count, pageSize, pageLimit} = result.data.data
           this.articles = article
           this.count = count
-          this.pageSize = pageSize
           this.pageLimit = pageLimit
+          this.pageSize = pageSize
         }
       } catch (e) {
         this.fetchArticleLoading = false

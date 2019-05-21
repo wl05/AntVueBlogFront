@@ -2,9 +2,7 @@
   <div class="tag-item">
     <CustomSpin v-if="getArticlesByTagLoading"/>
     <div v-else class="tags-item__container">
-      <div class="tags-item__no-data" v-if="noData">
-        暂无数据
-      </div>
+      <CustomNoData v-if="noData" text="暂无数据"/>
       <timeline v-else timeline-theme="rgba(0,0,0,0.3)">
         <timeline-item
           font-color="#555"

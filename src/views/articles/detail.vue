@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="articles-detail">
-    <div class="articles-detail__background">
+    <CustomSpin v-if="getArticleDetailLoading"/>
+    <div v-else class="articles-detail__background">
       <div class="articles-detail__container-wrap">
         <div v-if="Object.keys(detail).length" class="articles-detail__container">
           <header class="articles-detail__header">
@@ -72,14 +73,18 @@ export default {
         htmlValue: this.detail.htmlValue,
         markdownValue: this.detail.markdownValue
       }
+    },
+    articleId () {
+      return this.$route.params.id
     }
   },
-  beforeRouteUpdate (to, from, next) {
-    next()
-    this.getArticleDetail(this.$route.params.id)
+  watch: {
+    articleId () {
+      this.getArticleDetail(this.articleId)
+    }
   },
   mounted () {
-    this.getArticleDetail(this.$route.params.id)
+    this.getArticleDetail(this.articleId)
   },
   methods: {
     formatTimestamp (timestamp) {

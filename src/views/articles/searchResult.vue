@@ -40,7 +40,6 @@ export default {
   data () {
     return {
       getArticlesByKeywordsLoading: false,
-      pageSize: 1,
       pageLimit: 15,
       count: 0,
       articles: [],
@@ -51,13 +50,23 @@ export default {
     item
   },
   mounted () {
-    const pageSize = this.$route.query.pageSize ? this.$route.query.pageSize : 1
+    const pageSize = this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
     this.getArticlesByKeywords(this.$route.query.s, pageSize, this.pageLimit)
   },
-  beforeRouteUpdate (to, from, next) {
-    const pageSize = to.query.pageSize ? to.query.pageSize : 1
-    this.getArticlesByKeywords(to.query.s, pageSize, this.pageLimit)
-    next()
+  computed: {
+    pageSize: {
+      get: function () {
+        return this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
+      },
+      set: function (pageSize) {
+        return pageSize
+      }
+    }
+  },
+  watch: {
+    pageSize () {
+      this.fetchArticle(this.pageSize, this.pageLimit)
+    }
   },
   methods: {
     formatTimestamp (timestamp) {

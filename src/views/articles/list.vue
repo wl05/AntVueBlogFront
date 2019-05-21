@@ -33,7 +33,6 @@ export default {
   data () {
     return {
       fetchArticleLoading: false,
-      pageSize: 1,
       pageLimit: 15,
       count: 0,
       articles: [],
@@ -43,14 +42,23 @@ export default {
   components: {
     item
   },
-  mounted () {
-    const pageSize = this.$route.query.pageSize ? this.$route.query.pageSize : 1
-    this.fetchArticle(pageSize, this.pageLimit)
+  computed: {
+    pageSize: {
+      get: function () {
+        return this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
+      },
+      set: function (pageSize) {
+        return pageSize
+      }
+    }
   },
-  beforeRouteUpdate (to, from, next) {
-    const pageSize = to.query.pageSize
-    this.fetchArticle(pageSize, this.pageLimit)
-    next()
+  watch: {
+    pageSize () {
+      this.fetchArticle(this.pageSize, this.pageLimit)
+    }
+  },
+  mounted () {
+    this.fetchArticle(this.pageSize, this.pageLimit)
   },
   methods: {
     formatTimestamp (timestamp) {

@@ -43,8 +43,7 @@ export default {
       articles: [],
       noData: false,
       count: 0,
-      pageLimit: 10,
-      pageSize: 1
+      pageLimit: 10
     }
   },
   components: {
@@ -52,14 +51,30 @@ export default {
     TimelineItem,
     TimelineTitle
   },
-  beforeRouteUpdate (to, from, next) {
-    const pageSize = to.query.pageSize ? to.query.pageSize : 1
-    this.getArticlesByCategory(to.params.id, pageSize, this.pageLimit)
-    next()
+  computed: {
+    pageSize: {
+      get: function () {
+        return this.$route.query.pageSize ? Number(this.$route.query.pageSize) : 1
+      },
+      set: function (pageSize) {
+        return pageSize
+      }
+    },
+    categoryId(){
+      return this.$route.params.id
+    }
+  },
+
+  watch: {
+    pageSize () {
+      this.getArticlesByCategory(this.categoryId, this.pageSize, this.pageLimit)
+    },
+    categoryId () {
+      this.getArticlesByCategory(this.categoryId, this.pageSize, this.pageLimit)
+    }
   },
   mounted () {
-    const pageSize = this.$route.query.pageSize ? this.$route.query.pageSize : 1
-    this.getArticlesByCategory(this.$route.params.id, pageSize, this.pageLimit)
+    this.getArticlesByCategory(this.categoryId, this.pageSize, this.pageLimit)
   },
   methods: {
     formatYearAndDate (timestamp) {
