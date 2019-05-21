@@ -1,5 +1,5 @@
 <template>
-  <div class="categories">
+  <div class="categories" v-if="categories.length">
     <p class="categories__title">文章分类</p>
     <ul class="categories__items-container">
       <li

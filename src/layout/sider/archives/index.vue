@@ -1,5 +1,5 @@
 <template>
-  <div class="archives">
+  <div class="archives" v-if="archives.length">
     <p class="archives__title">文章归档</p>
     <p/>
     <ul class="archives__items-container">

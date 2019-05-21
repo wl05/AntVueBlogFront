@@ -1,5 +1,5 @@
 <template>
-  <div class="newest-articles">
+  <div class="newest-articles" v-if="newestArticle.length">
     <p class="newest-articles__title">最新文章</p>
     <ul class="newest-articles__items-container">
       <li

@@ -1,6 +1,6 @@
 <template>
   <div class="archive-time-range">
-    <Spin v-if="getArticlesByArchivesLoading"/>
+    <CustomSpin v-if="getArticlesByArchivesLoading"/>
     <div v-else class="archive-time-range__list-container">
       <timeline
         timeline-theme="rgba(0,0,0,0.3)"
@@ -42,7 +42,6 @@
 <script>
 import { getArticlesByArchives } from '@/api/article'
 import formatYearAndDate from '@/utils/formatYearAndDate'
-import Spin from '@/components/Spin'
 import { Timeline, TimelineItem, TimelineTitle } from 'vue-cute-timeline'
 
 export default {
@@ -56,7 +55,6 @@ export default {
     }
   },
   components: {
-    Spin,
     Timeline,
     TimelineItem,
     TimelineTitle

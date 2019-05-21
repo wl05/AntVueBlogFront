@@ -1,6 +1,6 @@
 <template>
   <div class="spin-container" :style="`height:${height}px`">
-    <i class="el-icon-loading" size="large"></i>
+    <i class="el-icon-loading" :style="`font-size: ${size}px`"></i>
   </div>
 
 </template>
@@ -11,6 +11,10 @@ export default {
     height: {
       type: Number,
       default: 200
+    },
+    size: {
+      type: Number,
+      default: 24
     }
   }
 

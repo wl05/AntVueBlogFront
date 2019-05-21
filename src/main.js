@@ -10,9 +10,11 @@ import 'font-awesome/scss/font-awesome.scss'
 import './index.css'
 import 'animate.css'
 import AntGitment from 'ant-gitment'
+import customCompoents from '@/components/index'
 
 Vue.use(AntGitment)
 Vue.use(ElementUI)
+Vue.use(customCompoents)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

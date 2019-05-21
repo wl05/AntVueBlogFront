@@ -1,6 +1,6 @@
 <template>
   <div class="archives">
-    <Spin v-if="fetchArticleLoading"/>
+    <CustomSpin v-if="fetchArticleLoading"/>
     <div v-else class="archives__list-container">
       <timeline timeline-theme="rgba(0,0,0,0.3)">
         <div
@@ -47,7 +47,6 @@
 <script>
 import { fetchArticle } from '@/api/article'
 import formatYearAndDate from '@/utils/formatYearAndDate'
-import Spin from '@/components/Spin'
 import { Timeline, TimelineItem, TimelineTitle } from 'vue-cute-timeline'
 
 export default {
@@ -61,7 +60,6 @@ export default {
     }
   },
   components: {
-    Spin,
     Timeline,
     TimelineItem,
     TimelineTitle

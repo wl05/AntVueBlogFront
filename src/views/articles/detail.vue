@@ -38,7 +38,7 @@
             </div>
           </div>
         </div>
-        <Spin v-else/>
+        <CustomSpin v-else/>
       </div>
       <div class="articles-detail__comments-container">
         <Comment :title="detail.title"/>
@@ -51,14 +51,12 @@
 import { getArticleDetail } from '@/api/article'
 import formatTimestamp from '@/utils/formatTimestamp'
 import Markdown from '@/components/Markdown'
-import Spin from '@/components/Spin'
 import Comment from '@/components/Comment'
 import PaymentCode from '@/components/PaymentCode'
 
 export default {
   components: {
     Markdown,
-    Spin,
     Comment,
     PaymentCode
   },

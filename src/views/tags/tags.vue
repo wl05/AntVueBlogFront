@@ -1,6 +1,6 @@
 <template>
   <div class="tags-wrap">
-    <Spin v-if="listLoading"/>
+    <CustomSpin v-if="listLoading"/>
     <div class="tags-wrap__container">
       <h1 class="tags-wrap__title">
         Tagscloud
@@ -17,7 +17,6 @@
 
 <script>
 import { getList } from '@/api/tags'
-import Spin from '@/components/Spin'
 import shuffle from './components/shuffle'
 
 export default {
@@ -29,7 +28,6 @@ export default {
     }
   },
   components: {
-    Spin,
     shuffle
   },
   mounted () {

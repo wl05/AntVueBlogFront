@@ -1,7 +1,8 @@
 <template>
   <div class="header">
     <a class="header__blog-title-container" @click="goToHome">
-      汪乐的个人网站
+      <!--汪乐的个人网站-->
+      Ant Blog
     </a>
     <a class="header__native-bar">
       <el-dropdown trigger="click">
@@ -51,46 +52,20 @@
           @click.native="goToSearchResultPage"
         ></el-button>
       </el-input>
-      <el-menu
-        class="el-menu-container"
-        mode="horizontal"
-        :default-active="index"
-        @select="handleSelect"
-      >
-        <el-menu-item index="/categories">
-          <a :class="['menu-item-text',index==='/categories' ? 'header__active-class' : '' ]">
-            <span class="fa fa-fw fa-th"></span>
-            分类
-          </a>
-        </el-menu-item>
-        <el-menu-item index="/archives">
-          <a :class="['header__menu-item-text',index==='/archives' ? 'header__active-class' : '' ]">
-            <span class="fa fa-fw fa-archive"></span>
-            归档
-          </a>
-        </el-menu-item>
-        <el-menu-item index="/tags">
-          <a :class="['header__menu-item-text',index==='/tags' ? 'header__active-class' : '' ]">
-            <span class="fa fa-fw fa-tags"></span>
-            标签
-          </a>
-        </el-menu-item>
-        <el-menu-item index="/about">
-          <a :class="['header__menu-item-text',index==='/about' ? 'header__active-class' : '' ]">
-            <span class="fa fa-fw fa-user"></span>
-            关于我
-          </a>
-        </el-menu-item>
-      </el-menu>
+      <PcNavMenu/>
     </div>
   </div>
 </template>
 <script>
+import PcNavMenu from './PcNavMenu'
+
 export default {
   name: 'Header',
+  components: {
+    PcNavMenu
+  },
   data () {
     return {
-      tabPosition: 'top',
       index: '',
       activeIndex: '1',
       keywords: ''
@@ -133,6 +108,8 @@ export default {
     justify-content: space-between;
     height: 50px;
     background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
     &__menu-container {
       display: flex;
       align-items: center;
@@ -140,15 +117,6 @@ export default {
     }
     &__search {
       margin-right: 20px;
-    }
-    .el-input__inner {
-      background-color: transparent;
-    }
-    .el-input__inner:focus {
-      border-color: #dcdfe6;
-    }
-    .el-input-group__append {
-      background: transparent;
     }
     &__menu-item-text {
       text-decoration: none;
@@ -179,6 +147,15 @@ export default {
     }
     &__native-bar:hover {
       cursor: pointer;
+    }
+    .el-input__inner {
+      background-color: transparent;
+    }
+    .el-input__inner:focus {
+      border-color: #dcdfe6;
+    }
+    .el-input-group__append {
+      background: transparent;
     }
   }
 

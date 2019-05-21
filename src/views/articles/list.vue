@@ -1,6 +1,6 @@
 <template>
   <div class="articles-list">
-    <Spin v-if="fetchArticleLoading"/>
+    <CustomSpin v-if="fetchArticleLoading"/>
     <div v-else
          class="articles-list__container"
          ref="articles-list-container"
@@ -28,7 +28,6 @@
 import { fetchArticle } from '@/api/article'
 import formatTimestamp from '@/utils/formatTimestamp'
 import item from './components/item'
-import Spin from '@/components/Spin'
 
 export default {
   data () {
@@ -42,8 +41,7 @@ export default {
     }
   },
   components: {
-    item,
-    Spin
+    item
   },
   mounted () {
     const pageSize = this.$route.query.pageSize ? this.$route.query.pageSize : 1

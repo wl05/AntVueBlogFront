@@ -1,11 +1,17 @@
 <template>
   <div class="articles-result">
-    <Spin v-if="getArticlesByKeywordsLoading"/>
+    <CustomSpin v-if="getArticlesByKeywordsLoading"/>
+    <CustomNoData
+      v-else-if="!articles.length"
+      text="没有找到文章。试试其它搜索？"/>
     <div
       v-else
       class="articles-result__container"
       ref="articles-list-container"
     >
+      <p>
+        {{`"${this.$route.query.s}"的搜索结果`}}
+      </p>
       <item
         v-for="(item) in articles"
         :key="item._id"
@@ -29,7 +35,6 @@
 import { getArticlesByKeywords } from '@/api/article'
 import formatTimestamp from '@/utils/formatTimestamp'
 import item from './components/item'
-import Spin from '@/components/Spin'
 
 export default {
   data () {
@@ -43,8 +48,7 @@ export default {
     }
   },
   components: {
-    item,
-    Spin
+    item
   },
   mounted () {
     const pageSize = this.$route.query.pageSize ? this.$route.query.pageSize : 1

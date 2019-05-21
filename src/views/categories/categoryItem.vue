@@ -1,6 +1,6 @@
 <template>
   <div class="category-item">
-    <Spin v-if="getArticlesByCategoryLoading"/>
+    <CustomSpin v-if="getArticlesByCategoryLoading"/>
     <div v-else class="category-item__list-container">
       <div class="category-item__no-data" v-if="noData">
         暂无数据
@@ -34,7 +34,6 @@
 
 <script>
 import { getArticlesByCategory } from '@/api/article'
-import Spin from '@/components/Spin'
 import { Timeline, TimelineItem, TimelineTitle } from 'vue-cute-timeline'
 
 export default {
@@ -51,8 +50,7 @@ export default {
   components: {
     Timeline,
     TimelineItem,
-    TimelineTitle,
-    Spin
+    TimelineTitle
   },
   beforeRouteUpdate (to, from, next) {
     const pageSize = to.query.pageSize ? to.query.pageSize : 1

@@ -1,6 +1,6 @@
 <template>
   <div class="categories">
-    <Spin v-if="listLoading"/>
+    <CustomSpin v-if="listLoading"/>
     <div v-else class="categories__container-wrap">
       <div class="categories__category-container">
         <h1 class="categories__title">
@@ -26,7 +26,6 @@
 </template>
 <script>
 import { countCategotres } from '@/api/category'
-import Spin from '@/components/Spin'
 
 export default {
   data () {
@@ -35,9 +34,6 @@ export default {
       listLoading: false,
       count: 0
     }
-  },
-  components: {
-    Spin
   },
   created () {
     this.countCategotres()
