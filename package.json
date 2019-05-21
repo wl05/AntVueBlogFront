@@ -18,6 +18,7 @@
         "ant-gitment": "^1.1.1",
         "axios": "^0.18.0",
         "element-ui": "^2.4.9",
+        "fastclick": "^1.0.6",
         "github-markdown-css": "^2.10.0",
         "gitment": "0.0.3",
         "jquery": "^3.3.1",
