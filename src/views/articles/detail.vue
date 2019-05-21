@@ -116,8 +116,7 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 800px;
-      margin: 30px auto;
+      margin: 0px auto;
     }
     .articles-detail__header {
       padding: 40px;

@@ -124,16 +124,19 @@ export default {
       font-size: 30px;
       font-weight: 700;
       color: rgba(0, 0, 0, 0.6);
+      font-family: Georgia, serif;
     }
     &__date {
       margin-right: 15px;
       font-size: 12px;
       color: #282828;
+      font-family: Georgia, serif;
     }
     &__title {
       font-size: 16px;
       font-weight: 400;
       color: #333;
+      font-family: Georgia, serif;
     }
   }
 
