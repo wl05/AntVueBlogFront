@@ -34,7 +34,7 @@ export default {
     margin-top: 45px;
     padding: 20px;
     border-radius: 5px;
-    border: 1px solid #d3d3d3;;
+    border: 1px solid #d3d3d3;
     &__title {
       font-size: 20px;
       color: #567;

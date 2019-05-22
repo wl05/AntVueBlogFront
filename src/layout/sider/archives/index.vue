@@ -11,7 +11,7 @@
         »
         <a
           class="archives__item-info"
-          @click="$router.push({ path: `/archive/${item._id}` })"
+          @click="goTo(item._id)"
         >
           {{ item._id}} ({{item.count}})
         </a>
@@ -27,6 +27,11 @@ export default {
     archives () {
       return this.$store.state.home.archives
     },
+  },
+  methods: {
+    goTo (_id) {
+      this.$router.push({path: `/archive/${_id}`})
+    }
   }
 }
 </script>

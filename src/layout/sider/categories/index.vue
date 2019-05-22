@@ -10,7 +10,7 @@
         »
         <a
           class="categories__info"
-          @click="$router.push({ path: `/categories/${item._id}`,query:{name: item.name} })"
+          @click="goTo(item._id,item.name)"
         >
           {{ item.name }} ({{item.total}})
         </a>
@@ -24,8 +24,13 @@ export default {
   computed: {
     categories () {
       return this.$store.state.category.categories
-    },
+    }
   },
+  methods: {
+    goTo (_id, name) {
+      this.$router.push({path: `/categories/${_id}`, query: {name}})
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -128,4 +128,7 @@ npm run dev
 ### Fixed
 - 修复了路由跳转的bug
 
+## todo
+重构页面后移动端适配还没做
+
 
