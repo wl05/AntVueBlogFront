@@ -81,11 +81,13 @@ export default {
       this.$router.push({path: '/article/keywords', query: {s: this.keywords}})
     }
   },
-  updated () {
-    const path = window.location.pathname
-    const navRoutes = [ '/categories', '/archives', '/tags', '/about' ]
-    if (navRoutes.indexOf(path) === -1) {
-      this.index = ''
+  watch: {
+    $route () {
+      const path = window.location.pathname
+      const navRoutes = [ '/categories', '/archives', '/tags', '/about' ]
+      if (navRoutes.indexOf(path) === -1) {
+        this.index = ''
+      }
     }
   },
   mounted () {

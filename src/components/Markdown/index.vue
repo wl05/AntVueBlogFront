@@ -1,9 +1,6 @@
 <template>
-  <div class="class-container">
-    <article class="markdown-body" id="write" ref="content">
-    </article>
+  <div class="markdown-body" v-html="htmlValue">
   </div>
-
 </template>
 
 <script>
@@ -23,20 +20,11 @@ export default {
   components: {
     VueMarkdown
   },
-
-  mounted () {
-    this.$refs.content.innerHTML = this.htmlValue
-  },
-  watch: {
-    htmlValue () {
-      this.$refs.content.innerHTML = this.htmlValue
-    }
-  }
 }
 </script>
 
 <style scoped>
-  .class-container {
+  .markdown-body {
     padding: 15px;
   }
 </style>

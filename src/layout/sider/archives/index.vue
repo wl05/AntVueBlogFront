@@ -20,7 +20,6 @@
   </div>
 </template>
 <script>
-import { timeAgo } from '@/utils/filters'
 
 export default {
   name: 'archives',

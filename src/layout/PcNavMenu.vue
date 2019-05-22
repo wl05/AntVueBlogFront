@@ -37,14 +37,16 @@ export default {
     handleSelect (key) {
       this.index = key
       this.$router.push({path: key})
-    },
-    updated () {
+    }
+  },
+  watch: {
+    $route () {
       const path = window.location.pathname
       const navRoutes = [ '/categories', '/archives', '/tags', '/about' ]
       if (navRoutes.indexOf(path) === -1) {
         this.index = ''
       }
-    },
+    }
   },
   mounted () {
     this.index = window.location.pathname
@@ -70,10 +72,6 @@ export default {
       display: inline-block;
       line-height: 50px;
       color: #828282;
-    }
-    &__active-class {
-      /*background: rgba(255, 255, 255, 0.4);*/
-      /*color: #828282;*/
     }
   }
 </style>
