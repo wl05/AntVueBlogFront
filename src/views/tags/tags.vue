@@ -1,6 +1,6 @@
 <template>
   <div class="tags-wrap">
-    <CustomSpin v-if="listLoading"/>
+    <CustomSkeleton v-if="listLoading" style="padding: 20px"/>
     <div v-else class="tags-wrap__container">
       <h1 class="tags-wrap__title">
         Tagscloud

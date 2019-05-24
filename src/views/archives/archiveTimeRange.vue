@@ -1,41 +1,44 @@
 <template>
   <div class="archive-time-range">
-    <CustomSpin v-if="getArticlesByArchivesLoading"/>
-    <div v-else class="archive-time-range__list-container">
-      <timeline
-        timeline-theme="rgba(0,0,0,0.3)"
-      >
-        <div v-for="(value, key) in formatedArticles" class="archive-time-range__item-container" :key="key">
-          <timeline-title
-            icon-size="large"
-            font-color="#555"
-          >
-            {{value.year}}
-          </timeline-title>
-          <timeline-item
-            icon-size="small"
-            :key="index"
-            v-for="(item,index) in value.value"
-            font-color="rgb(0,0,0)"
-          >
-            <div class="archive-time-range__article-item" @click="$router.push({name:'Detail',params:{id:item._id}})">
-              <span class="archive-time-range__date">{{item.date}}</span>
-              <span class="archive-time-range__title">{{item.title}}</span>
-            </div>
-          </timeline-item>
-        </div>
-      </timeline>
-      <div class="archive-time-range__pagination">
-        <el-pagination
-          v-if="count>pageLimit"
-          @current-change="handleCurrentChange"
-          :current-page.sync="pageSize"
-          :page-size="pageLimit"
-          layout="total, prev, pager, next"
-          :total="count"
+    <div class="archive-time-range__list-container">
+      <CustomSkeleton v-if="getArticlesByArchivesLoading"/>
+      <div v-else>
+        <timeline
+          timeline-theme="rgba(0,0,0,0.3)"
         >
-        </el-pagination>
+          <div v-for="(value, key) in formatedArticles" class="archive-time-range__item-container" :key="key">
+            <timeline-title
+              icon-size="large"
+              font-color="#555"
+            >
+              {{value.year}}
+            </timeline-title>
+            <timeline-item
+              icon-size="small"
+              :key="index"
+              v-for="(item,index) in value.value"
+              font-color="rgb(0,0,0)"
+            >
+              <div class="archive-time-range__article-item" @click="$router.push({name:'Detail',params:{id:item._id}})">
+                <span class="archive-time-range__date">{{item.date}}</span>
+                <span class="archive-time-range__title">{{item.title}}</span>
+              </div>
+            </timeline-item>
+          </div>
+        </timeline>
+        <div class="archive-time-range__pagination">
+          <el-pagination
+            v-if="count>pageLimit"
+            @current-change="handleCurrentChange"
+            :current-page.sync="pageSize"
+            :page-size="pageLimit"
+            layout="total, prev, pager, next"
+            :total="count"
+          >
+          </el-pagination>
+        </div>
       </div>
+
     </div>
   </div>
 </template>

@@ -1,45 +1,47 @@
 <template>
   <div class="archives">
-    <CustomSpin v-if="fetchArticleLoading"/>
-    <div v-else class="archives__list-container">
-      <timeline timeline-theme="rgba(0,0,0,0.3)">
-        <div
-          v-for="(value, key) in formatedArticles"
-          class="archives__item-container"
-          :key="key"
-        >
-          <timeline-title
-            icon-size="large"
-            font-color="#555"
+    <div class="archives__list-container">
+      <CustomSkeleton v-if="fetchArticleLoading"/>
+      <div v-else>
+        <timeline timeline-theme="rgba(0,0,0,0.3)">
+          <div
+            v-for="(value, key) in formatedArticles"
+            class="archives__item-container"
+            :key="key"
           >
-            {{value.year}}
-          </timeline-title>
-          <timeline-item
-            icon-size="small"
-            :key="index"
-            v-for="(item,index) in value.value"
-            font-color="rgb(0,0,0)"
-          >
-            <div
-              class="archives__article-item"
-              @click="$router.push({name:'Detail',params:{id:item._id}})"
+            <timeline-title
+              icon-size="large"
+              font-color="#555"
             >
-              <span class="archives__date">{{item.date}}</span>
-              <span class="archives__title">{{item.title}}</span>
-            </div>
-          </timeline-item>
+              {{value.year}}
+            </timeline-title>
+            <timeline-item
+              icon-size="small"
+              :key="index"
+              v-for="(item,index) in value.value"
+              font-color="rgb(0,0,0)"
+            >
+              <div
+                class="archives__article-item"
+                @click="$router.push({name:'Detail',params:{id:item._id}})"
+              >
+                <span class="archives__date">{{item.date}}</span>
+                <span class="archives__title">{{item.title}}</span>
+              </div>
+            </timeline-item>
+          </div>
+        </timeline>
+        <div class="archives__pagination">
+          <el-pagination
+            v-if="count>pageLimit"
+            @current-change="handleCurrentChange"
+            :current-page.sync="pageSize"
+            :page-size="pageLimit"
+            layout="total, prev, pager, next"
+            :total="count"
+          >
+          </el-pagination>
         </div>
-      </timeline>
-      <div class="archives__pagination">
-        <el-pagination
-          v-if="count>pageLimit"
-          @current-change="handleCurrentChange"
-          :current-page.sync="pageSize"
-          :page-size="pageLimit"
-          layout="total, prev, pager, next"
-          :total="count"
-        >
-        </el-pagination>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="tag-item">
-    <CustomSpin v-if="getArticlesByTagLoading"/>
+    <CustomSkeleton v-if="getArticlesByTagLoading" style="padding: 20px"/>
     <div v-else class="tags-item__container">
       <CustomNoData v-if="noData" text="暂无数据"/>
       <timeline v-else timeline-theme="rgba(0,0,0,0.3)">

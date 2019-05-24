@@ -1,33 +1,35 @@
 <template>
   <div class="articles-result">
-    <CustomSpin v-if="getArticlesByKeywordsLoading"/>
-    <CustomNoData
-      v-else-if="!articles.length"
-      text="没有找到文章。试试其它搜索？"/>
     <div
-      v-else
       class="articles-result__container"
       ref="articles-list-container"
     >
-      <p class="articles-result__tip-info">
-        {{`"${this.$route.query.s}"的搜索结果`}}
-      </p>
-      <item
-        v-for="(item) in articles"
-        :key="item._id"
-        :article="item"
-      />
-      <div id="article-pagination-id">
-        <el-pagination
-          v-if="count>pageLimit"
-          @current-change="handleCurrentChange"
-          :current-page.sync="pageSize"
-          :page-size="pageLimit"
-          layout="total, prev, pager, next"
-          :total="count"
-        >
-        </el-pagination>
+      <CustomSkeleton v-if="getArticlesByKeywordsLoading"/>
+      <CustomNoData
+        v-else-if="!articles.length"
+        text="没有找到文章。试试其它搜索？"/>
+      <div v-else>
+        <p class="articles-result__tip-info">
+          {{`"${this.$route.query.s}"的搜索结果`}}
+        </p>
+        <item
+          v-for="(item) in articles"
+          :key="item._id"
+          :article="item"
+        />
+        <div id="article-pagination-id">
+          <el-pagination
+            v-if="count>pageLimit"
+            @current-change="handleCurrentChange"
+            :current-page.sync="pageSize"
+            :page-size="pageLimit"
+            layout="total, prev, pager, next"
+            :total="count"
+          >
+          </el-pagination>
+        </div>
       </div>
+
     </div>
   </div>
 </template>

@@ -1,10 +1,8 @@
 <template>
   <div class="category-item">
-    <CustomSpin v-if="getArticlesByCategoryLoading"/>
+    <CustomSkeleton v-if="getArticlesByCategoryLoading" style="padding: 20px"/>
     <div v-else class="category-item__list-container">
-      <div class="category-item__no-data" v-if="noData">
-        暂无数据
-      </div>
+      <CustomNoData v-if="noData"/>
       <timeline timeline-theme="rgba(0,0,0,0.3)" v-else>
         <timeline-title font-color="#555" class="category-item__key">{{$route.query.name}} 分类</timeline-title>
         <timeline-item

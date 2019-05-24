@@ -1,6 +1,6 @@
 <template>
   <div class="categories">
-    <CustomSpin v-if="listLoading"/>
+    <CustomSkeleton v-if="listLoading" style="padding: 20px"/>
     <div v-else class="categories__container-wrap">
       <div class="categories__category-container">
         <h1 class="categories__title">

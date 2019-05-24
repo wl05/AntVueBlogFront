@@ -1,14 +1,15 @@
 <template>
   <div class="articles-list">
-    <CustomSpin v-if="fetchArticleLoading"/>
-    <div v-else
+    <div
          class="articles-list__container"
          ref="articles-list-container"
     >
+      <Skeleton v-if="fetchArticleLoading"/>
       <item
         v-for="(item) in articles"
         :key="item._id"
         :article="item"
+        v-else
       />
       <div id="article-list__pagination-id">
         <el-pagination
@@ -18,6 +19,7 @@
           :page-size="pageLimit"
           layout="total, prev, pager, next"
           :total="count"
+          v-else
         >
         </el-pagination>
       </div>
@@ -28,6 +30,7 @@
 import { fetchArticle } from '@/api/article'
 import formatTimestamp from '@/utils/formatTimestamp'
 import item from './components/item'
+import Skeleton from '@/components/Skeleton'
 
 export default {
   data () {
@@ -41,7 +44,8 @@ export default {
     }
   },
   components: {
-    item
+    item,
+    Skeleton
   },
   watch: {
     $route () {
