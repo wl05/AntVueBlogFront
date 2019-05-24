@@ -1,8 +1,8 @@
 <template>
   <div class="articles-list">
     <div
-         class="articles-list__container"
-         ref="articles-list-container"
+      class="articles-list__container"
+      ref="articles-list-container"
     >
       <Skeleton v-if="fetchArticleLoading"/>
       <item
@@ -19,7 +19,6 @@
           :page-size="pageLimit"
           layout="total, prev, pager, next"
           :total="count"
-          v-else
         >
         </el-pagination>
       </div>

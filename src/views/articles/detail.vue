@@ -3,7 +3,7 @@
     <div class="articles-detail__background">
       <div class="articles-detail__container-wrap">
         <div class="articles-detail__container">
-          <div v-if="!Object.keys(detail).length" class="articles-detail__loading">
+          <div v-if="!Object.keys(detail).length || getArticleDetailLoading" class="articles-detail__loading">
             <CustomSkeleton/>
           </div>
           <div v-else>
@@ -44,9 +44,9 @@
           </div>
         </div>
       </div>
-      <div class="articles-detail__comments-container">
-        <Comment :title="detail.title"/>
-      </div>
+      <!--<div class="articles-detail__comments-container">-->
+        <!--<Comment :title="detail.title"/>-->
+      <!--</div>-->
     </div>
   </div>
 </template>
