@@ -13,7 +13,7 @@
       />
       <div id="article-list__pagination-id">
         <el-pagination
-          v-if="count>pageLimit"
+          v-if="count>pageLimit && !fetchArticleLoading"
           @current-change="handleCurrentChange"
           :current-page.sync="pageSize"
           :page-size="pageLimit"
