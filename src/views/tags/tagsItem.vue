@@ -4,6 +4,7 @@
     <div v-else class="tags-item__container">
       <CustomNoData v-if="noData" text="暂无数据"/>
       <timeline v-else timeline-theme="rgba(0,0,0,0.3)">
+        <timeline-title font-color="#555">{{$route.query.name}} 标签</timeline-title>
         <timeline-item
           font-color="#555"
           v-for="(item, key) in articles"
@@ -78,7 +79,6 @@ export default {
     box-sizing: border-box;
     .tags-item__container {
       border-radius: 5px;
-      margin-bottom: 60px;
       padding: 0 40px;
       max-width: 800px;
       margin: 30px auto;
@@ -95,10 +95,15 @@ export default {
       font-size: 12px;
       color: #282828;
     }
-    .tags-item__title {
-      font-size: 16px;
-      font-weight: 400;
-      color: #333;
+    .timeline-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.6);
+      font-family: Georgia, serif;
+    }
+    .timeline-item {
+      margin: 5px 0 0 28px;
+      padding-bottom: 5px;
     }
     .tags-item__timeline-item-container:hover {
       cursor: pointer;
@@ -110,7 +115,7 @@ export default {
       padding-top: 31px;
       .tags-item__container {
         padding: 40px 10px;
-        border-radius: 0px;
+        border-radius: 0;
       }
     }
   }

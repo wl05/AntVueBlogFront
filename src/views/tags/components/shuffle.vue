@@ -3,7 +3,7 @@
     <div v-for="cell in cells" :key="cell.id" class="cell">
       <a
         class="shuffle__tags"
-        @click="$router.push({ path:`/tags/${cell._id}` })"
+        @click="$router.push({ path:`/tags/${cell._id}` ,query: {name:cell.name}})"
       >
         {{ cell.name }}
       </a>

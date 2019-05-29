@@ -41,7 +41,7 @@ export default {
       articles: [],
       noData: false,
       count: 0,
-      pageLimit: 10,
+      pageLimit: 20,
       pageSize: 1
     }
   },
@@ -126,6 +126,10 @@ export default {
       font-weight: 700;
       color: rgba(0, 0, 0, 0.6);
       font-family: Georgia, serif;
+    }
+    .timeline-item {
+      margin: 5px 0 0 28px;
+      padding-bottom: 5px;
     }
     &__date {
       margin-right: 15px;
