@@ -33,7 +33,7 @@
         </timeline>
         <div class="archives__pagination">
           <el-pagination
-            v-if="count>pageLimit && fetchArticleLoading"
+            v-if="count>pageLimit && !fetchArticleLoading"
             @current-change="handleCurrentChange"
             :current-page.sync="pageSize"
             :page-size="pageLimit"
