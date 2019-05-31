@@ -51,7 +51,7 @@ export default {
   data () {
     return {
       getArticlesByArchivesLoading: false,
-      pageLimit: 15,
+      pageLimit: 20,
       pageSize: 1,
       count: 0,
       articles: []
@@ -160,6 +160,10 @@ export default {
       font-weight: 700;
       color: rgba(0, 0, 0, 0.6);
       font-family: Georgia, serif;
+    }
+    .timeline-item {
+      margin: 5px 0 0 28px;
+      padding-bottom: 5px;
     }
     &__date {
       margin-right: 15px;
