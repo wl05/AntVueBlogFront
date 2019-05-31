@@ -1,6 +1,6 @@
 # AntVueBlogFront
 
-> Vue.js+Egg.js+Mongodb的前后端分离的个人博客。
+> Vue.js+Egg.js+Mongodb前后端分离的个人网站博客。
 
 > 博客地址:[ANT](http://120.77.219.106) （ssr渲染参考[AntVueBlogFrontSSR](https://github.com/antbaobao/AntVueBlogFrontSSR)）
 
@@ -15,7 +15,9 @@
 - 文档列表
 - 分类
 - 标签
-- 评论
+- 归档
+- 评论（暂时关闭）
+- 文章检索
 
 ### 后台管理
 - 发布文章、存为草稿
@@ -44,37 +46,6 @@ npm i
 npm run dev
 ```
 
-### 效果展示
-#### 前端页面
-
-首页
-
-![首页](https://user-gold-cdn.xitu.io/2018/12/1/1676572119695679?w=2878&h=1576&f=jpeg&s=841444)
-
-分类
-
-![分类](https://user-gold-cdn.xitu.io/2018/12/1/1676573f518d65c9?w=2878&h=1574&f=jpeg&s=855442)
-
-归档
-
-![归档](https://user-gold-cdn.xitu.io/2018/12/1/1676570c62745466?w=2878&h=1574&f=jpeg&s=743367)
-
-标签
-
-![标签](https://user-gold-cdn.xitu.io/2018/12/1/16765683665250c4?w=2878&h=1572&f=jpeg&s=965756)
-
-文章详情
-
-![文章详情](https://user-gold-cdn.xitu.io/2018/12/1/167657ac611ff898?w=2876&h=1572&f=jpeg&s=666548)
-
-评论
-
-![评论](https://user-gold-cdn.xitu.io/2018/12/1/167657b4c9fabf9c?w=2878&h=1124&f=jpeg&s=409908)
-
-
-移动端
-
-![移动端](https://user-gold-cdn.xitu.io/2018/12/1/16765764348e3481?w=1080&h=2244&f=jpeg&s=1059950)
 ### 目录
 ```
 │  .babelrc             babel配置
@@ -117,6 +88,12 @@ npm run dev
 ## 部署
 
 部署流程可以参考[使用docker部署网站](https://github.com/antbaobao/AntBlog/issues/20)
+
+## [0.9] - 2019-05-31
+### Changed
+- 优化了页面跳转
+- 优化了CSS的命名使用BEM命名规则
+
 
 ## [0.81] - 2019-05-15
 ### Added
