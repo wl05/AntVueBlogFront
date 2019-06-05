@@ -148,6 +148,7 @@ export default {
       border-radius: 1px;
       font-family: Georgia, serif;
       color: #828282;
+      background-color: rgba(255, 255, 255, 0.6);
     }
     .el-input__inner:focus {
       border-color: #dcdfe6;
