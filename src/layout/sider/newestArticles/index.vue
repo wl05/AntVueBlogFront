@@ -48,7 +48,7 @@ export default {
       padding: 5px;
       list-style-type: none;
       color: #828282;
-      font-size: 0.9em;
+      font-size: 12px;
     }
     &__item:hover {
       cursor: pointer;

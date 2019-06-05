@@ -54,7 +54,7 @@ export default {
       width: 50%;
       list-style-type: none;
       color: #828282;
-      font-size: 0.9em;
+      font-size: 12px;
       padding: 5px 0;
     }
 

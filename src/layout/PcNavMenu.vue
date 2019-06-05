@@ -67,11 +67,11 @@ export default {
     &__text {
       text-decoration: none;
       padding: 0 15px;
-      font-size: 16px;
+      font-size: 14px;
       height: 50px;
       display: inline-block;
       line-height: 50px;
-      color: #828282;
+      color: white;
     }
   }
 </style>

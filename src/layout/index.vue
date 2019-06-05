@@ -36,14 +36,12 @@ export default {
 </script>
 <style lang="scss" scoped rel="stylesheet/scss">
   .top-container {
-    background-size: 100%;
-    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     color: #333333;
     overflow: scroll;
     height: 100vh;
-    background-color: #f5f5d5;
+    background-color: #FFFFCC;
     .el-header {
       padding: 0;
       width: 100%;

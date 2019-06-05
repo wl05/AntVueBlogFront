@@ -67,7 +67,7 @@ export default {
       border-bottom: none;
       line-height: 1.2;
       vertical-align: top;
-      font-size: 18px;
+      font-size: 16px;
       cursor: pointer;
       color: #556677;
     }

@@ -103,10 +103,11 @@ export default {
     align-items: center;
     justify-content: space-between;
     height: 50px;
-    background-color: transparent;
+    background-color: #006666;
     width: 100%;
     box-sizing: border-box;
-    border-bottom: 1px solid #d3d3d3;
+    border-bottom: 1px solid #006666;
+    box-shadow: 0 0 5px rgba(0, 204, 204, .5);
     &__menu-container {
       display: flex;
       align-items: center;
@@ -122,7 +123,7 @@ export default {
       height: 50px;
       display: inline-block;
       line-height: 50px;
-      color: #828282;
+      color: white;
     }
     &__menu-item-text:hover {
       color: #828282;
@@ -136,7 +137,7 @@ export default {
       font-size: 30px;
       display: flex;
       align-items: center;
-      color: #828282;
+      color: white;
     }
     &__native-bar {
       display: none;
@@ -148,7 +149,7 @@ export default {
       border-radius: 1px;
       font-family: Georgia, serif;
       color: #828282;
-      background-color: rgba(255, 255, 255, 0.6);
+      background-color: white;;
     }
     .el-input__inner:focus {
       border-color: #dcdfe6;
