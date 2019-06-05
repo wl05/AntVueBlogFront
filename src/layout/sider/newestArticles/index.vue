@@ -36,8 +36,9 @@ export default {
     border-radius: 5px;
     border: 1px solid #d3d3d3;
     &__title {
-      font-size: 20px;
+      font-size: 18px;
       color: #567;
+      margin-bottom: 10px;
     }
     &__items-container {
       margin: 0;

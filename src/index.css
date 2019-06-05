@@ -7,6 +7,7 @@
 body {
   /*overflow: scroll;*/
   font-family: Georgia, serif;
+  color: #828282;
 }
 
 .el-pagination__total {

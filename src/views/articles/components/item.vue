@@ -59,11 +59,11 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   .articles-item-container {
-    padding: 15px 0;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
     border-bottom: 1px solid #d3d3d3;
     &__title {
       display: inline-block;
-      color: #555;
       border-bottom: none;
       line-height: 1.2;
       vertical-align: top;
@@ -74,6 +74,7 @@ export default {
     &__date-tag {
       font-size: 12px;
       color: #828282;
+      margin-top: 10px;
     }
     &__post-meta-divider {
       color: rgba(0, 0, 0, 0.6);

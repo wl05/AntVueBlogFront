@@ -8,6 +8,7 @@
       <div></div>
       <div>2929712050@qq.com</div>
       <a class="profile__github" href="https://github.com/antbaobao">github(ANT1994)</a>
+      <div>状态：找坑中...、学习go的小菜鸟</div>
     </div>
   </div>
 </template>

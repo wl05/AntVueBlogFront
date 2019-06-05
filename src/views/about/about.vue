@@ -2,7 +2,10 @@
   <div class="about">
     <div class="about__wrap">
       <div class="about__container">
-        <p class="about__info">目前在工作中使用的技术栈主要包括: react、react native、vue、nodejs、koa、egg、mongo等。</p>
+        <p class="about__info">目前在工作中使用的技术栈主要包括: </p>
+        <p class="about__info">react、react native、vue、nodejs、koa、egg、mongo</p>
+        <p class="about__info">golang 初学者</p>
+        <p class="about__info">找坑中...</p>
       </div>
     </div>
   </div>

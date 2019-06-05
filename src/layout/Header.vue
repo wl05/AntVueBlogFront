@@ -41,7 +41,6 @@
       <el-input
         placeholder="请输入搜索内容"
         v-model="keywords"
-        clearable
         size="small"
         class="header__search"
         @keyup.enter.native="goToSearchResultPage"
@@ -107,6 +106,7 @@ export default {
     background-color: transparent;
     width: 100%;
     box-sizing: border-box;
+    border-bottom: 1px solid #d3d3d3;
     &__menu-container {
       display: flex;
       align-items: center;
@@ -118,7 +118,7 @@ export default {
     &__menu-item-text {
       text-decoration: none;
       padding: 0 15px;
-      font-size: 16px;
+      font-size: 14px;
       height: 50px;
       display: inline-block;
       line-height: 50px;
@@ -145,9 +145,9 @@ export default {
       cursor: pointer;
     }
     .el-input__inner {
-      background-color: transparent;
-      border-radius: 0;
+      border-radius: 1px;
       font-family: Georgia, serif;
+      color: #828282;
     }
     .el-input__inner:focus {
       border-color: #dcdfe6;

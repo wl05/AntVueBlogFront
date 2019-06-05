@@ -40,19 +40,20 @@ export default {
     border-radius: 5px;
     border: 1px solid #d3d3d3;;
     &__title {
-      font-size: 20px;
+      font-size: 18px;
       color: #567;
+      margin-bottom: 10px;
     }
     &__items-container {
       margin: 0;
       padding: 0;
     }
     &__item {
-      float: left;
       width: 50%;
+      display: inline-block;
       list-style-type: none;
       color: #828282;
-      font-size: 0.9em;
+      font-size: 14px;
       padding: 5px 0;
     }
     &__info {
