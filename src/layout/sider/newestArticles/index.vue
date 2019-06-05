@@ -1,5 +1,5 @@
 <template>
-  <div class="newest-articles" v-if="newestArticle.length">
+  <div class="newest-articles sider-item-common" v-if="newestArticle.length">
     <p class="newest-articles__title">最新文章</p>
     <ul class="newest-articles__items-container">
       <li
@@ -31,10 +31,6 @@ export default {
 </script>
 <style lang="scss" scoped>
   .newest-articles {
-    margin-top: 45px;
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #d3d3d3;
     &__title {
       font-size: 18px;
       color: #567;

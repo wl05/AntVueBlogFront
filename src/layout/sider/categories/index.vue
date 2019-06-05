@@ -1,5 +1,5 @@
 <template>
-  <div class="categories" v-if="categories.length">
+  <div class="categories sider-item-common" v-if="categories.length">
     <p class="categories__title">文章分类</p>
     <ul class="categories__items-container">
       <li
@@ -35,10 +35,6 @@ export default {
 </script>
 <style lang="scss" scoped>
   .categories {
-    margin-top: 45px;
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #d3d3d3;;
     &__title {
       font-size: 18px;
       color: #567;

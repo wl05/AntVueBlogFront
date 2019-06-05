@@ -1,5 +1,5 @@
 <template>
-  <div class="archives" v-if="archives.length">
+  <div class="archives sider-item-common" v-if="archives.length">
     <p class="archives__title">文章归档</p>
     <p/>
     <ul class="archives__items-container">
@@ -37,9 +37,6 @@ export default {
 </script>
 <style lang="scss" scoped>
   .archives {
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #d3d3d3;;
     &__title {
       font-size: 18px;
       color: #567;
@@ -70,9 +67,7 @@ export default {
   }
 
   @media screen and (max-width: 1600px) {
-    .archives {
-      margin-top: 45px;
-    }
+
   }
 
   @media screen and (max-width: 960px) {

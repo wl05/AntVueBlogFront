@@ -4,12 +4,12 @@
       <CustomSkeleton v-if="getArticlesByArchivesLoading"/>
       <div v-else>
         <timeline
-          timeline-theme="rgba(0,0,0,0.3)"
+          timeline-theme="#006666"
         >
           <div v-for="(value, key) in formatedArticles" class="archive-time-range__item-container" :key="key">
             <timeline-title
               icon-size="large"
-              font-color="#555"
+              font-color="#567"
             >
               {{value.year}}
             </timeline-title>
@@ -144,11 +144,11 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   .archive-time-range {
-    padding-top: 45px;
+    padding-top: 10px;
     box-sizing: border-box;
     &__list-container {
       border-radius: 5px;
-      padding: 40px;
+      padding: 0 40px;
       max-width: 800px;
       margin: 0px auto;
     }
@@ -172,9 +172,9 @@ export default {
       font-family: Georgia, serif;
     }
     &__title {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 400;
-      color: #333;
+      color: #828282;
       font-family: Georgia, serif;
     }
   }

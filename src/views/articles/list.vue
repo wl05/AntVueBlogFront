@@ -93,8 +93,8 @@ export default {
     box-sizing: border-box;
     &__container {
       border-radius: 5px;
-      padding: 40px;
-      max-width: 800px;
+      padding: 10px 0 20px 40px;
+      /*max-width: 800px;*/
       margin: 0px auto;
     }
   }

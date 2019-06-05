@@ -59,9 +59,11 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   .articles-item-container {
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #d3d3d3;
+    /*padding-bottom: 15px;*/
+    margin-bottom: 3px;
+    padding: 15px;
+    /*border: 1px solid #d3d3d3;*/
+    background-color: white;
     &__title {
       display: inline-block;
       border-bottom: none;
@@ -75,6 +77,7 @@ export default {
       font-size: 12px;
       color: #828282;
       margin-top: 10px;
+      position: relative;
     }
     &__post-meta-divider {
       color: rgba(0, 0, 0, 0.6);
@@ -103,8 +106,8 @@ export default {
       font-size: 12px;
       display: inline-block;
       cursor: pointer;
-      margin-left: 15px;
-      margin-top: 5px;
+      position: absolute;
+      right: 10px;
     }
   }
 

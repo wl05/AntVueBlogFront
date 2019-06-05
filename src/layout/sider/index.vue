@@ -31,10 +31,12 @@ export default {
 }
 </script>
 <style lang="scss">
+  @import "./style.scss";
+
   .sider {
     color: #000;
     width: 800px;
-    padding: 40px 50px;
+    padding: 10px 40px 10px 10px;
     box-sizing: border-box;
     &__left {
       float: left;

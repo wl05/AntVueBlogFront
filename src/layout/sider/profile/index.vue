@@ -1,5 +1,5 @@
 <template>
-  <div class="profile">
+  <div class="profile sider-item-common">
     <p class="profile__title">个人简介</p>
     <img class="profile__photo" src="../../../assets/profile.jpeg"/>
     <div class="profile__info">
@@ -15,9 +15,6 @@
 
 <style lang="scss" scoped>
   .profile {
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #d3d3d3;
     color: #828282;
     font-size: 14px;
     &__title {

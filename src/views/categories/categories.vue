@@ -74,23 +74,27 @@ export default {
       padding: 40px;
     }
     &__count {
-      font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
       text-align: center;
+      color: #828282;
+      font-size: 14px;
     }
     &__items {
       display: flex;
       padding: 20px;
       flex-direction: column;
+      color: #828282;
+      font-size: 14px;
     }
     &__item {
       padding: 10px;
       cursor: pointer;
     }
     &__title {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 400;
       text-align: center;
       padding: 20px;
+      color: #567;
     }
   }
 

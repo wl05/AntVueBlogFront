@@ -109,8 +109,11 @@ export default {
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
   .articles-detail {
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
     box-sizing: border-box;
+    background-color: white;
+    margin-left: 40px;
+    margin-top: 10px;
     &__container-wrap {
       width: 100%;
       min-height: 100vh;
@@ -134,6 +137,7 @@ export default {
     &__date-tag {
       margin-top: 15px;
       font-size: 12px;
+      color: #828282;
     }
     &__post-meta-divider {
       color: rgba(255, 255, 255, 0.6);
@@ -149,7 +153,7 @@ export default {
     }
     &__title {
       margin: 5px 0;
-      color: #000000;
+      color: #567;
       font-weight: 500;
       font-size: 24px;
     }

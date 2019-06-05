@@ -3,8 +3,8 @@
     <CustomSkeleton v-if="getArticlesByCategoryLoading" style="padding: 20px"/>
     <div v-else class="category-item__list-container">
       <CustomNoData v-if="noData"/>
-      <timeline timeline-theme="rgba(0,0,0,0.3)" v-else>
-        <timeline-title font-color="#555" class="category-item__key">{{$route.query.name}} 分类</timeline-title>
+      <timeline timeline-theme="#006666" v-else>
+        <timeline-title font-color="#567" class="category-item__key">{{$route.query.name}} 分类</timeline-title>
         <timeline-item
           v-for="(item, key) in articles"
           :key="key"
@@ -108,7 +108,7 @@ export default {
     box-sizing: border-box;
     &__list-container {
       border-radius: 5px;
-      padding: 40px;
+      padding: 0 40px 40px 40px;
       max-width: 800px;
       margin: 0px auto;
     }
@@ -120,7 +120,7 @@ export default {
       cursor: pointer;
     }
     .timeline-title {
-      font-size: 30px;
+      font-size: 24px;
       font-weight: 700;
       color: rgba(0, 0, 0, 0.6);
       font-family: Georgia, serif;
@@ -136,11 +136,12 @@ export default {
       font-family: Georgia, serif;
     }
     &__title {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 400;
-      color: #333;
+      color: #828282;
       font-family: Georgia, serif;
     }
+
   }
 
   @media screen and (max-width: 768px) {
