@@ -1,12 +1,13 @@
 <template>
   <div class="tag-item">
-    <CustomSkeleton v-if="getArticlesByTagLoading" style="padding: 20px"/>
+    <CustomSkeleton v-if="getArticlesByTagLoading"
+                    style="padding: 20px;backgroundColor:white;margin-bottom: 1px;padding: 20px"/>
     <div v-else class="tags-item__container">
       <CustomNoData v-if="noData" text="暂无数据"/>
       <timeline v-else timeline-theme="#006666">
-        <timeline-title font-color="#567">{{$route.query.name}} 标签</timeline-title>
+        <timeline-title font-color="#24272E">{{$route.query.name}} 标签</timeline-title>
         <timeline-item
-          font-color="#828282"
+          font-color="#4F566B"
           v-for="(item, key) in articles"
           :key="key"
         >
@@ -101,7 +102,7 @@ export default {
     .timeline-title {
       font-size: 30px;
       font-weight: 700;
-      color: #828282;
+      color: #4F566B;
       font-family: Georgia, serif;
     }
     .timeline-item {

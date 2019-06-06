@@ -4,7 +4,14 @@
       class="articles-list__container"
       ref="articles-list-container"
     >
-      <Skeleton v-if="fetchArticleLoading"/>
+      <div v-if="fetchArticleLoading">
+        <CustomSkeleton
+          v-for="i of [0,1,2]"
+          :key="i"
+          style="backgroundColor:white;margin-bottom: 1px;padding: 20px"
+        />
+      </div>
+
       <item
         v-for="(item) in articles"
         :key="item._id"
@@ -29,7 +36,6 @@
 import { fetchArticle } from '@/api/article'
 import formatTimestamp from '@/utils/formatTimestamp'
 import item from './components/item'
-import Skeleton from '@/components/Skeleton'
 
 export default {
   data () {
@@ -43,8 +49,7 @@ export default {
     }
   },
   components: {
-    item,
-    Skeleton
+    item
   },
   watch: {
     $route () {
@@ -93,8 +98,7 @@ export default {
     box-sizing: border-box;
     &__container {
       border-radius: 5px;
-      padding: 10px 0 20px 40px;
-      /*max-width: 800px;*/
+      padding: 20px 10px 20px 20px;
       margin: 0px auto;
     }
   }

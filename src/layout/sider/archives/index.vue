@@ -39,7 +39,7 @@ export default {
   .archives {
     &__title {
       font-size: 18px;
-      color: #567;
+      color: #4F566B;
       margin-bottom: 10px;
     }
     &__items-container {
@@ -50,7 +50,7 @@ export default {
       float: left;
       width: 50%;
       list-style-type: none;
-      color: #828282;
+      color: #4F566B;
       font-size: 12px;
       padding: 5px 0;
     }

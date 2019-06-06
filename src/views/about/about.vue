@@ -24,7 +24,7 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
   .about {
     box-sizing: border-box;
-    color: #828282;
+    color: #4F566B;
     &__wrap {
       width: 100%;
     }

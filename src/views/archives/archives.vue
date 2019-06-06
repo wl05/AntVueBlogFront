@@ -1,7 +1,7 @@
 <template>
   <div class="archives">
     <div class="archives__list-container">
-      <CustomSkeleton v-if="fetchArticleLoading"/>
+      <CustomSkeleton v-if="fetchArticleLoading" style="backgroundColor:white;margin-bottom: 1px;padding: 20px"/>
       <div v-else>
         <timeline timeline-theme="#006666">
           <div
@@ -11,7 +11,7 @@
           >
             <timeline-title
               icon-size="large"
-              font-color="#567"
+              font-color="#24272E"
             >
               {{value.year}}
             </timeline-title>
@@ -19,7 +19,7 @@
               icon-size="small"
               :key="index"
               v-for="(item,index) in value.value"
-              font-color="#828282"
+              font-color="#4F566B"
             >
               <div
                 class="archives__article-item"
@@ -176,7 +176,7 @@ export default {
     &__title {
       font-size: 14px;
       font-weight: 400;
-      color: #828282;
+      color: #4F566B;
       font-family: Georgia, serif;
     }
   }

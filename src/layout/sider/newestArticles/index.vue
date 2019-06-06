@@ -33,7 +33,7 @@ export default {
   .newest-articles {
     &__title {
       font-size: 18px;
-      color: #567;
+      color: #24272E;
       margin-bottom: 10px;
     }
     &__items-container {
@@ -43,7 +43,7 @@ export default {
     &__item {
       padding: 5px;
       list-style-type: none;
-      color: #828282;
+      color: #4F566B;
       font-size: 12px;
     }
     &__item:hover {

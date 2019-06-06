@@ -15,7 +15,7 @@
 
 <style lang="scss" scoped>
   .profile {
-    color: #828282;
+    color: #4F566B;
     font-size: 14px;
     &__title {
       font-size: 20px;

@@ -1,14 +1,14 @@
 .markdown-body {
-  color: #828282;
+  color: #4F566B;
   font-family: Georgia, serif;
   line-height: 1.5;
 }
 
 .markdown-body img {
-  border-radius: 15px;
+  /*border-radius: 15px;*/
   margin: 0 auto;
   display: block;
-  border: 5px solid #e0dfcc;
+  /*border: 1px solid #e0dfcc;*/
 }
 
 .markdown-body pre {
@@ -22,7 +22,7 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  color: #567;
+  color: #24272E;
   font-weight: 500;
 }
 

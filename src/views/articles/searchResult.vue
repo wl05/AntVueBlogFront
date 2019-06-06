@@ -4,7 +4,13 @@
       class="articles-result__container"
       ref="articles-list-container"
     >
-      <CustomSkeleton v-if="getArticlesByKeywordsLoading"/>
+      <div v-if="getArticlesByKeywordsLoading">
+        <CustomSkeleton
+          v-for="i of [0,1,2]"
+          :key="i"
+          style="backgroundColor:white;margin-bottom: 1px;padding: 20px"
+        />
+      </div>
       <CustomNoData
         v-else-if="!articles.length"
         text="没有找到文章。试试其它搜索？"/>
@@ -99,7 +105,7 @@ export default {
     box-sizing: border-box;
     &__container {
       border-radius: 5px;
-      padding: 40px;
+      padding: 20px 40px 40px;
       max-width: 800px;
       margin: 0px auto;
     }

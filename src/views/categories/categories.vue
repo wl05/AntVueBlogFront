@@ -1,6 +1,6 @@
 <template>
   <div class="categories">
-    <CustomSkeleton v-if="listLoading" style="padding: 20px"/>
+    <CustomSkeleton v-if="listLoading" style="padding: 20px;backgroundColor:white;margin-bottom: 1px;padding: 20px"/>
     <div v-else class="categories__container-wrap">
       <div class="categories__category-container">
         <h1 class="categories__title">
@@ -75,14 +75,14 @@ export default {
     }
     &__count {
       text-align: center;
-      color: #828282;
+      color: #4F566B;
       font-size: 14px;
     }
     &__items {
       display: flex;
       padding: 20px;
       flex-direction: column;
-      color: #828282;
+      color: #4F566B;
       font-size: 14px;
     }
     &__item {
@@ -94,7 +94,7 @@ export default {
       font-weight: 400;
       text-align: center;
       padding: 20px;
-      color: #567;
+      color: #24272E;
     }
   }
 

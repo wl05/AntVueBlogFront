@@ -59,23 +59,22 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   .articles-item-container {
-    /*padding-bottom: 15px;*/
-    margin-bottom: 3px;
+    margin-bottom: 1px;
     padding: 15px;
-    /*border: 1px solid #d3d3d3;*/
     background-color: white;
+    /*border-bottom: 1px solid #DADCE2;*/
     &__title {
       display: inline-block;
       border-bottom: none;
       line-height: 1.2;
       vertical-align: top;
-      font-size: 16px;
+      font-size: 14px;
       cursor: pointer;
-      color: #556677;
+      color: #24272E;
     }
     &__date-tag {
       font-size: 12px;
-      color: #828282;
+      color: #4F566B;
       margin-top: 10px;
       position: relative;
     }
@@ -93,7 +92,7 @@ export default {
     &__tag,
     &__category,
     &__viewCount {
-      margin-left: 5px;
+      margin-left: 1px;
       font-family: Georgia, serif;
     }
     &__content {

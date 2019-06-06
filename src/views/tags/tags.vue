@@ -1,6 +1,6 @@
 <template>
   <div class="tags-wrap">
-    <CustomSkeleton v-if="listLoading" style="padding: 20px"/>
+    <CustomSkeleton v-if="listLoading" style="padding: 20px;backgroundColor:white;margin-bottom: 1px;padding: 20px"/>
     <div v-else class="tags-wrap__container">
       <h1 class="tags-wrap__title">
         Tagscloud
@@ -64,7 +64,7 @@ export default {
   .tags-wrap {
     padding-top: 45px;
     box-sizing: border-box;
-    color: #828282;
+    color: #4F566B;
     &__container {
       max-width: 800px;
       margin: 30px auto;

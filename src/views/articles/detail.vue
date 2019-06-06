@@ -4,7 +4,7 @@
       <div class="articles-detail__container-wrap">
         <div class="articles-detail__container">
           <div v-if="!Object.keys(detail).length || getArticleDetailLoading" class="articles-detail__loading">
-            <CustomSkeleton/>
+            <CustomSkeleton style="backgroundColor:white;margin-bottom: 1px;padding: 20px"/>
           </div>
           <div v-else>
             <header class="articles-detail__header">
@@ -45,7 +45,7 @@
         </div>
       </div>
       <!--<div class="articles-detail__comments-container">-->
-        <!--<Comment :title="detail.title"/>-->
+      <!--<Comment :title="detail.title"/>-->
       <!--</div>-->
     </div>
   </div>
@@ -112,8 +112,9 @@ export default {
     /*background-attachment: fixed;*/
     box-sizing: border-box;
     background-color: white;
-    margin-left: 40px;
-    margin-top: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 10px;
     &__container-wrap {
       width: 100%;
       min-height: 100vh;
@@ -137,7 +138,7 @@ export default {
     &__date-tag {
       margin-top: 15px;
       font-size: 12px;
-      color: #828282;
+      color: #4F566B;
     }
     &__post-meta-divider {
       color: rgba(255, 255, 255, 0.6);
@@ -153,7 +154,7 @@ export default {
     }
     &__title {
       margin: 5px 0;
-      color: #567;
+      color: #24272E;
       font-weight: 500;
       font-size: 24px;
     }

@@ -126,11 +126,11 @@ export default {
       color: white;
     }
     &__menu-item-text:hover {
-      color: #828282;
+      color: #4F566B;
     }
     &__active-class {
       background: rgba(255, 255, 255, 0.4);
-      color: #828282;
+      color: #4F566B;
     }
     &__blog-title-container {
       cursor: pointer;
@@ -148,7 +148,7 @@ export default {
     .el-input__inner {
       border-radius: 1px;
       font-family: Georgia, serif;
-      color: #828282;
+      color: #4F566B;
       background-color: white;;
     }
     .el-input__inner:focus {

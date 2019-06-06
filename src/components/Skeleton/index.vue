@@ -29,7 +29,7 @@
   .skeleton .skeleton-content-b,
   .skeleton .skeleton-content-c {
     background: rgba(0, 0, 0, 0.02);
-    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%);
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.45) 25%, transparent 25%);
     background-size: 20rem 20rem;
     animation: skeleton-stripes 1s linear infinite;
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="archive-time-range">
     <div class="archive-time-range__list-container">
-      <CustomSkeleton v-if="getArticlesByArchivesLoading"/>
+      <CustomSkeleton v-if="getArticlesByArchivesLoading" style="backgroundColor:white;margin-bottom: 1px;padding: 20px"/>
       <div v-else>
         <timeline
           timeline-theme="#006666"
@@ -174,7 +174,7 @@ export default {
     &__title {
       font-size: 14px;
       font-weight: 400;
-      color: #828282;
+      color: #4F566B;
       font-family: Georgia, serif;
     }
   }
