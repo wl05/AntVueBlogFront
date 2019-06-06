@@ -44,15 +44,15 @@ export default {
     margin-top: 10px;
     justify-content: center;
     &__tags {
-      border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.6);
       cursor: pointer;
       margin: 15px;
-      font-size: 18px;
+      font-size: 14px;
       font-family: Georgia, serif;
     }
     &__tags:hover {
       color: rgba(0, 0, 0, 1);
-      border-bottom: 2px solid rgba(0, 0, 0, 1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.8);
     }
   }
 

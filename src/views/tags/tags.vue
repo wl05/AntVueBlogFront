@@ -64,15 +64,15 @@ export default {
   .tags-wrap {
     padding-top: 45px;
     box-sizing: border-box;
+    color: #828282;
     &__container {
       max-width: 800px;
-      margin: 0 auto;
-      margin-top: 30px;
+      margin: 30px auto;
       border-radius: 5px;
       padding: 40px;
     }
     &__count {
-      font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+      /*font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;*/
       text-align: center;
     }
     &__items {
@@ -82,10 +82,11 @@ export default {
       flex-wrap: wrap;
     }
     &__title {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 400;
       text-align: center;
       padding: 20px;
+      color: #556677;
     }
   }
 
