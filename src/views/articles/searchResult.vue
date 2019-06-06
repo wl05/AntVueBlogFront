@@ -114,17 +114,4 @@ export default {
       margin-bottom: 15px;
     }
   }
-
-  @media screen and (max-width: 768px) {
-    .articles-result {
-      padding-top: 31px;
-      &__container {
-        padding: 10px;
-        border-radius: 0;
-      }
-      #article-pagination-id {
-        overflow: scroll;
-      }
-    }
-  }
 </style>

@@ -109,14 +109,12 @@ export default {
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
   .articles-detail {
-    /*background-attachment: fixed;*/
     box-sizing: border-box;
     background-color: white;
     margin-left: 20px;
     margin-top: 20px;
     margin-right: 10px;
     &__container-wrap {
-      width: 100%;
       min-height: 100vh;
     }
     &__container {
@@ -172,25 +170,15 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     .articles-detail {
-      padding-top: 31px;
-      &__background {
-        background: rgba(0, 0, 0, 0.8);
-        margin-top: 30px;
-      }
-      &__container {
-        margin: 30px auto;
-        border-radius: 0px;
-      }
+      margin: 0;
       &__header {
         padding: 10px;
-      }
-      &__tag-icon {
-        display: none;
+
       }
       &__content {
-        padding: 10px;
+        padding: 0 10px 20px;
       }
     }
   }

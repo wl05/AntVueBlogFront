@@ -19,12 +19,6 @@ export default {
   },
   components: {
     VueMarkdown
-  },
+  }
 }
 </script>
-
-<style scoped>
-  .markdown-body {
-    padding: 15px;
-  }
-</style>

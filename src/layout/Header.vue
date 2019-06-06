@@ -6,11 +6,11 @@
     </a>
     <a class="header__native-bar">
       <el-dropdown trigger="click">
-        <span class="fa fa-bars"></span>
+        <span class="fa fa-bars header__bars" style="color: white"></span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>
             <a @click="$router.push({path:'/categories'})"
-               :class="['menu-item-text',index==='/categories' ? 'header__active-class' : '' ]">
+               :class="['header__menu-item-text',index==='/categories' ? 'header__active-class' : '' ]">
               <span class="fa fa-fw fa-th"></span>
               分类
             </a>
@@ -159,9 +159,12 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     .header {
       padding: 0 25px;
+      position: fixed;
+      margin-bottom: 50px;
+      z-index: 999;
       &__native-bar {
         display: block;
       }

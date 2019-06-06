@@ -60,6 +60,10 @@ export default {
     .el-footer {
       background: rgba(0, 0, 0, 0.9);
     }
+    @media screen and (max-width: 960px) {
+      &__content-container {
+        padding-top: 50px;
+      }
+    }
   }
-
 </style>

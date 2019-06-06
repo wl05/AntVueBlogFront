@@ -55,13 +55,6 @@ export default {
     clear: both;
   }
 
-  @media (max-width: 960px) {
-    .sider {
-      padding: 0;
-      width: 100%;
-    }
-  }
-
   @media (max-width: 1600px) {
     .sider {
       width: 500px;
@@ -76,4 +69,9 @@ export default {
     }
   }
 
+  @media screen and (max-width: 960px) {
+    .sider {
+      display: none;
+    }
+  }
 </style>

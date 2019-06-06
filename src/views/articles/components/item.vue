@@ -25,9 +25,9 @@
             {{article.tag_detail.name}}
         </a>
       </span>
-      <span class="articles-item-container__post-meta-divider">|</span>
-      <span class="fa fa-eye">
-        <span class="articles-item-container__viewCount">阅读次数 {{article.viewCount}}</span>
+      <span class="articles-item-container__post-meta-divider articles-item-container__view-count-cn-pre">|</span>
+      <span class="fa fa-eye articles-item-container__view-count-cn">
+        <span class="articles-item-container__view-count">阅读次数 {{article.viewCount}}</span>
       </span>
       <a
         class="articles-item-container__read-more"
@@ -90,7 +90,7 @@ export default {
     &__publish-date,
     &__tag,
     &__category,
-    &__viewCount {
+    &__view-count {
       margin-left: 1px;
       font-family: Georgia, serif;
     }
@@ -109,10 +109,17 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
-    &__tagIcon {
-      display: none;
+  @media screen and (max-width: 960px) {
+    .articles-item-container {
+      &__tagIcon {
+        display: none;
+      }
+      &__view-count-cn-pre {
+        display: none;
+      }
+      &__view-count-cn {
+        display: none;
+      }
     }
-
   }
 </style>

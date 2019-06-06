@@ -103,15 +103,10 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     .articles-list {
-      padding-top: 31px;
       &__container {
-        padding: 10px;
-        border-radius: 0;
-      }
-      #article-list__pagination-id {
-        overflow: scroll;
+        padding: 20px 10px 20px 10px;
       }
     }
   }

@@ -4,16 +4,12 @@
   line-height: 1.5;
 }
 
-.markdown-body img {
-  /*border-radius: 15px;*/
-  margin: 0 auto;
-  display: block;
-  /*border: 1px solid #e0dfcc;*/
-}
-
 .markdown-body pre {
-  /*border: 5px solid #e0dfcc;*/
-  /*border-radius: 15px;*/
+  background-color: #f5f2f0;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  width: 100%;
 }
 
 .markdown-body h1,
@@ -23,19 +19,13 @@
 .markdown-body h5,
 .markdown-body h6 {
   color: #24272E;
-  font-weight: 500;
 }
 
 .markdown-body code {
   display: inline-block;
   padding-left: 5px;
   padding-right: 5px;
-  /*font-size: 1;*/
   background-color: pink;
   border-radius: 5px;
   margin: auto 3px;
-}
-
-.markdown-body pre {
-  background-color: #f5f2f0;
 }
