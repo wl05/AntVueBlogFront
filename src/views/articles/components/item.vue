@@ -60,9 +60,8 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
   .articles-item-container {
     margin-bottom: 1px;
-    padding: 15px;
+    padding: 20px;
     background-color: white;
-    /*border-bottom: 1px solid #DADCE2;*/
     &__title {
       display: inline-block;
       border-bottom: none;
