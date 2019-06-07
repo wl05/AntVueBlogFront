@@ -55,7 +55,7 @@ export default {
   data () {
     return {
       fetchArticleLoading: false,
-      pageLimit: 40,
+      pageLimit: 20,
       pageSize: 1,
       count: 0,
       articles: []

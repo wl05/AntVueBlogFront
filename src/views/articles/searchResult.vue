@@ -105,7 +105,7 @@ export default {
     box-sizing: border-box;
     &__container {
       border-radius: 5px;
-      padding: 20px 40px 40px;
+      padding: 20px 10px 40px;
       max-width: 800px;
       margin: 0px auto;
     }
