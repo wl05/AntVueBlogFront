@@ -172,11 +172,11 @@ export default {
     .articles-detail {
       margin: 0;
       &__header {
-        padding: 10px;
+        padding: 40px 10px;
 
       }
       &__content {
-        padding: 0 10px 20px;
+        /*padding: 0 10px 20px;*/
       }
     }
   }

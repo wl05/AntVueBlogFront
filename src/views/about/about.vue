@@ -63,9 +63,11 @@ export default {
       &__container {
         flex-direction: column;
         align-items: center;
-        padding: 40px 10px;
+        /*padding: 40px 10px;*/
         border-radius: 0;
         width: 100%;
+        white-space: pre-wrap;
+        word-wrap: break-word;
       }
     }
   }

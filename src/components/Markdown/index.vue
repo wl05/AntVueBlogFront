@@ -1,6 +1,6 @@
 <template>
-  <div class="markdown-body" v-html="htmlValue">
-  </div>
+  <article class="markdown-body" v-html="htmlValue">
+  </article>
 </template>
 
 <script>
@@ -19,6 +19,6 @@ export default {
   },
   components: {
     VueMarkdown
-  }
+  },
 }
 </script>

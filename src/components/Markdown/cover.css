@@ -7,9 +7,6 @@
 .markdown-body pre {
   background-color: #f5f2f0;
   overflow: auto;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  width: 100%;
 }
 
 .markdown-body h1,
