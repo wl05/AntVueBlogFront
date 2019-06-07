@@ -11,28 +11,26 @@
               <h4 class="articles-detail__title">{{detail.title}}</h4>
               <div class="articles-detail__date-tag">
                       <span class="articles-detail__icon fa fa-calendar">
-                          <span
-                            class="articles-detail__publish-date">{{formatTimestamp(Number(detail.publishAt)/1000)}}</span>
                       </span>
+                <span
+                  class="articles-detail__publish-date">{{formatTimestamp(Number(detail.publishAt)/1000)}}</span>
                 <span class="articles-detail__post-meta-divider">|</span>
                 <span class="articles-detail__icon fa fa-envelope">
-                          <a class="articles-detail__category"
-                             @click="$router.push({path: `/categories/${detail.category._id}`,query:{name:detail.category.name}})"
-                          >{{detail.category.name}}</a>
                       </span>
+                <a class="articles-detail__category"
+                   @click="$router.push({path: `/categories/${detail.category._id}`,query:{name:detail.category.name}})"
+                >{{detail.category.name}}</a>
                 <span class="articles-detail__tag-icon articles-detail__post-meta-divider">|</span>
-                <span class="articles-detail__tag-icon icon fa fa-tags">
-                          <a
-                            class="articles-detail__tag"
-                            @click="$router.push({ path:`/tags/${detail.tag._id}` })"
-                          >
-                              {{detail.tag.name}}
-                          </a>
-                      </span>
+                <span class="articles-detail__tag-icon icon fa fa-tags"></span>
+                <a
+                  class="articles-detail__tag"
+                  @click="$router.push({ path:`/tags/${detail.tag._id}` })"
+                >
+                  {{detail.tag.name}}
+                </a>
                 <span class="articles-detail__post-meta-divider">|</span>
-                <span class="fa fa-eye">
-                          阅读次数 {{detail.viewCount}}
-                      </span>
+                <span class="fa fa-eye"></span>
+                {{detail.viewCount}}
               </div>
             </header>
             <div class="articles-detail__content">

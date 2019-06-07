@@ -138,6 +138,7 @@ export default {
       display: flex;
       align-items: center;
       color: white;
+      font-weight: bolder;
     }
     &__native-bar {
       display: none;

@@ -6,29 +6,29 @@
     </a>
     <div class="articles-item-container__date-tag">
       <span class="articles-item-container__icon fa fa-calendar">
-        <span class="articles-item-container__publish-date">{{formatTimestamp(Number(article.publishAt)/1000)}}</span>
       </span>
+      <span class="articles-item-container__publish-date">{{formatTimestamp(Number(article.publishAt)/1000)}}</span>
       <span class="articles-item-container__post-meta-divider">|</span>
       <span class="articles-item-container__icon fa fa-envelope">
-        <a class="articles-item-container__category"
-           @click="$router.push({path: `/categories/${article.category}`,query:{name:article.category_detail.name}})"
-        >
-          {{article.category_detail.name}}
-        </a>
       </span>
+      <a class="articles-item-container__category"
+         @click="$router.push({path: `/categories/${article.category}`,query:{name:article.category_detail.name}})"
+      >
+        {{article.category_detail.name}}
+      </a>
       <span class="articles-item-container__tagIcon articles-item-container__post-meta-divider">|</span>
       <span class="articles-item-container__tagIcon icon fa fa-tags">
-        <a
-          class="articles-item-container__tag"
-          @click="$router.push({ path:`/tags/${article.tag}` })"
-        >
-            {{article.tag_detail.name}}
-        </a>
       </span>
+      <a
+        class="articles-item-container__tag"
+        @click="$router.push({ path:`/tags/${article.tag}` })"
+      >
+        {{article.tag_detail.name}}
+      </a>
       <span class="articles-item-container__post-meta-divider articles-item-container__view-count-cn-pre">|</span>
       <span class="fa fa-eye articles-item-container__view-count-cn">
-        <span class="articles-item-container__view-count">阅读次数 {{article.viewCount}}</span>
       </span>
+      <span class="articles-item-container__view-count">{{article.viewCount}}</span>
       <a
         class="articles-item-container__read-more"
         @click="$router.push({name:'Detail',params:{id:article._id}})"
@@ -67,9 +67,10 @@ export default {
       border-bottom: none;
       line-height: 1.2;
       vertical-align: top;
-      font-size: 14px;
+      font-size: 16px;
       cursor: pointer;
       color: #24272E;
+
     }
     &__date-tag {
       font-size: 12px;
@@ -78,8 +79,8 @@ export default {
       position: relative;
     }
     &__post-meta-divider {
-      color: rgba(0, 0, 0, 0.6);
-      margin: 0 5px;
+      color: #006666;
+      margin: 0 4px;
     }
     &__publish-date,
     &__tag,
