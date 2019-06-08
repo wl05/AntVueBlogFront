@@ -18,7 +18,7 @@
 import Header from './Header.vue'
 import Sider from './sider/index.vue'
 import Footer from './Footer.vue'
-import banner from '@/assets/banner.jpeg'
+import banner from '@/assets/login.jpeg'
 
 export default {
   name: 'Layout',

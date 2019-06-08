@@ -61,7 +61,7 @@ export default {
   .articles-item-container {
     margin-bottom: 1px;
     padding: 20px;
-    background-color: white;
+    background-color: #fff;
     &__title {
       display: inline-block;
       border-bottom: none;
