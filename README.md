@@ -89,6 +89,10 @@ npm run dev
 
 部署流程可以参考[使用docker部署网站](https://github.com/antbaobao/AntBlog/issues/20)
 
+## 待开发
+1. 准备开发注册登录权限管理系统
+2. 新增"生活与我"模块，加入权限控制。
+
 ## [0.9] - 2019-05-31
 ### Changed
 - 优化了页面跳转
