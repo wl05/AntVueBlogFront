@@ -35,7 +35,6 @@ export default {
 
   .sider {
     color: #000;
-    width: 800px;
     padding: 20px 20px 10px 10px;
     box-sizing: border-box;
     &__left {

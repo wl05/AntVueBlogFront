@@ -5,13 +5,13 @@
       <div class="signup__form">
         <div class="signup__title">欢迎注册汪乐的个人网站</div>
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="80px">
-          <el-form-item label="用户名" prop="username">
-            <el-input v-model="ruleForm.username" placeholder="请输入用户名或者邮箱"></el-input>
+          <el-form-item label="用户名" prop="name">
+            <el-input v-model="ruleForm.name" placeholder="请输入用户名或者邮箱"></el-input>
           </el-form-item>
           <el-form-item label="是男是女" prop="gender">
             <el-radio-group v-model="ruleForm.gender">
-              <el-radio label="男"></el-radio>
-              <el-radio label="女"></el-radio>
+              <el-radio label="male">男</el-radio>
+              <el-radio label="female">女</el-radio>
             </el-radio-group>
             <span class="signup__gender-note">选择后无法修改</span>
           </el-form-item>
@@ -28,12 +28,13 @@
           <el-form-item label="验证码" prop="authCode">
             <div class="signup__auth-code">
               <el-input style="width: 100px" v-model="ruleForm.authCode" placeholder="验证码"></el-input>
-              <img class="signup__auth-code-img" src="https://www.zhangxinxu.com/php/code.php?action=verifycode"/>
-              <a>换一张</a>
+              <div class="signup__auth-code-img" v-html="authCodeImg"/>
+              <a @click="generateAuthCode">换一张</a>
             </div>
           </el-form-item>
           <el-form-item>
-            <el-button style="width: 100%" type="primary" @click="submitForm('ruleForm')">注册</el-button>
+            <el-button style="width: 100%" type="primary" @click="submitForm('ruleForm')" :loading="signupLoading">注册
+            </el-button>
           </el-form-item>
 
           <el-form-item class="signup__btn">
@@ -48,43 +49,85 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
+import { generateAuthCode, signup } from '@/api/user'
 
 export default {
   data () {
     return {
       ruleForm: {
-        username: '',
+        name: '',
         gender: '',
-        account: '',
         email: '',
         password: '',
         confirmPassword: '',
         authCode: ''
-
       },
       rules: {
-        account: [
+        name: [
           {required: true, message: '请输入用户名或者邮箱', trigger: 'blur'},
         ],
         password: [
           {required: true, message: '请输入密码', trigger: 'blur'}
         ]
 
-      }
+      },
+      signupLoading: false,
+      authCodeImg: ''
     }
   },
 
   methods: {
+    ...mapActions([
+      'GENERATE_AUTH_CODE'
+    ]),
     submitForm (formName) {
       this.$refs[ formName ].validate((valid) => {
         if (valid) {
-          alert('submit!')
+          this.signup()
         } else {
           console.log('error submit!!')
           return false
         }
       })
+    },
+    async generateAuthCode () {
+      try {
+        const res = await generateAuthCode()
+        if (res.data.code === 0) {
+          this.authCodeImg = res.data.data.authCode
+        }
+
+      } catch (e) {
+        this.$message.error('请求出错了')
+      }
+    },
+    async signup () {
+      this.signupLoading = true
+      const {
+        name,
+        gender,
+        email,
+        password,
+        authCode
+      } = this.ruleForm
+      try {
+        const res = signup({
+          name,
+          gender,
+          email,
+          password,
+          authCode
+        })
+        this.signupLoading = false
+      } catch (e) {
+        this.$message.error('请求出错')
+        this.signupLoading = false
+      }
     }
+  },
+  mounted () {
+    this.generateAuthCode()
   }
 }
 </script>
@@ -128,7 +171,8 @@ export default {
       align-items: center;
     }
     &__auth-code-img {
-      margin: 0 10px;
+      margin: 10px 10px 0;
+
     }
     &__gender-note {
       margin-left: 20px;

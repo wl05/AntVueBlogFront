@@ -7,7 +7,7 @@
         <div class="top-container__content-container">
           <router-view/>
         </div>
-        <Sider/>
+        <Sider style="width: 35%"/>
       </el-main>
     </el-container>
   </el-container>
@@ -58,7 +58,9 @@ export default {
       justify-content: space-between;
     }
     &__content-container {
-      flex: 1;
+      /*flex: 1;*/
+      width: 65%;
+      box-sizing: border-box;
     }
     .el-footer {
       background: rgba(0, 0, 0, 0.9);
@@ -66,6 +68,7 @@ export default {
     @media screen and (max-width: 960px) {
       &__content-container {
         padding-top: 50px;
+        width: 100%;
       }
     }
   }

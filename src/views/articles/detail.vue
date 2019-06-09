@@ -176,7 +176,7 @@ export default {
 
       }
       &__content {
-        /*padding: 0 10px 20px;*/
+        padding: 0 10px 20px;
       }
     }
   }
