@@ -82,6 +82,11 @@ const router = new Router({
       path: '/signup',
       name: 'signup',
       component: () => import('@/views/user/signup.vue')
+    },
+    {
+      path: '/activation',
+      name: 'activation',
+      component: () => import('@/views/user/activation.vue')
     }
   ]
 })

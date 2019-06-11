@@ -22,3 +22,7 @@ export function generateAuthCode () {
 export function signup (info) {
   return _request.post('/signup', info)
 }
+
+export function login (info) {
+  return _request.post('/login', info)
+}

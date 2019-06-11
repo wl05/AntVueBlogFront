@@ -5,6 +5,7 @@ import category from './modules/category'
 import detail from './modules/detail'
 import archives from './modules/archives'
 import signup from './modules/signup'
+import login from './modules/login'
 
 Vue.use(Vuex)
 
@@ -14,7 +15,8 @@ export default new Vuex.Store({
     category,
     detail,
     archives,
-    signup
+    signup,
+    login
   }
 })
 
