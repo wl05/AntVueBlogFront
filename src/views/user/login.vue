@@ -5,8 +5,8 @@
       <div class="login__form">
         <div class="login__title">欢迎登录汪乐的个人网站</div>
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="40px">
-          <el-form-item label="账号" prop="account" class="login__label">
-            <el-input v-model="ruleForm.account" placeholder="请输入用户名或者邮箱"></el-input>
+          <el-form-item label="邮箱" prop="email" class="login__label">
+            <el-input v-model="ruleForm.email" placeholder="请输入邮箱"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password" class="login__label">
             <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码"></el-input>
@@ -30,18 +30,19 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 
 export default {
   data () {
     return {
       ruleForm: {
-        account: '',
+        email: '',
         password: ''
 
       },
       rules: {
-        account: [
-          {required: true, message: '请输入用户名或者邮箱', trigger: 'blur'},
+        email: [
+          {required: true, message: '请输入邮箱', trigger: 'blur'},
         ],
         password: [
           {required: true, message: '请输入密码', trigger: 'blur'}
@@ -52,15 +53,32 @@ export default {
   },
 
   methods: {
+    ...mapActions([ 'LOGIN' ]),
     submitForm (formName) {
       this.$refs[ formName ].validate((valid) => {
         if (valid) {
-          alert('submit!')
+          // alert('submit!')
+          this.login()
+
         } else {
           console.log('error submit!!')
           return false
         }
       })
+    },
+    async login () {
+      try {
+        const {email, password} = this.ruleForm
+        const res = await this.LOGIN({email, password})
+        if (res.data.code === 0) {
+          this.$message.success('登录成功')
+          this.$router.push('/')
+        }
+      } catch (e) {
+        console.log(e)
+        this.$message.error('请求出错')
+      }
+
     }
   }
 }

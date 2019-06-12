@@ -1,23 +1,27 @@
 import { login } from '@/api/user'
 
 const loginStore = {
-  state: {},
+  state: {
+    usrInfo: {}
+  },
   mutations: {
-    SAVE_USER_INFO: (state, detail) => {
-      state.detail = detail
+    SAVE_USER_INFO: (state, usrInfo) => {
+      state.usrInfo = usrInfo
     },
   },
   actions: {
-    LOGIN: ({commit, dispatch, state}) => {
+    LOGIN: ({commit, dispatch, state}, {email, password}) => {
       return new Promise((resolve, reject) => {
-          login()
+          login({email, password})
           .then(response => {
             const data = response.data
-            if (data.code) {
+            if (data.code === 0) {
               commit('SAVE_USER_INFO', data.data)
               localStorage.setItem('token', data.data.token)
+              resolve(response)
+            } else {
+              reject(response)
             }
-            reject(response)
           })
           .catch(error => {
             reject(error)
