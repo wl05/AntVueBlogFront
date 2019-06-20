@@ -79,10 +79,9 @@ export default {
   .tag-item {
     box-sizing: border-box;
     .tags-item__container {
-      border-radius: 5px;
-      padding: 0 40px;
-      max-width: 800px;
-      margin: 30px auto;
+      padding: 40px;
+      margin: 20px 10px 0 20px;
+      background-color: white;
     }
     .tags-item__no-data {
       text-align: center;

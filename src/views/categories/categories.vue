@@ -67,6 +67,8 @@ export default {
   .categories {
     padding-top: 45px;
     box-sizing: border-box;
+    background-color: white;
+    margin: 20px 10px 0 20px;
     &__category-container {
       max-width: 800px;
       margin: 0 auto;

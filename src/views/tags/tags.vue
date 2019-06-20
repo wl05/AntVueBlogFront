@@ -65,6 +65,8 @@ export default {
     padding-top: 45px;
     box-sizing: border-box;
     color: #4F566B;
+    background-color: white;
+    margin: 20px 10px 0 20px;
     &__container {
       max-width: 800px;
       margin: 30px auto;

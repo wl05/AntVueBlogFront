@@ -107,6 +107,8 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
   .category-item {
     box-sizing: border-box;
+    background-color: white;
+    margin: 20px 10px 0 20px;
     &__list-container {
       border-radius: 5px;
       padding: 10px 40px 40px 40px;

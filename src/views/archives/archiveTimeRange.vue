@@ -146,6 +146,8 @@ export default {
   .archive-time-range {
     padding-top: 10px;
     box-sizing: border-box;
+    background-color: white;
+    margin: 20px 10px 0 20px;
     &__list-container {
       border-radius: 5px;
       padding: 0 40px;

@@ -29,13 +29,12 @@ export default {
       width: 100%;
     }
     &__container {
-      margin: 30px auto;
       padding: 40px;
-      border-radius: 5px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 360px;
+      margin: 20px 10px 0 20px;
+      background-color: white;
     }
     &__icon {
       margin-right: 10px;

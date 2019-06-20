@@ -1,33 +1,27 @@
 <template>
   <ul class="pc-nav-menu">
-    <!--<li class="pc-nav-menu__item" @click="handleSelect('/categories')">-->
-    <!--<a :class="['pc-nav-menu__text',index==='/categories' ? 'pc-nav-menu__active-class' : '' ]">-->
-    <!--<span class="fa fa-fw fa-th"></span>-->
-    <!--分类-->
-    <!--</a>-->
-    <!--</li>-->
-    <!--<li class="pc-nav-menu__item" @click="handleSelect('/archives')">-->
-    <!--<a :class="['pc-nav-menu__text',index==='/archives' ? 'pc-nav-menu__active-class' : '' ]">-->
-    <!--<span class="fa fa-fw fa-archive"></span>-->
-    <!--归档-->
-    <!--</a>-->
-    <!--</li>-->
-    <!--<li class="pc-nav-menu__item" @click="handleSelect('/tags')">-->
-    <!--<a :class="['pc-nav-menu__text',index==='/tags' ? 'pc-nav-menu__active-class' : '' ]">-->
-    <!--<span class="fa fa-fw fa-tags"></span>-->
-    <!--标签-->
-    <!--</a>-->
-    <!--</li>-->
-    <!--<li class="pc-nav-menu__item" @click="handleSelect('/about')">-->
-    <!--<a :class="['pc-nav-menu__text',index==='/about' ? 'pc-nav-menu__active-class' : '' ]">-->
-    <!--<span class="fa fa-fw fa-user"></span>-->
-    <!--关于我-->
-    <!--</a>-->
-    <!--</li>-->
-    <li class="pc-nav-menu__item" @click="handleSelect('/login')">
-      <a :class="['pc-nav-menu__text',index==='/login' ? 'pc-nav-menu__active-class' : '' ]">
+    <li class="pc-nav-menu__item" @click="handleSelect('/categories')">
+      <a :class="['pc-nav-menu__text',index==='/categories' ? 'pc-nav-menu__active-class' : '' ]">
+        <span class="fa fa-fw fa-th"></span>
+        分类
+      </a>
+    </li>
+    <li class="pc-nav-menu__item" @click="handleSelect('/archives')">
+      <a :class="['pc-nav-menu__text',index==='/archives' ? 'pc-nav-menu__active-class' : '' ]">
+        <span class="fa fa-fw fa-archive"></span>
+        归档
+      </a>
+    </li>
+    <li class="pc-nav-menu__item" @click="handleSelect('/tags')">
+      <a :class="['pc-nav-menu__text',index==='/tags' ? 'pc-nav-menu__active-class' : '' ]">
+        <span class="fa fa-fw fa-tags"></span>
+        标签
+      </a>
+    </li>
+    <li class="pc-nav-menu__item" @click="handleSelect('/about')">
+      <a :class="['pc-nav-menu__text',index==='/about' ? 'pc-nav-menu__active-class' : '' ]">
         <span class="fa fa-fw fa-user"></span>
-        登录
+        关于我
       </a>
     </li>
   </ul>
@@ -73,6 +67,14 @@ export default {
     &__text {
       text-decoration: none;
       padding: 0 15px;
+      font-size: 12px;
+      height: 50px;
+      display: inline-block;
+      line-height: 50px;
+      color: white;
+    }
+    &__login, &__signup {
+      text-decoration: none;
       font-size: 12px;
       height: 50px;
       display: inline-block;
