@@ -62,19 +62,17 @@ export default {
 
 <style lang="scss" scoped rel="stylesheet/scss">
   .tags-wrap {
-    padding-top: 45px;
     box-sizing: border-box;
     color: #4F566B;
     background-color: white;
     margin: 20px 10px 0 20px;
     &__container {
       max-width: 800px;
-      margin: 30px auto;
+      margin: 20px auto;
       border-radius: 5px;
       padding: 40px;
     }
     &__count {
-      /*font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;*/
       text-align: center;
     }
     &__items {
