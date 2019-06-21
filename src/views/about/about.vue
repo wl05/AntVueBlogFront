@@ -2,10 +2,10 @@
   <div class="about">
     <div class="about__wrap">
       <div class="about__container">
-        <p class="about__info">目前在工作中使用的技术栈主要包括: </p>
-        <p class="about__info">react、react native、vue、nodejs、koa、egg、mongo</p>
-        <p class="about__info">golang 初学者</p>
-        <p class="about__info">找坑中...</p>
+        <div class="about__info">目前在工作中使用的技术栈主要包括:</div>
+        <div class="about__info">react、react native、vue、nodejs、koa、egg、mongo</div>
+        <div class="about__info">golang 初学者</div>
+        <div class="about__info">找坑中...</div>
       </div>
     </div>
   </div>
@@ -56,17 +56,11 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     .about {
-      padding-top: 31px;
       &__container {
-        flex-direction: column;
-        align-items: center;
-        /*padding: 40px 10px;*/
+        margin-left: 10px;
         border-radius: 0;
-        width: 100%;
-        white-space: pre-wrap;
-        word-wrap: break-word;
       }
     }
   }

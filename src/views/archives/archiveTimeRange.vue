@@ -1,7 +1,8 @@
 <template>
   <div class="archive-time-range">
     <div class="archive-time-range__list-container">
-      <CustomSkeleton v-if="getArticlesByArchivesLoading" style="backgroundColor:white;margin-bottom: 1px;padding: 20px"/>
+      <CustomSkeleton v-if="getArticlesByArchivesLoading"
+                      style="backgroundColor:white;margin-bottom: 1px;padding: 20px"/>
       <div v-else>
         <timeline
           timeline-theme="#006666"
@@ -183,7 +184,7 @@ export default {
 
   @media screen and (max-width: 768px) {
     .archive-time-range {
-      padding-top: 31px;
+      margin-left: 10px;
       &__list-container {
         padding: 40px 10px;
         border-radius: 0;

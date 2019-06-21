@@ -80,7 +80,7 @@ export default {
     box-sizing: border-box;
     .tags-item__container {
       padding: 40px;
-      margin: 20px 10px 0 20px;
+      margin: 20px 10px 20px 20px;
       background-color: white;
     }
     .tags-item__no-data {
@@ -113,12 +113,12 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     .tag-item {
-      padding-top: 31px;
       .tags-item__container {
         padding: 40px 10px;
         border-radius: 0;
+        margin-left: 10px;
       }
     }
   }

@@ -92,11 +92,12 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     .tags-wrap {
-      padding-top: 31px;
+      margin-left: 10px;
+      padding-top: 0px;
       &__container {
-        padding: 40px 10px;
+        padding: 20px 10px;
         border-radius: 0px;
       }
       &__items {

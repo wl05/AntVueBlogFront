@@ -149,7 +149,7 @@ export default {
     padding-top: 10px;
     box-sizing: border-box;
     background-color: white;
-    margin: 20px 10px 0 20px;
+    margin: 20px 10px 20px 20px;
     &__list-container {
       border-radius: 5px;
       padding: 0 40px 40px;
@@ -185,7 +185,8 @@ export default {
 
   @media screen and (max-width: 768px) {
     .archives {
-      padding-top: 31px;
+      /*padding-top: 31px;*/
+      margin-left: 10px;
       &__list-container {
         padding: 40px 10px;
         border-radius: 0;

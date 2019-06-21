@@ -100,12 +100,14 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     .categories {
       padding-top: 31px;
+      margin-left: 10px;
       &__category-container {
         border-radius: 0px;
         padding: 40px 10px;
+        width: 100%;
       }
     }
   }

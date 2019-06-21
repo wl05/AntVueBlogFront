@@ -112,13 +112,12 @@ export default {
 
   @media screen and (max-width: 960px) {
     .articles-item-container {
-      &__tagIcon {
-        display: none;
-      }
+      &__tagIcon,
+      &__view-count-cn,
+      &__view-count-cn,
+      &__read-more,
+      &__view-count,
       &__view-count-cn-pre {
-        display: none;
-      }
-      &__view-count-cn {
         display: none;
       }
     }

@@ -147,9 +147,10 @@ export default {
 
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     .category-item {
-      padding-top: 31px;
+      /*padding-top: 31px;*/
+      margin-left: 10px;
       &__list-container {
         padding: 40px 10px;
         border-radius: 0px;
