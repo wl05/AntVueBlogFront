@@ -2,7 +2,7 @@
 
 > Vue.js+Egg.js+Mongodb前后端分离的个人网站博客。
 
-> 博客地址:[ANT](http://120.77.219.106) （ssr渲染参考[AntVueBlogFrontSSR](https://github.com/antbaobao/AntVueBlogFrontSSR)）
+> 博客地址:[ANT](http://182.254.168.74) （ssr渲染参考[AntVueBlogFrontSSR](https://github.com/antbaobao/AntVueBlogFrontSSR)）
 
 ## 主要技术栈
 

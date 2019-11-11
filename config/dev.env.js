@@ -4,6 +4,6 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  GATEWAY: '"http://120.77.219.106:7001"',
-  STATIC_DOMAIN: '"http://120.77.219.106:7001"'
+  GATEWAY: '"http://182.254.168.74:7001"',
+  STATIC_DOMAIN: '"http://182.254.168.74:7001"'
 })
