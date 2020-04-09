@@ -8,7 +8,6 @@
           style="backgroundColor:white;margin-bottom: 1px;padding: 20px"
         />
       </div>
-
       <item v-for="(item) in articles" :key="item._id" :article="item" v-else />
       <div id="article-list__pagination-id">
         <el-pagination

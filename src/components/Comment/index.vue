@@ -10,7 +10,7 @@ export default {
       default: ''
     }
   },
-  mounted () {
+  mounted() {
     const Gitalk = window.Gitalk
     var gitalk = new Gitalk({
       // gitalk的主要参数
