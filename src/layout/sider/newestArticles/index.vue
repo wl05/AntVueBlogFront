@@ -20,12 +20,12 @@ export default {
   computed: {
     newestArticle () {
       return this.$store.state.home.newestArticle
-    },
+    }
   },
   methods: {
     goToDetailPage (id) {
       this.$router.push({path: `/article/detail/${id}`})
-    },
+    }
   }
 }
 </script>

@@ -99,7 +99,7 @@ export default {
     },
     handleCurrentChange (val) {
       this.$router.push({path: `/categories/${this.$route.params.id}`, query: {pageSize: val}})
-    },
+    }
   }
 }
 </script>

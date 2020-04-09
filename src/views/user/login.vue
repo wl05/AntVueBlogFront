@@ -42,7 +42,7 @@ export default {
       },
       rules: {
         email: [
-          {required: true, message: '请输入邮箱', trigger: 'blur'},
+          {required: true, message: '请输入邮箱', trigger: 'blur'}
         ],
         password: [
           {required: true, message: '请输入密码', trigger: 'blur'}
@@ -59,7 +59,6 @@ export default {
         if (valid) {
           // alert('submit!')
           this.login()
-
         } else {
           console.log('error submit!!')
           return false
@@ -78,7 +77,6 @@ export default {
         console.log(e)
         this.$message.error('请求出错')
       }
-
     }
   }
 }

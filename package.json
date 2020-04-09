@@ -11,6 +11,7 @@
         "e2e": "node test/e2e/runner.js",
         "test": "npm run unit && npm run e2e",
         "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
+        "lint-fix": "eslint --fix --ext .js  --ext .vue src/",
         "build": "node build/build.js"
     },
     "dependencies": {
@@ -21,7 +22,6 @@
         "fastclick": "^1.0.6",
         "github-markdown-css": "^2.10.0",
         "gitment": "0.0.3",
-        "jquery": "^3.3.1",
         "particles.js": "^2.0.0",
         "vue": "^2.5.21",
         "vue-cute-timeline": "^1.2.8",

@@ -1,6 +1,6 @@
-import _request from '@/utils/request'
+import request from '@/utils/request'
 
-export function getList () {
-	return _request.get('/tags')
+export function getList() {
+	return request.get('/tags')
 }
 

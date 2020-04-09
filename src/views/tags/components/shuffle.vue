@@ -4,9 +4,7 @@
       <a
         class="shuffle__tags"
         @click="$router.push({ path:`/tags/${cell._id}` ,query: {name:cell.name}})"
-      >
-        {{ cell.name }}
-      </a>
+      >{{ cell.name }}</a>
     </div>
   </transition-group>
 </template>
@@ -16,12 +14,12 @@ export default {
   props: {
     list: {
       type: Array,
-      default: []
+      default: () => []
     }
   },
   watch: {
-    list () {
-      this.cells = this.list.map(function (_, index) {
+    list() {
+      this.cells = this.list.map(function(_, index) {
         return {
           id: index,
           name: _.name,
@@ -30,7 +28,7 @@ export default {
       })
     }
   },
-  data () {
+  data() {
     return {
       cells: []
     }
@@ -38,42 +36,40 @@ export default {
 }
 </script>
 <style lang="scss">
-  .shuffle {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    justify-content: center;
-    &__tags {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.6);
-      cursor: pointer;
-      margin: 15px;
-      font-size: 14px;
-      font-family: Georgia, serif;
-    }
-    &__tags:hover {
-      color: rgba(0, 0, 0, 1);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.8);
-    }
+.shuffle {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  justify-content: center;
+  &__tags {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    margin: 15px;
+    font-size: 14px;
+    font-family: Georgia, serif;
   }
-
-  .cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
+  &__tags:hover {
+    color: rgba(0, 0, 0, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
   }
+}
 
-  .cell:nth-child(3n) {
-    margin-right: 0;
-  }
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
 
-  .cell:nth-child(27n) {
-    margin-bottom: 0;
-  }
+.cell:nth-child(3n) {
+  margin-right: 0;
+}
 
-  .cell-move {
-    transition: transform 3s;
-  }
+.cell:nth-child(27n) {
+  margin-bottom: 0;
+}
 
-
+.cell-move {
+  transition: transform 3s;
+}
 </style>

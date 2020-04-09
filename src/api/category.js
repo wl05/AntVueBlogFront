@@ -1,9 +1,9 @@
-import _request from '@/utils/request'
+import request from '@/utils/request'
 
-export function getList () {
-	return _request.get('/categories')
+export function getList() {
+	return request.get('/categories')
 }
 
-export function countCategotres () {
-	return _request.get('/categories/count')
+export function countCategotres() {
+	return request.get('/categories/count')
 }

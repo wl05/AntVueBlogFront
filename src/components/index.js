@@ -4,9 +4,9 @@ import CustomSkeleton from './Skeleton'
 
 const components = {
   install: function (Vue) {
-    Vue.component('CustomSpin', CustomSpin),
-      Vue.component('CustomNoData', CustomNoData),
-      Vue.component('CustomSkeleton', CustomSkeleton)
+    Vue.component('CustomSpin', CustomSpin)
+    Vue.component('CustomNoData', CustomNoData)
+    Vue.component('CustomSkeleton', CustomSkeleton)
   }
 }
 

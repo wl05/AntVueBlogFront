@@ -21,7 +21,7 @@ export default {
     Profile,
     Archives,
     Categories,
-    NewestArticles,
+    NewestArticles
   },
   mounted () {
     this.$store.dispatch('FETCH_CATEGORIES')

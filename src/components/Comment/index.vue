@@ -3,7 +3,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     title: {
@@ -19,7 +18,7 @@ export default {
       clientSecret: `52301845a8d314b57fdfd99fe37f2c8b46550a5e`,
       repo: `AntBlogComments`,
       owner: 'antbaobao',
-      admin: [ 'antbaobao' ],
+      admin: ['antbaobao'],
       id: `${this.$route.params.id}`
     })
     gitalk.render(document.getElementById('gitalk-container'))
@@ -28,5 +27,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

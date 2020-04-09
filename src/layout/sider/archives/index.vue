@@ -26,7 +26,7 @@ export default {
   computed: {
     archives () {
       return this.$store.state.home.archives
-    },
+    }
   },
   methods: {
     goTo (_id) {
@@ -75,6 +75,5 @@ export default {
       box-shadow: none
     }
   }
-
 
 </style>

@@ -1,28 +1,28 @@
-import _request from '@/utils/request'
+import request from '@/utils/request'
 
-export function user (name, password) {
-  return _request.post('/user', {name, password})
+export function user(name, password) {
+  return request.post('/user', { name, password })
 }
 
-export function getInfo () {
-  return _request.get('/user')
+export function getInfo() {
+  return request.get('/user')
 }
 
-export function logout () {
+export function logout() {
   return request({
     url: '/user/logout',
     method: 'post'
   })
 }
 
-export function generateAuthCode () {
-  return _request.get('/authcode')
+export function generateAuthCode() {
+  return request.get('/authcode')
 }
 
-export function signup (info) {
-  return _request.post('/signup', info)
+export function signup(info) {
+  return request.post('/signup', info)
 }
 
-export function login (info) {
-  return _request.post('/login', info)
+export function login(info) {
+  return request.post('/login', info)
 }
