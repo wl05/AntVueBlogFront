@@ -1,7 +1,5 @@
 <template>
-  <div class="no-data">
-    {{text}}
-  </div>
+  <div class="no-data">{{text}}</div>
 </template>
 <script>
 export default {
@@ -14,10 +12,9 @@ export default {
 }
 </script>
 <style lang="scss">
-  .no-data {
-    /*padding-left: 15px;*/
-    font-size: 24px;
-    min-height: 100px;
-    line-height: 100px;
-  }
+.no-data {
+  font-size: 24px;
+  min-height: 100px;
+  line-height: 100px;
+}
 </style>
