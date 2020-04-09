@@ -1,14 +1,13 @@
 <template>
   <div class="categories">
-    <CustomSkeleton v-if="listLoading" style="padding: 20px;backgroundColor:white;margin-bottom: 1px;padding: 20px"/>
+    <CustomSkeleton
+      v-if="listLoading"
+      style="padding: 20px;backgroundColor:white;margin-bottom: 1px;padding: 20px"
+    />
     <div v-else class="categories__container-wrap">
       <div class="categories__category-container">
-        <h1 class="categories__title">
-          Categories
-        </h1>
-        <p class="categories__count">
-          目前共 {{count}} 个分类
-        </p>
+        <h1 class="categories__title">Categories</h1>
+        <p class="categories__count">目前共 {{count}} 个分类</p>
         <ul class="categories__items">
           <li
             v-for="(item,index) in list"
@@ -17,7 +16,8 @@
             @click="$router.push({path: `/categories/${item._id}`,query:{name:item.name}})"
           >
             <a>{{item.name}}</a>
-            (<span>{{item.total}}</span>)
+            (
+            <span>{{item.total}}</span>)
           </li>
         </ul>
       </div>
@@ -28,23 +28,23 @@
 import { countCategotres } from '@/api/category'
 
 export default {
-  data () {
+  data() {
     return {
       list: [],
       listLoading: false,
       count: 0
     }
   },
-  mounted () {
+  mounted() {
     this.countCategotres()
   },
   watch: {
-    list (newValue) {
+    list(newValue) {
       this.count = newValue.length
     }
   },
   methods: {
-    async countCategotres () {
+    async countCategotres() {
       this.listLoading = true
       try {
         const result = await countCategotres()
@@ -64,51 +64,49 @@ export default {
 </script>
 
 <style lang="scss" scoped rel="stylesheet/scss">
-  .categories {
-    padding-top: 45px;
-    box-sizing: border-box;
-    background-color: white;
-    margin: 20px 10px 0 20px;
-    &__category-container {
-      max-width: 800px;
-      margin: 0 auto;
-      border-radius: 5px;
-      padding: 40px;
-    }
-    &__count {
-      text-align: center;
-      color: #4F566B;
-      font-size: 14px;
-    }
-    &__items {
-      display: flex;
-      padding: 20px;
-      flex-direction: column;
-      color: #4F566B;
-      font-size: 14px;
-    }
-    &__item {
-      padding: 10px;
-      cursor: pointer;
-    }
-    &__title {
-      font-size: 24px;
-      font-weight: 400;
-      text-align: center;
-      padding: 20px;
-      color: #24272E;
-    }
+.categories {
+  box-sizing: border-box;
+  background-color: white;
+  &__category-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 40px;
   }
+  &__count {
+    text-align: center;
+    color: #4f566b;
+    font-size: 14px;
+  }
+  &__items {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    color: #4f566b;
+    font-size: 14px;
+  }
+  &__item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    padding: 20px;
+    color: #24272e;
+  }
+}
 
-  @media screen and (max-width: 960px) {
-    .categories {
-      padding-top: 31px;
-      margin-left: 10px;
-      &__category-container {
-        border-radius: 0px;
-        padding: 40px 10px;
-        width: 100%;
-      }
+@media screen and (max-width: 960px) {
+  .categories {
+    padding-top: 31px;
+    margin-left: 10px;
+    &__category-container {
+      border-radius: 0px;
+      padding: 40px 10px;
+      width: 100%;
     }
   }
+}
 </style>

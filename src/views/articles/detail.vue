@@ -61,14 +61,14 @@ export default {
     Comment,
     PaymentCode
   },
-  data () {
+  data() {
     return {
       getArticleDetailLoading: false,
       detail: {}
     }
   },
   computed: {
-    content: function () {
+    content: function() {
       return {
         htmlValue: this.detail.htmlValue,
         markdownValue: this.detail.markdownValue
@@ -76,18 +76,18 @@ export default {
     }
   },
   watch: {
-    $route () {
+    $route() {
       this.getArticleDetail(this.$route.params.id)
     }
   },
-  mounted () {
+  created() {
     this.getArticleDetail(this.$route.params.id)
   },
   methods: {
-    formatTimestamp (timestamp) {
+    formatTimestamp(timestamp) {
       return formatTimestamp(timestamp)
     },
-    async getArticleDetail (id) {
+    async getArticleDetail(id) {
       this.getArticleDetailLoading = true
       try {
         const result = await getArticleDetail(id)
@@ -106,78 +106,74 @@ export default {
 }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .articles-detail {
+.articles-detail {
+  box-sizing: border-box;
+  background-color: white;
+  &__container-wrap {
+    min-height: 100vh;
+  }
+  &__container {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px auto;
+  }
+  &__loading {
+    padding: 40px;
+  }
+  &__header {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__date-tag {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #4f566b;
+  }
+  &__post-meta-divider {
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 5px;
+  }
+  &__publish-date,
+  &__tag,
+  &__category {
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 5px;
+    font-family: Georgia, serif;
+  }
+  &__title {
+    margin: 5px 0;
+    color: #24272e;
+    font-weight: 500;
+    font-size: 24px;
+  }
+  &__content {
+    padding: 0 40px 20px;
+  }
+  &__comments-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 40px;
     box-sizing: border-box;
-    background-color: white;
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-right: 10px;
-    &__container-wrap {
-      min-height: 100vh;
-    }
-    &__container {
-      border-radius: 5px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: 0px auto;
-    }
-    &__loading {
-      padding: 40px;
-    }
+    margin-bottom: 40px;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .articles-detail {
+    margin: 0;
     &__header {
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    &__date-tag {
-      margin-top: 15px;
-      font-size: 12px;
-      color: #4F566B;
-    }
-    &__post-meta-divider {
-      color: rgba(255, 255, 255, 0.6);
-      margin: 0 5px;
-    }
-    &__publish-date,
-    &__tag,
-    &__category {
-      font-size: 12px;
-      cursor: pointer;
-      margin-left: 5px;
-      font-family: Georgia, serif;
-    }
-    &__title {
-      margin: 5px 0;
-      color: #24272E;
-      font-weight: 500;
-      font-size: 24px;
+      padding: 40px 10px;
     }
     &__content {
-      padding: 0 40px 20px;
-    }
-    &__comments-container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.6);
-      padding: 40px;
-      box-sizing: border-box;
-      margin-bottom: 40px;
-      border-radius: 5px;
+      padding: 0 10px 20px;
     }
   }
-
-  @media screen and (max-width: 960px) {
-    .articles-detail {
-      margin: 0;
-      &__header {
-        padding: 40px 10px;
-
-      }
-      &__content {
-        padding: 0 10px 20px;
-      }
-    }
-  }
+}
 </style>

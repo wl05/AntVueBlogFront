@@ -1,13 +1,9 @@
 <template>
   <div class="sider">
-    <div class="sider__left">
-      <Profile/>
-      <Categories/>
-      <NewestArticles/>
-    </div>
-    <div class="sider__right">
-      <Archives/>
-    </div>
+    <Profile />
+    <Categories />
+    <NewestArticles />
+    <Archives />
   </div>
 </template>
 <script>
@@ -23,7 +19,7 @@ export default {
     Categories,
     NewestArticles
   },
-  mounted () {
+  mounted() {
     this.$store.dispatch('FETCH_CATEGORIES')
     this.$store.dispatch('FETCH_NEWEST_ARTICLE')
     this.$store.dispatch('FETCH_ARCHIVES')
@@ -31,46 +27,15 @@ export default {
 }
 </script>
 <style lang="scss">
-  @import "./style.scss";
-
+@import './style.scss';
+.sider {
+  color: #000;
+  padding: 0px 0px 10px 20px;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 960px) {
   .sider {
-    color: #000;
-    padding: 20px 20px 10px 10px;
-    box-sizing: border-box;
-    &__left {
-      float: left;
-      width: 49%;
-    }
-    &__right {
-      float: right;
-      width: 49%;
-    }
+    display: none;
   }
-
-  .sider:after {
-    content: '';
-    height: 0;
-    display: block;
-    clear: both;
-  }
-
-  @media (max-width: 1600px) {
-    .sider {
-      width: 500px;
-      &__left {
-        float: none;
-        width: 100%;
-      }
-      .sider__right {
-        float: none;
-        width: 100%;
-      }
-    }
-  }
-
-  @media screen and (max-width: 960px) {
-    .sider {
-      display: none;
-    }
-  }
+}
 </style>

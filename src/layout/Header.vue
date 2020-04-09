@@ -1,16 +1,27 @@
 <template>
-  <div class="header">
-    <a class="header__blog-title-container" @click="goToHome">
-      汪乐的个人网站
-      <!--Ant Blog-->
-    </a>
+  <nav class="header">
+    <div class="header__content">
+      <a class="header__blog-title" @click="goToHome">ANT BLOG</a>
+      <PcNavMenu />
+      <div class="header__menu-container">
+        <el-input
+          placeholder="请输入搜索内容"
+          v-model="keywords"
+          size="small"
+          class="header__search"
+          @keyup.enter.native="goToSearchResultPage"
+        ></el-input>
+      </div>
+    </div>
     <a class="header__native-bar">
       <el-dropdown trigger="click">
         <span class="fa fa-bars header__bars" style="color: white"></span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>
-            <a @click="$router.push({path:'/categories'})"
-               :class="['header__menu-item-text',index==='/categories' ? 'header__active-class' : '' ]">
+            <a
+              @click="$router.push({path:'/categories'})"
+              :class="['header__menu-item-text',index==='/categories' ? 'header__active-class' : '' ]"
+            >
               <span class="fa fa-fw fa-th"></span>
               分类
             </a>
@@ -36,19 +47,7 @@
         </el-dropdown-menu>
       </el-dropdown>
     </a>
-
-    <div class="header__menu-container">
-      <el-input
-        placeholder="请输入搜索内容"
-        v-model="keywords"
-        size="small"
-        class="header__search"
-        @keyup.enter.native="goToSearchResultPage"
-      >
-      </el-input>
-      <PcNavMenu/>
-    </div>
-  </div>
+  </nav>
 </template>
 <script>
 import PcNavMenu from './PcNavMenu'
@@ -58,7 +57,7 @@ export default {
   components: {
     PcNavMenu
   },
-  data () {
+  data() {
     return {
       index: '',
       activeIndex: '1',
@@ -66,117 +65,122 @@ export default {
     }
   },
   methods: {
-    handleSelect (key) {
+    handleSelect(key) {
       this.index = key
-      this.$router.push({path: key})
+      this.$router.push({ path: key })
     },
-    goToHome () {
+    goToHome() {
       window.location = '/'
     },
-    goToSearchResultPage () {
+    goToSearchResultPage() {
       if (!this.keywords) {
-        return this.$router.push({path: '/'})
+        return this.$router.push({ path: '/' })
       }
-      this.$router.push({path: '/article/keywords', query: {s: this.keywords}})
+      this.$router.push({
+        path: '/article/keywords',
+        query: { s: this.keywords }
+      })
     }
   },
   watch: {
-    $route () {
+    $route() {
       const path = window.location.pathname
-      const navRoutes = [ '/categories', '/archives', '/tags', '/about' ]
+      const navRoutes = ['/categories', '/archives', '/tags', '/about']
       if (navRoutes.indexOf(path) === -1) {
         this.index = ''
       }
     }
   },
-  mounted () {
+  mounted() {
     this.index = window.location.pathname
   }
 }
 </script>
 <style lang="scss" rel="stylesheet/scss">
-  .header {
+.header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background-color: #006666;
+  border-bottom: 1px solid #006666;
+  box-shadow: 0 2px 8px #f0f1f2;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  &__content {
     display: flex;
-    padding: 0 20px;
-    margin: 0 auto;
-    flex-direction: row;
     align-items: center;
+    margin: 0 auto;
     justify-content: space-between;
-    height: 50px;
-    background-color: #006666;
     width: 100%;
-    box-sizing: border-box;
-    border-bottom: 1px solid #006666;
-    box-shadow: 0 0 5px rgba(0, 204, 204, .5);
-    &__menu-container {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-    }
-    &__search {
-      margin-right: 20px;
-    }
-    &__menu-item-text {
-      text-decoration: none;
-      padding: 0 15px;
-      font-size: 14px;
-      height: 50px;
-      display: inline-block;
-      line-height: 50px;
-      color: white;
-    }
-    &__menu-item-text:hover {
-      color: #4F566B;
-    }
-    &__active-class {
-      background: rgba(255, 255, 255, 0.4);
-      color: #4F566B;
-    }
-    &__blog-title-container {
-      cursor: pointer;
-      font-size: 30px;
-      display: flex;
-      align-items: center;
-      color: white;
-      font-weight: bolder;
-    }
+    max-width: 960px;
+  }
+  &__menu-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+  &__search {
+    margin-right: 20px;
+  }
+  &__menu-item-text {
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 14px;
+    height: 50px;
+    display: inline-block;
+    line-height: 50px;
+    color: white;
+  }
+  &__menu-item-text:hover {
+    color: #4f566b;
+  }
+  &__active-class {
+    background: rgba(255, 255, 255, 0.4);
+    color: #4f566b;
+  }
+  &__blog-title {
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+    font-weight: bolder;
+  }
+  &__native-bar {
+    display: none;
+  }
+  &__native-bar:hover {
+    cursor: pointer;
+  }
+  .el-input__inner {
+    border-radius: 1px;
+    font-family: Georgia, serif;
+    color: #4f566b;
+    background-color: white;
+  }
+  .el-input__inner:focus {
+    border-color: #dcdfe6;
+  }
+  .el-input__inner:hover {
+    border-color: #dcdfe6;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .header {
+    padding: 0 25px;
+    position: fixed;
+    margin-bottom: 50px;
+    z-index: 999;
     &__native-bar {
+      display: block;
+    }
+    .fa-bars {
+      color: #000;
+      font-size: 28px;
+    }
+    &__menu-container {
       display: none;
     }
-    &__native-bar:hover {
-      cursor: pointer;
-    }
-    .el-input__inner {
-      border-radius: 1px;
-      font-family: Georgia, serif;
-      color: #4F566B;
-      background-color: white;;
-    }
-    .el-input__inner:focus {
-      border-color: #dcdfe6;
-    }
-    .el-input__inner:hover {
-      border-color: #dcdfe6;
-    }
   }
-
-  @media screen and (max-width: 960px) {
-    .header {
-      padding: 0 25px;
-      position: fixed;
-      margin-bottom: 50px;
-      z-index: 999;
-      &__native-bar {
-        display: block;
-      }
-      .fa-bars {
-        color: #000;
-        font-size: 28px;
-      }
-      &__menu-container {
-        display: none;
-      }
-    }
-  }
-
+}
 </style>

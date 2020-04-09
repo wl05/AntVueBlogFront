@@ -1,19 +1,14 @@
 <template>
-  <el-container class="top-container">
-    <Header/>
-    <!--<img :src="banner" height="800px"/>-->
-    <el-container ref="el-container" class="top-container__content-el-container">
-      <el-main>
-        <div class="top-container__content-container">
-          <router-view/>
-        </div>
-        <Sider style="width: 35%"/>
-      </el-main>
-    </el-container>
-  </el-container>
-
+  <div class="layout">
+    <Header />
+    <section class="layout__content-container">
+      <div class="layout__content">
+        <router-view />
+      </div>
+      <Sider class="layout__sider" />
+    </section>
+  </div>
 </template>
-
 <script>
 import Header from './Header.vue'
 import Sider from './sider/index.vue'
@@ -22,7 +17,7 @@ import banner from '@/assets/login.jpeg'
 
 export default {
   name: 'Layout',
-  data () {
+  data() {
     return {
       headroom: null,
       show: false,
@@ -38,38 +33,27 @@ export default {
 }
 </script>
 <style lang="scss" scoped rel="stylesheet/scss">
-  .top-container {
+.layout {
+  display: flex;
+  flex-direction: column;
+  color: #333333;
+  overflow-y: scroll;
+  background-color: #eeeeee;
+  width: 100%;
+  &__content-container {
     display: flex;
-    flex-direction: column;
-    color: #333333;
-    overflow: scroll;
-    height: 100vh;
-    background-color: #EEEEEE;
-    .el-header {
-      padding: 0;
-      width: 100%;
-      color: #333333;
-      height: auto;
-    }
-    .el-main {
-      padding: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    &__content-container {
-      /*flex: 1;*/
-      width: 65%;
-      box-sizing: border-box;
-    }
-    .el-footer {
-      background: rgba(0, 0, 0, 0.9);
-    }
-    @media screen and (max-width: 960px) {
-      &__content-container {
-        padding-top: 50px;
-        width: 100%;
-      }
-    }
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 80px;
+    padding-bottom: 20px;
   }
+  &__content {
+    width: 70%;
+    box-sizing: border-box;
+  }
+  &__sider {
+    width: 30%;
+  }
+}
 </style>

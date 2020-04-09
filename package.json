@@ -27,7 +27,6 @@
         "vue-cute-timeline": "^1.2.8",
         "vue-markdown": "^2.2.4",
         "vue-router": "^3.0.1",
-        "vue-server-renderer": "^2.5.21",
         "vuex": "^3.0.1"
     },
     "devDependencies": {

@@ -31,7 +31,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px 10px 0 20px;
     background-color: white;
   }
   &__icon {
