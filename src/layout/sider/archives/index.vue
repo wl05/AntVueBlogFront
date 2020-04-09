@@ -56,9 +56,6 @@ export default {
   clear: both;
 }
 
-@media screen and (max-width: 1600px) {
-}
-
 @media screen and (max-width: 960px) {
   .archives {
     box-shadow: none;

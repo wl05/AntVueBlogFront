@@ -1,17 +1,18 @@
 <template>
   <div class="tag-item">
-    <CustomSkeleton v-if="getArticlesByTagLoading"
-                    style="padding: 20px;backgroundColor:white;margin-bottom: 1px;padding: 20px"/>
+    <CustomSkeleton
+      v-if="getArticlesByTagLoading"
+      style="padding: 20px;backgroundColor:white;margin-bottom: 1px;padding: 20px"
+    />
     <div v-else class="tags-item__container">
-      <CustomNoData v-if="noData" text="暂无数据"/>
+      <CustomNoData v-if="noData" text="暂无数据" />
       <timeline v-else timeline-theme="#006666">
         <timeline-title font-color="#24272E">{{$route.query.name}} 标签</timeline-title>
-        <timeline-item
-          font-color="#4F566B"
-          v-for="(item, key) in articles"
-          :key="key"
-        >
-          <a @click="$router.push({name:'Detail',params:{id:item._id}})" class="tags-item__timeline-item-container">
+        <timeline-item font-color="#4F566B" v-for="(item, key) in articles" :key="key">
+          <a
+            @click="$router.push({name:'Detail',params:{id:item._id}})"
+            class="tags-item__timeline-item-container"
+          >
             <span class="tags-item__date">{{formatYearAndDate(Number(item.publishAt)/1000)}}</span>
             <span class="tags-item__title">{{item.title}}</span>
           </a>
@@ -26,7 +27,7 @@ import { getArticlesByTag } from '@/api/article'
 import { Timeline, TimelineItem, TimelineTitle } from 'vue-cute-timeline'
 
 export default {
-  data () {
+  data() {
     return {
       getArticlesByTagLoading: false,
       articles: [],
@@ -38,15 +39,15 @@ export default {
     TimelineItem,
     TimelineTitle
   },
-  mounted () {
+  mounted() {
     this.getArticlesByTag()
   },
   methods: {
-    formatYearAndDate (timestamp) {
-      const add0 = (m) => {
+    formatYearAndDate(timestamp) {
+      const add0 = m => {
         return m < 10 ? '0' + m : m
       }
-      const format = (timestamps) => {
+      const format = timestamps => {
         let time = new Date(parseInt(timestamps) * 1000)
         const y = time.getFullYear()
         const m = time.getMonth() + 1
@@ -55,7 +56,7 @@ export default {
       }
       return format(timestamp)
     },
-    async getArticlesByTag () {
+    async getArticlesByTag() {
       this.getArticlesByTagLoading = true
       try {
         const result = await getArticlesByTag(this.$route.params.id)
@@ -76,50 +77,50 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .tag-item {
-    box-sizing: border-box;
-    .tags-item__container {
-      padding: 40px;
-      margin: 20px 10px 20px 20px;
-      background-color: white;
-    }
-    .tags-item__no-data {
-      text-align: center;
-    }
-    .tags-item__timeline-item:hover {
-      cursor: pointer;
-    }
-    .tags-item__date {
-      margin-right: 15px;
-      font-size: 12px;
-      color: #282828;
-      font-family: Georgia, serif;
-    }
-    .tags-item__title {
-      font-size: 14px;
-    }
-    .timeline-title {
-      font-size: 30px;
-      font-weight: 700;
-      color: #4F566B;
-      font-family: Georgia, serif;
-    }
-    .timeline-item {
-      margin: 5px 0 0 28px;
-      padding-bottom: 5px;
-    }
-    .tags-item__timeline-item-container:hover {
-      cursor: pointer;
-    }
+.tag-item {
+  box-sizing: border-box;
+  .tags-item__container {
+    padding: 40px;
+    margin: 20px 10px 20px 20px;
+    background-color: white;
   }
+  .tags-item__no-data {
+    text-align: center;
+  }
+  .tags-item__timeline-item:hover {
+    cursor: pointer;
+  }
+  .tags-item__date {
+    margin-right: 15px;
+    font-size: 12px;
+    color: #282828;
+    font-family: Georgia, serif;
+  }
+  .tags-item__title {
+    font-size: 14px;
+  }
+  .timeline-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #4f566b;
+    font-family: Georgia, serif;
+  }
+  .timeline-item {
+    margin: 5px 0 0 28px;
+    padding-bottom: 5px;
+  }
+  .tags-item__timeline-item-container:hover {
+    cursor: pointer;
+  }
+}
 
-  @media screen and (max-width: 960px) {
-    .tag-item {
-      .tags-item__container {
-        padding: 40px 10px;
-        border-radius: 0;
-        margin-left: 10px;
-      }
+@media screen and (max-width: 960px) {
+  .tag-item {
+    .tags-item__container {
+      padding: 40px 10px;
+      border-radius: 0;
+      margin-left: 10px;
     }
   }
+}
 </style>

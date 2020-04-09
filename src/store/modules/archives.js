@@ -1,5 +1,4 @@
 import { getArticlesByArchives } from '@/api/article'
-
 const category = {
     state: {
         archivesArticle: [],

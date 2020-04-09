@@ -28,58 +28,59 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       index: ''
     }
   },
   methods: {
-    handleSelect (key) {
+    handleSelect(key) {
       this.index = key
-      this.$router.push({path: key})
+      this.$router.push({ path: key })
     }
   },
   watch: {
-    $route () {
+    $route() {
       const path = window.location.pathname
-      const navRoutes = [ '/categories', '/archives', '/tags', '/about' ]
+      const navRoutes = ['/categories', '/archives', '/tags', '/about']
       if (navRoutes.indexOf(path) === -1) {
         this.index = ''
       }
     }
   },
-  mounted () {
+  mounted() {
     this.index = window.location.pathname
   }
 }
 </script>
 <style lang="scss" rel="stylesheet/scss">
-  .pc-nav-menu {
-    display: flex;
-    align-items: center;
-    &__item {
-      list-style-type: none;
-      white-space: nowrap;
-    }
-    &__item:hover {
-      cursor: pointer;
-    }
-    &__text {
-      text-decoration: none;
-      padding: 0 15px;
-      font-size: 12px;
-      height: 50px;
-      display: inline-block;
-      line-height: 50px;
-      color: white;
-    }
-    &__login, &__signup {
-      text-decoration: none;
-      font-size: 12px;
-      height: 50px;
-      display: inline-block;
-      line-height: 50px;
-      color: white;
-    }
+.pc-nav-menu {
+  display: flex;
+  align-items: center;
+  &__item {
+    list-style-type: none;
+    white-space: nowrap;
   }
+  &__item:hover {
+    cursor: pointer;
+  }
+  &__text {
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 12px;
+    height: 50px;
+    display: inline-block;
+    line-height: 50px;
+    color: white;
+  }
+  &__login,
+  &__signup {
+    text-decoration: none;
+    font-size: 12px;
+    height: 50px;
+    display: inline-block;
+    line-height: 50px;
+    color: white;
+  }
+}
 </style>

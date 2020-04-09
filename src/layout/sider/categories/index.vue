@@ -2,18 +2,12 @@
   <div class="categories sider-item-common" v-if="categories.length">
     <p class="categories__title">文章分类</p>
     <ul class="categories__items-container">
-      <li
-        v-for="item in categories"
-        :key="item._id"
-        class="categories__item"
-      >
+      <li v-for="item in categories" :key="item._id" class="categories__item">
         »
         <a
           class="categories__info"
           @click="goTo(item._id,item.name)"
-        >
-          {{ item.name }} ({{item.total}})
-        </a>
+        >{{ item.name }} ({{item.total}})</a>
       </li>
     </ul>
   </div>
@@ -22,50 +16,50 @@
 export default {
   name: 'categories',
   computed: {
-    categories () {
+    categories() {
       return this.$store.state.category.categories
     }
   },
   methods: {
-    goTo (_id, name) {
-      this.$router.push({path: `/categories/${_id}`, query: {name}})
+    goTo(_id, name) {
+      this.$router.push({ path: `/categories/${_id}`, query: { name } })
     }
   }
 }
 </script>
 <style lang="scss" scoped>
+.categories {
+  &__title {
+    font-size: 18px;
+    color: #24272e;
+    margin-bottom: 10px;
+  }
+  &__items-container {
+    margin: 0;
+    padding: 0;
+  }
+  &__item {
+    width: 50%;
+    display: inline-block;
+    list-style-type: none;
+    color: #4f566b;
+    font-size: 12px;
+    padding: 5px 0;
+  }
+  &__info {
+    cursor: pointer;
+  }
+}
+
+.categories:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+@media (max-width: 960px) {
   .categories {
-    &__title {
-      font-size: 18px;
-      color: #24272E;
-      margin-bottom: 10px;
-    }
-    &__items-container {
-      margin: 0;
-      padding: 0;
-    }
-    &__item {
-      width: 50%;
-      display: inline-block;
-      list-style-type: none;
-      color: #4F566B;
-      font-size: 12px;
-      padding: 5px 0;
-    }
-    &__info {
-      cursor: pointer;
-    }
+    box-shadow: none;
   }
-
-  .categories:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-
-  @media (max-width: 960px) {
-    .categories {
-      box-shadow: none;
-    }
-  }
+}
 </style>

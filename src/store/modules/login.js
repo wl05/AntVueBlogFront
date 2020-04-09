@@ -10,9 +10,9 @@ const loginStore = {
     },
   },
   actions: {
-    LOGIN: ({commit, dispatch, state}, {email, password}) => {
+    LOGIN: ({ commit, dispatch, state }, { email, password }) => {
       return new Promise((resolve, reject) => {
-          login({email, password})
+        login({ email, password })
           .then(response => {
             const data = response.data
             if (data.code === 0) {
@@ -26,7 +26,7 @@ const loginStore = {
           .catch(error => {
             reject(error)
           })
-        }
+      }
       )
     },
   },
