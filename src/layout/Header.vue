@@ -3,7 +3,7 @@
     <div class="header__content">
       <a class="header__blog-title" @click="goToHome">ANT BLOG</a>
       <PcNavMenu />
-      <div class="header__menu-container">
+      <div class="header__search-container">
         <el-input
           placeholder="请输入搜索内容"
           v-model="keywords"
@@ -11,6 +11,12 @@
           class="header__search"
           @keyup.enter.native="goToSearchResultPage"
         ></el-input>
+        <el-button
+          @click="goToSearchResultPage"
+          class="header__search-button"
+          type="text"
+          icon="el-icon-search"
+        />
       </div>
     </div>
     <a class="header__native-bar">
@@ -115,13 +121,22 @@ export default {
     width: 100%;
     max-width: 960px;
   }
-  &__menu-container {
+  &__search-container {
     display: flex;
     align-items: center;
     flex-direction: row;
+    position: relative;
   }
-  &__search {
-    margin-right: 20px;
+  &__search-button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    z-index: 999;
+    color: #4f566b;
+  }
+  &__search-button:hover {
+    color: #4f566b;
   }
   &__menu-item-text {
     text-decoration: none;
