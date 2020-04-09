@@ -8,11 +8,11 @@ const router = new Router({
     {
       path: '/',
       name: 'Home',
-      redirect: '/home',
+      redirect: '/',
       component: () => import('@/layout/index.vue'),
       children: [
         {
-          path: '/home',
+          path: '/',
           name: 'ArticlesList',
           component: () =>
             import('@/views/articles/list')

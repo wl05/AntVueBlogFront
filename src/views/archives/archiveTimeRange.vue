@@ -79,7 +79,7 @@ export default {
       this.getArticlesByArchives(pageSize, this.pageLimit, timeline)
     }
   },
-  mounted() {
+  created() {
     const pageSize = this.$route.query.pageSize
       ? Number(this.$route.query.pageSize)
       : 1
@@ -156,15 +156,13 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 .archive-time-range {
-  padding-top: 10px;
   box-sizing: border-box;
   background-color: white;
-  margin: 20px 10px 0 20px;
+  padding-top: 10px;
   &__list-container {
     border-radius: 5px;
-    padding: 0 40px;
-    max-width: 800px;
     margin: 0px auto;
+    padding: 0 40px 40px;
   }
   &__article-item {
     cursor: pointer;
