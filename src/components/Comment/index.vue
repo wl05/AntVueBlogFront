@@ -14,12 +14,13 @@ export default {
     const Gitalk = window.Gitalk
     var gitalk = new Gitalk({
       // gitalk的主要参数
-      clientID: `ccaff36e451494dd4e12`,
-      clientSecret: `52301845a8d314b57fdfd99fe37f2c8b46550a5e`,
-      repo: `AntBlogComments`,
+      clientID: `b9b1dfe359b428ab3ec6`,
+      clientSecret: `eec74a37d203a51119384ca8c4e6c79d11b91fa5`,
+      repo: `ant-blog-comments`,
       owner: 'antbaobao',
       admin: ['antbaobao'],
-      id: `${this.$route.params.id}`
+      id: `${this.$route.params.id}`,
+      distractionFreeMode: false
     })
     gitalk.render(document.getElementById('gitalk-container'))
   }
