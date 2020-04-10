@@ -14,8 +14,8 @@ export default {
     const Gitalk = window.Gitalk
     var gitalk = new Gitalk({
       // gitalk的主要参数
-      clientID: `b9b1dfe359b428ab3ec6`,
-      clientSecret: `eec74a37d203a51119384ca8c4e6c79d11b91fa5`,
+      clientID: `23414a6ccd2eb016b5db`,
+      clientSecret: `f5e7f18cde592d1b1195d94f6579d667ad1196ef`,
       repo: `ant-blog-comments`,
       owner: 'antbaobao',
       admin: ['antbaobao'],
