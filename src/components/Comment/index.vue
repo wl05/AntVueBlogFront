@@ -18,9 +18,9 @@ export default {
       clientSecret: `f5e7f18cde592d1b1195d94f6579d667ad1196ef`,
       repo: `ant-blog-comments`,
       owner: 'antbaobao',
-      admin: ['antbaobao'],
+      admin: 'antbaobao',
       id: `${this.$route.params.id}`,
-      distractionFreeMode: false
+      distractionFreeMode: true
     })
     gitalk.render(document.getElementById('gitalk-container'))
   }
