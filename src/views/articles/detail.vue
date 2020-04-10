@@ -42,9 +42,9 @@
           </div>
         </div>
       </div>
-      <div class="articles-detail__comments-container">
+      <!-- <div class="articles-detail__comments-container">
         <Comment :title="detail.title"/>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
