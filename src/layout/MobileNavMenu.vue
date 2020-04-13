@@ -1,64 +1,47 @@
 <template>
-  <nav class="header">
-    <div class="header__content">
-      <a class="header__blog-title" @click="goToHome">ANT BLOG</a>
-      <PcNavMenu />
-      <div class="header__operation">
-        <div class="header__search-container">
-          <el-input
-            placeholder="请输入搜索内容"
-            v-model="keywords"
-            size="small"
-            class="header__search"
-            @keyup.enter.native="goToSearchResultPage"
-          ></el-input>
-          <el-button
-            @click="goToSearchResultPage"
-            class="header__search-button"
-            type="text"
-            icon="el-icon-search"
-          />
-        </div>
-        <UserInfo />
-      </div>
-    </div>
-    <MobileNavMenu />
-  </nav>
+  <a class="header__native-bar">
+    <el-dropdown trigger="click">
+      <span class="fa fa-bars header__bars" style="color: white"></span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item>
+          <a
+            @click="$router.push({path:'/categories'})"
+            :class="['header__menu-item-text',index==='/categories' ? 'header__active-class' : '' ]"
+          >
+            <span class="fa fa-fw fa-th"></span>
+            分类
+          </a>
+        </el-dropdown-item>
+        <el-dropdown-item>
+          <a @click="$router.push({path:'/archives'})" class="header__menu-item-text">
+            <span class="fa fa-fw fa-archive"></span>
+            归档
+          </a>
+        </el-dropdown-item>
+        <el-dropdown-item>
+          <a @click="$router.push({path:'/tags'})" class="header__menu-item-text">
+            <span class="fa fa-fw fa-tags"></span>
+            标签
+          </a>
+        </el-dropdown-item>
+        <el-dropdown-item>
+          <a @click="$router.push({path:'/about'})" class="header__menu-item-text">
+            <span class="fa fa-fw fa-user"></span>
+            关于我
+          </a>
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
+  </a>
 </template>
 <script>
-import PcNavMenu from './PcNavMenu'
-import MobileNavMenu from './MobileNavMenu'
-import UserInfo from './userInfo/index'
 export default {
-  name: 'Header',
-  components: {
-    PcNavMenu,
-    MobileNavMenu,
-    UserInfo
-  },
+  name: 'MobileNavMenu',
   data() {
     return {
       index: '',
       activeIndex: '1',
       keywords: ''
-    }
-  },
-  methods: {
-    handleSelect(key) {
-      this.index = key
-      this.$router.push({ path: key })
-    },
-    goToHome() {
-      window.location = '/'
-    },
-    goToSearchResultPage() {
-      if (!this.keywords) {
-        return this.$router.push({ path: '/' })
-      }
-      this.$router.push({
-        path: '/article/keywords',
-        query: { s: this.keywords }
-      })
     }
   },
   watch: {
@@ -86,10 +69,6 @@ export default {
   width: 100%;
   position: fixed;
   z-index: 999;
-  &__operation {
-    display: flex;
-    align-items: center;
-  }
   &__content {
     display: flex;
     align-items: center;
@@ -103,7 +82,6 @@ export default {
     align-items: center;
     flex-direction: row;
     position: relative;
-    margin-right: 20px;
   }
   &__search-button {
     position: absolute;
