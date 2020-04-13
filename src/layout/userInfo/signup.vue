@@ -100,17 +100,16 @@ export default {
       this.signupLoading = true
       const { name, gender, email, password, authCode } = this.ruleForm
       try {
-        await signup({
+        const res = await signup({
           name,
           gender,
           email,
           password,
           authCode
         })
-        // if (res.data.code === 0) {
-        //
-        // }
-        this.$router.push('/activation')
+        if (res.data.code === 0) {
+          this.$emit('success')
+        }
         this.signupLoading = false
       } catch (e) {
         this.$message.error('请求出错')

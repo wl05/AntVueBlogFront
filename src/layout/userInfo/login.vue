@@ -60,9 +60,11 @@ export default {
       try {
         const { email, password } = this.ruleForm
         const res = await this.LOGIN({ email, password })
+        console.log(res)
         if (res.data.code === 0) {
           this.$message.success('登录成功')
           this.$router.push('/')
+          this.$$emit('success')
         }
       } catch (e) {
         this.$message.error('请求出错')

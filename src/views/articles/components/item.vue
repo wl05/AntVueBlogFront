@@ -62,9 +62,10 @@ export default {
     border-bottom: none;
     line-height: 1.2;
     vertical-align: top;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     color: #24272e;
+    font-weight: bold;
   }
   &__date-tag {
     font-size: 12px;

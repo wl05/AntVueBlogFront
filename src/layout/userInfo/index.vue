@@ -9,8 +9,8 @@
       width="30%"
       @close="onDialogClose"
     >
-      <Login v-show="loginVisible" />
-      <Signup v-show="signupVisible" />
+      <Login v-show="loginVisible" @success="onLoginSuccess" />
+      <Signup v-show="signupVisible" @success="onSignupSuccess" />
     </el-dialog>
   </div>
 </template>
@@ -42,6 +42,13 @@ export default {
       } else {
         this.signupVisible = false
       }
+    },
+    onSignupSuccess() {
+      this.signupVisible = false
+      this.loginVisible = true
+    },
+    onLoginSuccess() {
+      console.log('登录成功')
     }
   }
 }
