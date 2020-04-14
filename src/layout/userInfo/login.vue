@@ -9,7 +9,7 @@
         <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-checkbox label="下次自动登录"></el-checkbox>
+        <el-checkbox style="float: left" label="下次自动登录"></el-checkbox>
       </el-form-item>
       <el-form-item>
         <el-button
@@ -60,11 +60,10 @@ export default {
       try {
         const { email, password } = this.ruleForm
         const res = await this.LOGIN({ email, password })
-        console.log(res)
         if (res.data.code === 0) {
           this.$message.success('登录成功')
           this.$router.push('/')
-          this.$$emit('success')
+          this.$$emit()
         }
       } catch (e) {
         this.$message.error('请求出错')
@@ -93,6 +92,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 80%;
   &__title {
     text-align: center;
     color: #006666;

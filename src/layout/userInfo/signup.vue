@@ -139,6 +139,7 @@ export default {
 </style>
 <style lang="scss" scope>
 .signup {
+  width: 80%;
   &__title {
     text-align: center;
     color: #006666;

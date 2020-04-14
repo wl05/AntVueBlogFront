@@ -72,21 +72,6 @@ const router = new Router({
             import('@/views/archives/archiveTimeRange')
         }
       ]
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('@/views/user/login.vue')
-    },
-    {
-      path: '/signup',
-      name: 'signup',
-      component: () => import('@/views/user/signup.vue')
-    },
-    {
-      path: '/activation',
-      name: 'activation',
-      component: () => import('@/views/user/activation.vue')
     }
   ]
 })

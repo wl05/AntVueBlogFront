@@ -8,6 +8,7 @@
       :visible="loginVisible || signupVisible"
       width="30%"
       @close="onDialogClose"
+      align="center"
     >
       <Login v-show="loginVisible" @success="onLoginSuccess" />
       <Signup v-show="signupVisible" @success="onSignupSuccess" />
