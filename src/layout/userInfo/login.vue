@@ -22,7 +22,7 @@
         <div class="login__other-info">
           <span>
             没有账户？
-            <a @click="$router.push('/signup')" class="login__other-info-item">立即注册</a>
+            <a @click="$emit('toggle')" class="login__other-info-item">立即注册</a>
           </span>
           <a class="login__other-info-item">忘记密码？</a>
         </div>
@@ -43,7 +43,8 @@ export default {
       rules: {
         email: [{ required: true, message: '请输入邮箱', trigger: 'blur' }],
         password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
-      }
+      },
+      loading: false
     }
   },
 
@@ -57,15 +58,20 @@ export default {
       })
     },
     async login() {
+      this.loading = true
       try {
         const { email, password } = this.ruleForm
         const res = await this.LOGIN({ email, password })
         if (res.data.code === 0) {
           this.$message.success('登录成功')
+          this.$emit('success')
           this.$router.push('/')
-          this.$$emit()
+        } else if (res.data.code === 'user_010') {
+          this.$message.error('账户名或密码错误')
         }
+        this.loading = false
       } catch (e) {
+        this.loading = false
         this.$message.error('请求出错')
       }
     }

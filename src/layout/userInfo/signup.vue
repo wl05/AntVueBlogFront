@@ -37,12 +37,11 @@
           :loading="signupLoading"
         >注册</el-button>
       </el-form-item>
-
-      <el-form-item class="signup__btn">
+      <el-form-item>
         <div class="signup__other-info">
           <span>
             有账号？
-            <a @click="$router.push('/login')" class="signup__other-info-item">直接登录</a>
+            <a @click="$emit('toggle')" class="signup__other-info-item">直接登录</a>
           </span>
         </div>
       </el-form-item>
@@ -109,6 +108,12 @@ export default {
         })
         if (res.data.code === 0) {
           this.$emit('success')
+        } else if (res.data.code === 'user_002') {
+          this.$message.error('用户名已存在')
+        } else if (res.data.code === 'user_003') {
+          this.$message.error('验证码无效')
+        } else if (res.data.code === 'user_007') {
+          this.$message.error('邮箱已注册')
         }
         this.signupLoading = false
       } catch (e) {
@@ -140,6 +145,9 @@ export default {
 <style lang="scss" scope>
 .signup {
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   &__title {
     text-align: center;
     color: #006666;
@@ -150,9 +158,6 @@ export default {
   &__form {
     background-color: white;
     padding: 40px;
-  }
-  &__btn {
-    margin: 0;
   }
   &__auth-code {
     display: flex;
@@ -167,6 +172,10 @@ export default {
 
   &__other-info-item {
     color: #006666;
+  }
+  &__other-info {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 </style>

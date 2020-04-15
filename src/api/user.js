@@ -4,7 +4,7 @@ export function user(name, password) {
   return request.post('/user', { name, password })
 }
 
-export function getInfo() {
+export function getUserInfo() {
   return request.get('/user')
 }
 
