@@ -29,7 +29,6 @@ export default {
 <style lang="scss">
 @import './style.scss';
 .sider {
-  color: #000;
   padding: 0px 0px 10px 20px;
   box-sizing: border-box;
 }

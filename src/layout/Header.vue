@@ -111,7 +111,6 @@ export default {
     right: 10px;
     transform: translateY(-50%);
     z-index: 999;
-    color: #4f566b;
   }
   &__search-button:hover {
     color: #4f566b;
@@ -136,7 +135,6 @@ export default {
     cursor: pointer;
     font-size: 30px;
     color: white;
-    font-weight: bolder;
   }
   &__native-bar {
     display: none;
@@ -147,7 +145,6 @@ export default {
   .el-input__inner {
     border-radius: 1px;
     font-family: Georgia, serif;
-    color: #4f566b;
     background-color: white;
   }
   .el-input__inner:focus {

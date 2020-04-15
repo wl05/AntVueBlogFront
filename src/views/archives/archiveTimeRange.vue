@@ -170,8 +170,6 @@ export default {
   .timeline-title {
     font-size: 30px;
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.6);
-    font-family: Georgia, serif;
   }
   .timeline-item {
     margin: 5px 0 0 28px;
@@ -179,15 +177,11 @@ export default {
   }
   &__date {
     margin-right: 15px;
-    font-size: 12px;
-    color: #282828;
-    font-family: Georgia, serif;
+    font-size: 14px;
   }
   &__title {
     font-size: 14px;
     font-weight: 400;
-    color: #4f566b;
-    font-family: Georgia, serif;
   }
 }
 

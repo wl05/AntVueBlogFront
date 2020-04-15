@@ -92,8 +92,7 @@ export default {
   }
   .tags-item__date {
     margin-right: 15px;
-    font-size: 12px;
-    color: #282828;
+    font-size: 14px;
     font-family: Georgia, serif;
   }
   .tags-item__title {
@@ -101,8 +100,6 @@ export default {
   }
   .timeline-title {
     font-size: 30px;
-    font-weight: 700;
-    color: #4f566b;
     font-family: Georgia, serif;
   }
   .timeline-item {

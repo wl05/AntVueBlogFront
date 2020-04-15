@@ -67,7 +67,7 @@ export default {
   &__text {
     text-decoration: none;
     padding: 0 15px;
-    font-size: 12px;
+    font-size: 14px;
     height: 50px;
     display: inline-block;
     line-height: 50px;
@@ -76,7 +76,7 @@ export default {
   &__login,
   &__signup {
     text-decoration: none;
-    font-size: 12px;
+    font-size: 14px;
     height: 50px;
     display: inline-block;
     line-height: 50px;

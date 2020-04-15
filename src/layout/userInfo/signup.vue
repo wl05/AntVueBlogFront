@@ -10,21 +10,19 @@
           <el-radio label="male">男</el-radio>
           <el-radio label="female">女</el-radio>
         </el-radio-group>
-        <span class="signup__gender-note">选择后无法修改</span>
       </el-form-item>
       <el-form-item label="邮箱" prop="email">
-        <el-input type="email" v-model="ruleForm.email" placeholder="请输入邮箱"></el-input>
+        <el-input type="email" v-model="ruleForm.email" placeholder="请输入邮箱" />
       </el-form-item>
       <el-form-item label="密码" prop="password">
-        <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码"></el-input>
+        <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码" />
       </el-form-item>
       <el-form-item label="确认密码" prop="confirmPassword">
-        <el-input type="password" v-model="ruleForm.confirmPassword" placeholder="请输入密码"></el-input>
+        <el-input type="password" v-model="ruleForm.confirmPassword" placeholder="请输入密码" />
       </el-form-item>
-
       <el-form-item label="验证码" prop="authCode">
         <div class="signup__auth-code">
-          <el-input style="width: 100px" v-model="ruleForm.authCode" placeholder="验证码"></el-input>
+          <el-input style="width: 100px" v-model="ruleForm.authCode" placeholder="验证码" />
           <div class="signup__auth-code-img" v-html="authCodeImg" />
           <a @click="generateAuthCode">换一张</a>
         </div>
@@ -73,7 +71,6 @@ export default {
       authCodeImg: ''
     }
   },
-
   methods: {
     ...mapActions(['GENERATE_AUTH_CODE']),
     submitForm(formName) {
@@ -120,6 +117,9 @@ export default {
         this.$message.error('请求出错')
         this.signupLoading = false
       }
+    },
+    resetForm() {
+      this.$refs.ruleForm.resetFields()
     }
   },
   mounted() {
@@ -150,10 +150,8 @@ export default {
   justify-content: center;
   &__title {
     text-align: center;
-    color: #006666;
     font-size: 26px;
     margin-bottom: 20px;
-    font-weight: bold;
   }
   &__form {
     background-color: white;
@@ -164,12 +162,10 @@ export default {
     align-items: center;
   }
   &__auth-code-img {
-    margin: 10px 10px 0;
+    margin: 0 10px 0 10px;
+    display: flex;
+    align-items: center;
   }
-  &__gender-note {
-    margin-left: 20px;
-  }
-
   &__other-info-item {
     color: #006666;
   }

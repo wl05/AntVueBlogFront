@@ -1,21 +1,18 @@
 <template>
   <div class="login">
     <div class="login__title">欢迎登录</div>
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="40px">
+    <el-form :model="form" :rules="rules" ref="form" label-width="40px">
       <el-form-item label="邮箱" prop="email" class="login__label">
-        <el-input v-model="ruleForm.email" placeholder="请输入邮箱"></el-input>
+        <el-input v-model="form.email" placeholder="请输入邮箱"></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="password" class="login__label">
-        <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-checkbox style="float: left" label="下次自动登录"></el-checkbox>
+        <el-input type="password" v-model="form.password" placeholder="请输入密码"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button
           style="width: 100%;background-color:#006666;border-color:#006666"
           type="primary"
-          @click="submitForm('ruleForm')"
+          @click="submitForm('form')"
         >登录</el-button>
       </el-form-item>
       <el-form-item class="login__btn">
@@ -36,9 +33,10 @@ import { mapActions } from 'vuex'
 export default {
   data() {
     return {
-      ruleForm: {
+      form: {
         email: '',
-        password: ''
+        password: '',
+        remember: false
       },
       rules: {
         email: [{ required: true, message: '请输入邮箱', trigger: 'blur' }],
@@ -60,7 +58,7 @@ export default {
     async login() {
       this.loading = true
       try {
-        const { email, password } = this.ruleForm
+        const { email, password } = this.form
         const res = await this.LOGIN({ email, password })
         if (res.data.code === 0) {
           this.$message.success('登录成功')
@@ -74,6 +72,9 @@ export default {
         this.loading = false
         this.$message.error('请求出错')
       }
+    },
+    resetForm() {
+      this.$refs.form.resetFields()
     }
   }
 }
@@ -101,10 +102,8 @@ export default {
   width: 80%;
   &__title {
     text-align: center;
-    color: #006666;
     font-size: 26px;
     margin-bottom: 20px;
-    font-weight: bold;
   }
   &__btn {
     margin: 0;

@@ -75,14 +75,12 @@ export default {
   }
   &__count {
     text-align: center;
-    color: #4f566b;
     font-size: 14px;
   }
   &__items {
     display: flex;
     padding: 20px;
     flex-direction: column;
-    color: #4f566b;
     font-size: 14px;
   }
   &__item {
@@ -91,10 +89,8 @@ export default {
   }
   &__title {
     font-size: 24px;
-    font-weight: 400;
     text-align: center;
     padding: 20px;
-    color: #24272e;
   }
 }
 

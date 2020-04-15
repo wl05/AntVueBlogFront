@@ -25,8 +25,10 @@
         v-show="loginVisible"
         @success="onLoginSuccess"
         @toggle="()=>{loginVisible=false;signupVisible=true}"
+        ref="login"
       />
       <Signup
+        ref="signup"
         v-show="signupVisible"
         @success="onSignupSuccess"
         @toggle="()=>{loginVisible=true;signupVisible=false}"
@@ -54,25 +56,29 @@ export default {
       return this.$store.state.user.userInfo
     }
   },
-  created() {
-    this.GET_USER_INFO()
+  async created() {
+    await this.GET_USER_INFO()
   },
   methods: {
-    ...mapActions(['GET_USER_INFO']),
+    ...mapActions(['GET_USER_INFO', 'LOGIN']),
     onDialogClose() {
       if (this.loginVisible) {
         this.loginVisible = false
+        this.$refs.login.resetForm()
       } else {
         this.signupVisible = false
+        this.$refs.signup.resetForm()
       }
     },
     onSignupSuccess() {
       this.signupVisible = false
       this.loginVisible = true
+      this.$refs.signup.resetForm()
     },
     onLoginSuccess() {
       this.loginVisible = false
       this.GET_USER_INFO()
+      this.$refs.login.resetForm()
     },
     logout() {
       localStorage.removeItem('token')
@@ -81,6 +87,17 @@ export default {
     onCommand(val) {
       if (val === '1') {
         this.logout()
+      }
+    },
+    async getUserInfo() {
+      try {
+        const res = await this.GET_USER_INFO()
+        if (res.data.code === 'error_003') {
+          this.$message.error('登录过期，请重新登录')
+          this.logout()
+        }
+      } catch (e) {
+        this.$message.error('请求出错')
       }
     }
   }
@@ -91,14 +108,14 @@ export default {
   color: white;
   &__login {
     color: white;
-    font-size: 12px;
+    font-size: 14px;
   }
   &__signup {
     color: white;
-    font-size: 12px;
+    font-size: 14px;
   }
   &__name {
-    font-size: 12px;
+    font-size: 14px;
     color: white;
     cursor: pointer;
   }

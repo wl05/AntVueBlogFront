@@ -158,7 +158,6 @@ export default {
   .timeline-title {
     font-size: 30px;
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.6);
     font-family: Georgia, serif;
   }
   .timeline-item {
@@ -167,21 +166,18 @@ export default {
   }
   &__date {
     margin-right: 15px;
-    font-size: 12px;
-    color: #282828;
+    font-size: 14px;
     font-family: Georgia, serif;
   }
   &__title {
     font-size: 14px;
     font-weight: 400;
-    color: #4f566b;
     font-family: Georgia, serif;
   }
 }
 
 @media screen and (max-width: 768px) {
   .archives {
-    /*padding-top: 31px;*/
     margin-left: 10px;
     &__list-container {
       padding: 40px 10px;

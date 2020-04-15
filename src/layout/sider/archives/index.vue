@@ -29,7 +29,6 @@ export default {
 .archives {
   &__title {
     font-size: 18px;
-    color: #4f566b;
     margin-bottom: 10px;
   }
   &__items-container {
@@ -40,8 +39,7 @@ export default {
     float: left;
     width: 50%;
     list-style-type: none;
-    color: #4f566b;
-    font-size: 12px;
+    font-size: 14px;
     padding: 5px 0;
   }
 
