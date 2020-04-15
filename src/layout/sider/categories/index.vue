@@ -31,7 +31,6 @@ export default {
 .categories {
   &__title {
     font-size: 18px;
-    color: #24272e;
     margin-bottom: 10px;
   }
   &__items-container {
@@ -42,8 +41,7 @@ export default {
     width: 50%;
     display: inline-block;
     list-style-type: none;
-    color: #4f566b;
-    font-size: 12px;
+    font-size: 14px;
     padding: 5px 0;
   }
   &__info {

@@ -62,24 +62,21 @@ export default {
     border-bottom: none;
     line-height: 1.2;
     vertical-align: top;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
-    color: #24272e;
   }
   &__date-tag {
-    font-size: 12px;
-    color: #4f566b;
+    font-size: 14px;
     margin-top: 10px;
     position: relative;
   }
   &__post-meta-divider {
-    color: #006666;
     margin: 0 4px;
   }
   &__publish-date,
   &__tag,
   &__category {
-    font-size: 12px;
+    font-size: 14px;
     cursor: pointer;
   }
   &__publish-date,
@@ -87,7 +84,6 @@ export default {
   &__category,
   &__view-count {
     margin-left: 1px;
-    font-family: Georgia, serif;
   }
   &__content {
     max-width: 700px;
@@ -96,7 +92,7 @@ export default {
     margin-top: 15px;
   }
   &__read-more {
-    font-size: 12px;
+    font-size: 14px;
     display: inline-block;
     cursor: pointer;
     position: absolute;

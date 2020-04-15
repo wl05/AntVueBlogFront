@@ -62,7 +62,6 @@ export default {
 <style lang="scss" scoped rel="stylesheet/scss">
 .tags-wrap {
   box-sizing: border-box;
-  color: #4f566b;
   background-color: white;
   &__container {
     max-width: 800px;
@@ -80,10 +79,8 @@ export default {
   }
   &__title {
     font-size: 24px;
-    font-weight: 400;
     text-align: center;
     padding: 20px;
-    color: #556677;
   }
 }
 

@@ -130,25 +130,20 @@ export default {
   }
   &__date-tag {
     margin-top: 15px;
-    font-size: 12px;
-    color: #4f566b;
+    font-size: 14px;
   }
   &__post-meta-divider {
-    color: rgba(255, 255, 255, 0.6);
     margin: 0 5px;
   }
   &__publish-date,
   &__tag,
   &__category {
-    font-size: 12px;
+    font-size: 14px;
     cursor: pointer;
     margin-left: 5px;
-    font-family: Georgia, serif;
   }
   &__title {
     margin: 5px 0;
-    color: #24272e;
-    font-weight: 500;
     font-size: 24px;
   }
   &__content {

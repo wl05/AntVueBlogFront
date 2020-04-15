@@ -8,6 +8,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'font-awesome/scss/font-awesome.scss'
 import './index.css'
+import '../theme/index.css'
 import 'animate.css'
 import AntGitment from 'ant-gitment'
 import customCompoents from '@/components/index'
@@ -17,7 +18,6 @@ Vue.use(ElementUI)
 Vue.use(customCompoents)
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,

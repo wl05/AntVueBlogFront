@@ -22,7 +22,6 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
 .about {
   box-sizing: border-box;
-  color: #4f566b;
   &__wrap {
     width: 100%;
   }
@@ -37,7 +36,6 @@ export default {
     margin-right: 10px;
   }
   &__github-url {
-    color: rgba(0, 0, 0, 1);
     text-decoration: none;
   }
   &__info {
@@ -48,7 +46,6 @@ export default {
   }
   &__info-text {
     font-size: 14px;
-    color: #1b1f23;
     text-decoration: none;
   }
 }

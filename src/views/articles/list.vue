@@ -11,6 +11,7 @@
       <item v-for="(item) in articles" :key="item._id" :article="item" v-else />
       <div id="article-list__pagination-id">
         <el-pagination
+          style="background-color:transparent"
           v-if="count>pageLimit && !fetchArticleLoading"
           @current-change="handleCurrentChange"
           :current-page.sync="pageSize"
@@ -90,6 +91,7 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
 .articles-list {
   box-sizing: border-box;
+  min-height: 100vh;
   &__container {
     border-radius: 5px;
     margin: 0px auto;

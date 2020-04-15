@@ -10,7 +10,6 @@
 
 <style lang="scss" scoped>
 .profile {
-  color: #4f566b;
   font-size: 14px;
   &__title {
     font-size: 20px;
@@ -25,7 +24,6 @@
     margin-right: 10px;
   }
   &__school {
-    color: #34495e;
     text-decoration: none;
   }
   &__info {
@@ -33,7 +31,6 @@
     line-height: 1.5;
   }
   &__github {
-    color: #34495e;
     text-decoration: none;
   }
 }

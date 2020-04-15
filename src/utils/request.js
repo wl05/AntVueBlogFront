@@ -8,70 +8,68 @@ const HTTP_HEADER = {
 }
 
 class _request {
-  async get (url, params) {
+  async get(url, params) {
     url = params ? `${url}?${queryString.stringify(params)}` : `${url}`
-    
+
     let config = {
       url: `${process.env.GATEWAY}${url}`,
       method: 'get',
-      headers: {...HTTP_HEADER}
+      headers: { ...HTTP_HEADER }
     }
     if (localStorage.getItem('token')) {
-      config.headers[ 'authorization' ] = `Bearer ${localStorage.getItem('token')}`
+      config.headers['authorization'] = `Bearer ${localStorage.getItem('token')}`
     }
     const result = await axios(config)
     return result
   }
-  
-  async post (url, params) {
+
+  async post(url, params) {
     let config = {
       method: 'post',
       url: process.env.GATEWAY + url,
       headers: HTTP_HEADER,
       data: JSON.stringify(params)
     }
-    
-    // if (getToken()) {
-    //     config.headers['authorization'] = `Bearer ${getToken()}`
-    // }
-    
+    if (localStorage.getItem('token')) {
+      config.headers['authorization'] = `Bearer ${localStorage.getItem('token')}`
+    }
     const result = await axios(config)
     return result
   }
-  
-  async put (url, params) {
+
+  async put(url, params) {
     let config = {
       method: 'put',
       url: process.env.GATEWAY + url,
       headers: HTTP_HEADER,
       data: JSON.stringify(params)
     }
-    
+
     // if (getToken()) {
     //     config.headers['authorization'] = `Bearer ${getToken()}`
     // }
-    
+
     const result = await axios(config)
     return result
   }
-  
-  async delete (url, params) {
+
+  async delete(url, params) {
     let config = {
       method: 'delete',
       url: process.env.GATEWAY + url,
       headers: HTTP_HEADER,
       data: JSON.stringify(params)
     }
-    
+
     // if (getToken()) {
     //     config.headers['authorization'] = `Bearer ${getToken()}`
     // }
-    
+
     const result = await axios(config)
     return result
   }
-  
-  async upload (url, formData, progressEvent, successEvent, failEvent) {
+
+  async upload(url, formData, progressEvent, successEvent, failEvent) {
     let config = {
       method: 'post',
       url: process.env.GATEWAY + url,
@@ -90,7 +88,7 @@ class _request {
       withCredentials: true,
       axiosConfig
     })
-    
+
     return result
   }
 }

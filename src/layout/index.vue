@@ -36,7 +36,6 @@ export default {
 .layout {
   display: flex;
   flex-direction: column;
-  color: #333333;
   overflow-y: scroll;
   background-color: #eeeeee;
   width: 100%;
