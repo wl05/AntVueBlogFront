@@ -12,9 +12,8 @@ import '../theme/index.css'
 import 'animate.css'
 import AntGitment from 'ant-gitment'
 import customCompoents from '@/components/index'
-
 Vue.use(AntGitment)
-Vue.use(ElementUI)
+Vue.use(ElementUI, { size: 'small' })
 Vue.use(customCompoents)
 Vue.config.productionTip = false
 

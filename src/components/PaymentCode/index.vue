@@ -48,7 +48,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 

@@ -42,9 +42,9 @@
           </div>
         </div>
       </div>
-      <!-- <div class="articles-detail__comments-container">
+      <div class="articles-detail__comments-container">
         <Comment :title="detail.title"/>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -52,8 +52,8 @@
 import { getArticleDetail } from '@/api/article'
 import formatTimestamp from '@/utils/formatTimestamp'
 import Markdown from '@/components/Markdown'
-import Comment from '@/components/Comment'
-import PaymentCode from '@/components/PaymentCode'
+import Comment from '@/components/Comment/comment.vue'
+import PaymentCode from '@/components/PaymentCode/index.vue'
 
 export default {
   components: {
