@@ -2,7 +2,7 @@
 
 > Vue.js+Egg.js+Mongodb个人网站
 
-> 网站地址:[ANT](http://www.wangleant.com)
+> 网站地址:[www.wangleant.com](http://www.wangleant.com)
 
 ## 主要技术栈
 
