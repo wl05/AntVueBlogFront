@@ -8,7 +8,7 @@
       <span class="articles-item-container__icon fa fa-calendar"></span>
       <span
         class="articles-item-container__publish-date"
-      >{{formatTimestamp(Number(article.publishAt)/1000)}}</span>
+      >{{ article.publishAt | formatTimestamp}}</span>
       <span class="articles-item-container__post-meta-divider">|</span>
       <span class="articles-item-container__icon fa fa-envelope"></span>
       <a
@@ -44,9 +44,9 @@ export default {
       required: true
     }
   },
-  methods: {
+  filters: {
     formatTimestamp(timestamp) {
-      return formatTimestamp(timestamp)
+      return formatTimestamp(Number(timestamp) / 1000)
     }
   }
 }
