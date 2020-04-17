@@ -52,7 +52,7 @@
 import { getArticleDetail } from '@/api/article'
 import formatTimestamp from '@/utils/formatTimestamp'
 import Markdown from '@/components/Markdown'
-import Comment from '@/components/Comment/comment.vue'
+import Comment from '@/components/Comment/index.vue'
 import PaymentCode from '@/components/PaymentCode/index.vue'
 
 export default {

@@ -16,31 +16,17 @@
         >评论</el-button>
       </div>
     </div>
-    <div class="comment__list">
-      <div v-for="item of comments" :key="item._id">
-        <span>{{item.commentator.name}}</span>
-        <span>{{item.createAt | formatTimestamp}}</span>
-        <span>{{item.content}}</span>
-        <div class="comment__sub-list" v-if="item.sub_comments.length"></div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
-import { postComment, getCommentByArticleId } from '@/api/comment'
-import formatTimestamp from '@/utils/formatTimestamp'
+import { postComment } from '@/api/comment'
 export default {
   data() {
     return {
       content: '',
       visibleButton: true,
       comments: []
-    }
-  },
-  filters: {
-    formatTimestamp(timestamp) {
-      return formatTimestamp(Number(timestamp) / 1000, false)
     }
   },
   computed: {
@@ -57,16 +43,8 @@ export default {
         article_id: this.$route.params.id,
         content: this.content
       })
-      this.getCommentByArticleId()
-    },
-    async getCommentByArticleId() {
-      const res = await getCommentByArticleId(this.$route.params.id)
-      this.comments = res.data.data
-      console.log(this.comments)
+      this.$emit('success')
     }
-  },
-  mounted() {
-    this.getCommentByArticleId()
   }
 }
 </script>
