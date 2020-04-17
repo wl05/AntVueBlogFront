@@ -6,7 +6,6 @@
         <span class="comment__time">{{createAt}}</span>
         </div>
         <div>
-            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
             <el-button type="text" @click="onReply">回复</el-button>
         </div>
     </div>

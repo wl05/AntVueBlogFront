@@ -9,6 +9,7 @@ import 'font-awesome/scss/font-awesome.scss'
 import './index.css'
 import '../theme/index.css'
 import customCompoents from '@/components/index'
+Vue.prototype.$ELEMENT = { size: 'small' }
 Vue.use(Button)
 Vue.use(Input)
 Vue.use(Pagination)

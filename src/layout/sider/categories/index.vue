@@ -38,8 +38,6 @@ export default {
     padding: 0;
   }
   &__item {
-    width: 50%;
-    display: inline-block;
     list-style-type: none;
     font-size: 14px;
     padding: 5px 0;
