@@ -4,13 +4,17 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import { Button, Input, Pagination, Dropdown, DropdownMenu, DropdownItem } from 'element-ui'
 import 'font-awesome/scss/font-awesome.scss'
 import './index.css'
 import '../theme/index.css'
 import customCompoents from '@/components/index'
-Vue.use(ElementUI, { size: 'small' })
+Vue.use(Button)
+Vue.use(Input)
+Vue.use(Pagination)
+Vue.use(Dropdown)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
 Vue.use(customCompoents)
 Vue.config.productionTip = false
 
