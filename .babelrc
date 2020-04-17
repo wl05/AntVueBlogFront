@@ -16,8 +16,15 @@
         "stage-2"
     ],
     "plugins": [
+        [
+            "component",
+            {
+                "libraryName": "element-ui",
+                "styleLibraryName": "~theme"
+            }
+        ],
         "transform-vue-jsx",
-        "transform-runtime"
+        "transform-runtime",
     ],
     "env": {
         "test": {
