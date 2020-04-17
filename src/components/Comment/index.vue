@@ -4,7 +4,7 @@
     <Comment
       @success="getCommentByArticleId"
     />
-    <div class="comment__list">
+    <div class="comment__list" v-if="comments.length">
       <div class="comment__list-title">评论列表：</div>
       <div class="comment__list-item" v-for="item of comments" :key="item._id">
           <CommentatorInfo
@@ -80,7 +80,6 @@ export default {
     async getCommentByArticleId() {
       const res = await getCommentByArticleId(this.$route.params.id)
       this.comments = res.data.data
-      console.log(this.comments)
     }
   },
   mounted() {
