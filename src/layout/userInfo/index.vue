@@ -9,7 +9,7 @@
         <el-dropdown-item command="1">登出</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
-    <div v-else>
+    <div v-else class="user-info__login-cn">
       <a @click="loginVisible=true" class="user-info__login">登录</a>
       |
       <a @click="signupVisible=true" class="user-info__signup">注册</a>
@@ -118,6 +118,16 @@ export default {
     font-size: 14px;
     color: white;
     cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+    text-overflow: ellipsis;
+  }
+  &__login-cn{
+    width: 80px;
   }
 }
 </style>
