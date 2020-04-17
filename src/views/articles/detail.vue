@@ -3,7 +3,7 @@
     <div class="articles-detail__background">
       <div class="articles-detail__container-wrap">
         <div class="articles-detail__container">
-          <div v-if="!Object.keys(detail).length || getArticleDetailLoading" class="articles-detail__loading">
+          <div v-if="detail && !Object.keys(detail).length || getArticleDetailLoading" class="articles-detail__loading">
             <CustomSkeleton style="backgroundColor:white;margin-bottom: 1px;padding: 20px"/>
           </div>
           <div v-else>

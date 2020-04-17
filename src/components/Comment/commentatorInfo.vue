@@ -6,8 +6,6 @@
         <span class="comment__time">{{createAt}}</span>
         </div>
         <div>
-            <!-- <i class="fa fa-thumbs-up comment__thumbs" @click="$emit('unlike')" style="color:#006666" aria-hidden="true"></i> -->
-            <!-- <i class="fa fa-thumbs-o-up comment__thumbs" @click="$emit('like')" style="color:#006666" aria-hidden="true"></i> -->
             <el-button type="text" @click="onReply">回复</el-button>
         </div>
     </div>
