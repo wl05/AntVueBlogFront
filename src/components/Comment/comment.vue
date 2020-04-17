@@ -49,12 +49,16 @@ export default {
   },
   methods: {
     async postComment() {
-      await postComment({
+      const params = {
         article_id: this.$route.params.id,
-        content: this.content,
-        reply_to_comment_id: this.replyToCommentId,
-        reply_to_user_id: this.replyToUserId
-      })
+        content: this.content
+      }
+      if (this.replyToCommentId) {
+        params.reply_to_comment_id = this.replyToCommentId
+        params.reply_to_user_id = this.replyToUserId
+      }
+      await postComment(params)
+      this.content = ''
       this.$emit('success')
     }
   }
