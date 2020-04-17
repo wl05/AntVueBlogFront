@@ -1,8 +1,8 @@
 # AntVueBlogFront
 
-> Vue.js+Egg.js+Mongodb前后端分离的个人网站博客。
+> Vue.js+Egg.js+Mongodb个人网站
 
-> 博客地址:[ANT](http://182.254.168.74) （ssr渲染参考[AntVueBlogFrontSSR](https://github.com/antbaobao/AntVueBlogFrontSSR)）
+> 网站地址:[www.wangleant.com](http://www.wangleant.com)
 
 ## 主要技术栈
 
@@ -26,7 +26,7 @@
 - 分类管理
 - 登录验证
 
-## Setup
+## 开始
 
 运行环境
 - node.js
@@ -94,34 +94,21 @@ npm run dev
 2. 新增"生活与我"模块，加入权限控制。
 3. 准备用ts改造
 4. 用微前端的架构把admin整合进来
+## [1.1] - 2020-04-15
+### 新增
+- 注册登录功能
 
 ## [1.0] - 2019-06-20
-### Changed
+### 更新
 - 优化了页面样式
 
-## todo
-加入登录鉴权，权限控制
-
 ## [0.9] - 2019-05-31
-### Changed
+### 更新
 - 优化了页面跳转
 - 优化了CSS的命名使用BEM命名规则
 
 
 ## [0.81] - 2019-05-15
-### Added
+### 新增
 - 新增了全文检索功能
 
-### Changed
-- 重构了整个前端页面，包括页面背景，首页布局。
-
-### Fixed
-- 修复了路由跳转的bug
-
-## todo
-重构页面后移动端适配还没做
-
-
-## 遗留bug
-
-1. 我部署到服务器后首次访问页面首次点击页面跳转会卡顿一下，然后后面点击就正常了，我在本地开发的时候没有遇到这样的问题，这个问题困扰了我很久，如果有知道的朋友望告知。
