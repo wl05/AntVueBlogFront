@@ -1,5 +1,4 @@
 <template>
-<!--  -->
   <div class="comment">
     <Comment
       @success="getCommentByArticleId"
