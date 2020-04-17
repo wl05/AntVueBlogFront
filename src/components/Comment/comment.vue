@@ -22,6 +22,16 @@
 <script>
 import { postComment } from '@/api/comment'
 export default {
+  props: {
+    replyToCommentId: {
+      type: String,
+      default: ''
+    },
+    replyToUserId: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
       content: '',
@@ -41,7 +51,9 @@ export default {
     async postComment() {
       await postComment({
         article_id: this.$route.params.id,
-        content: this.content
+        content: this.content,
+        reply_to_comment_id: this.replyToCommentId,
+        reply_to_user_id: this.replyToUserId
       })
       this.$emit('success')
     }

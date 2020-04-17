@@ -25,10 +25,6 @@ export default {
       type: String,
       required: true
     },
-    commentId: {
-      type: String,
-      required: true
-    },
     content: {
       type: String,
       required: true
@@ -36,7 +32,7 @@ export default {
   },
   methods: {
     onReply() {
-      this.$emit('reply', this.commentId)
+      this.$emit('reply')
     }
   }
 }

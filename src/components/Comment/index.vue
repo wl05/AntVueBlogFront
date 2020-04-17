@@ -1,4 +1,5 @@
 <template>
+<!--  -->
   <div class="comment">
     <Comment
       @success="getCommentByArticleId"
@@ -9,32 +10,26 @@
           <CommentatorInfo
             :commentator="item.commentator.name"
             :createAt="item.createAt | formatTimestamp"
-            :commentId="item._id"
-            @reply="(commentId)=>currentCommentId=commentId"
+            @reply="()=>{replyToCommentId=item._id;replyToUserId = item.commentator._id}"
             :content="item.content"
           />
         <div class="comment__sub-list">
-          <div v-if="false">
-            <div class="comment__sub-list-item">
+          <div v-if="item.sub_comments && item.sub_comments.length">
+            <div class="comment__sub-list-item" v-for="subItem of item.sub_comments" :key="subItem._id">
               <CommentatorInfo
-                commentator="Tom"
-                :createAt="item.createAt | formatTimestamp"
-                :commentId="item._id"
-                @reply="(commentId)=>currentCommentId=commentId"
-                content="@Ant 是啊，别人为了口饭那么辛苦，小偷却夺人饭碗，所以偷盗能不能加重判刑！"
-              />
-            </div>
-            <div class="comment__sub-list-item">
-              <CommentatorInfo
-                commentator="Tony"
-                :createAt="item.createAt | formatTimestamp"
-                :commentId="item._id"
-                @reply="(commentId)=>currentCommentId=commentId"
-                content="@Ant 是啊，别人为了口饭那么辛苦，小偷却夺人饭碗，所以偷盗能不能加重判刑！"
+                :commentator="subItem.commentator.name"
+                :createAt="subItem.createAt | formatTimestamp"
+                @reply="()=>{replyToCommentId=item._id;replyToUserId = subItem.commentator._id}"
+                :content="`@${subItem.reply_to_user.name} ${subItem.content}`"
               />
             </div>
           </div>
-          <Comment @success="getCommentByArticleId" v-if="currentCommentId === item._id"/>
+          <Comment
+              :replyToCommentId="replyToCommentId"
+              :replyToUserId="replyToUserId"
+              @success="getCommentByArticleId"
+              v-if="replyToCommentId === item._id"
+            />
         </div>
       </div>
     </div>
@@ -57,7 +52,8 @@ export default {
       content: '',
       visibleButton: true,
       comments: [],
-      currentCommentId: ''
+      replyToCommentId: '',
+      replyToUserId: ''
     }
   },
   filters: {
