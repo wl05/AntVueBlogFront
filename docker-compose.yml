@@ -1,0 +1,60 @@
+# yaml 配置
+version: "3.7"
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always                        # 重启策略: 容器退出时总是重启容器
+    ports:
+      - 127.0.0.1:27017:27017
+    volumes:
+      - ~/data/mongodb:/data/db            #db dir
+    networks:
+      - share-net
+  server: 
+    container_name: server
+    restart: always                        # 重启策略: 容器退出时总是重启容器
+    build: 
+      context: .                           # 指定设定上下文根目录，然后以该目录为准指定Dockerfile
+      dockerfile: ./docker/server/Dockerfile
+    depends_on:
+      - mongo
+    ports:
+      - "3000:3000"
+    networks:
+      - share-net
+  web:                                  # 前端node容器(运行nginx中的Vue项目)
+    container_name: web           # 容器名为'share-client'
+    restart: always                        # 重启策略: 容器退出时总是重启容器
+    build:
+      context: .                           # 指定设定上下文根目录，然后以该目录为准指定Dockerfile
+      dockerfile: ./docker/client/Dockerfile
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+      - "80:80"                        # 映射端口
+    volumes:
+      - ~/data/nginx/logs:/var/log/nginx
+    depends_on:                            # 依赖于容器，被依赖容器启动后此web容器才可启动
+      - server
+    networks:
+      - share-net
+  admin:                                  # 前端node容器(运行nginx中的Vue项目)
+    container_name: admin           # 容器名为'share-client'
+    restart: always                        # 重启策略: 容器退出时总是重启容器
+    build:
+      context: .                           # 指定设定上下文根目录，然后以该目录为准指定Dockerfile
+      dockerfile: ./docker/client/Dockerfile
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+      - "3000:3000"                        # 映射端口
+    volumes:
+      - ~/data/nginx/logs:/var/log/nginx
+    depends_on:                            # 依赖于容器，被依赖容器启动后此web容器才可启动
+      - server
+    networks:
+      - share-net
+networks:
+  share-net:
+    name: share-net

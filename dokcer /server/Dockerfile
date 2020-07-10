@@ -12,9 +12,6 @@ RUN npm i --registry=https://registry.npm.taobao.org
 # copy code
 COPY . /app
 
-EXPOSE 7001
+EXPOSE 8000
 
 CMD npm start
-
-
-

@@ -1,6 +1,4 @@
-.DS_Store
-node_modules/
-npm-debug.log*
+
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
@@ -18,8 +16,6 @@ logs/
 npm-debug.log
 yarn-error.log
 node_modules/
-package-lock.json
-yarn.lock
 coverage/
 .idea/
 run/
