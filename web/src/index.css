@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: Georgia, serif;
+  color: #4F566B;
+}
+
+a:hover {
+  cursor: pointer;
+}
