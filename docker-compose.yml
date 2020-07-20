@@ -1,5 +1,5 @@
 # yaml 配置
-version: "3.7"
+version: "3"
 services:
   mongo:
     image: mongo
@@ -11,6 +11,17 @@ services:
       - ~/data/mongodb:/data/db            #db dir
     networks:
       - share-net
+  redis:
+    image: redis:4.0.13 
+    container_name: redis
+    restart: always
+    command: --requirepass 123123 --appendonly yes
+    ports:
+      - 6379:6379
+    volumes:
+      - ~/data/mongodb/redis_data:/data
+    networks:
+      - share-net
   server: 
     container_name: server
     restart: always                        # 重启策略: 容器退出时总是重启容器
@@ -19,6 +30,7 @@ services:
       dockerfile: ./docker/server/Dockerfile
     depends_on:
       - mongo
+      - redis
     ports:
       - "3000:3000"
     networks:
@@ -57,4 +69,4 @@ services:
       - share-net
 networks:
   share-net:
-    name: share-net
+    # name: share-net
