@@ -20,5 +20,5 @@ exports.redis = {
   },
 };
 
-exports.baseUrl = "http://182.254.168.74:7001";
-exports.redirectActivationUrl = "http://182.254.168.74/activation";
+// exports.baseUrl = 'http://182.254.168.74:7001';
+// exports.redirectActivationUrl = 'http://182.254.168.74/activation';
