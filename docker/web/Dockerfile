@@ -5,10 +5,9 @@ RUN echo "-------------------- web环境配置 --------------------"
 WORKDIR /app
 # 拷贝前端项目到app目录下
 COPY ./web/package*.json ./
-COPY ./web/yarn.lock ./
 # 安装依赖
 RUN npm install
-COPY ./web .
+COPY ./web ./
 # 打包 - 目的：丢到nginx下跑
 RUN npm run build
 # ======================== 上：npm打包  下：nginx运行 ========================

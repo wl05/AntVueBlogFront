@@ -1,7 +1,7 @@
 "use strict";
 exports.mongoose = {
   client: {
-    url: `mongodb://mongo:27017/ant_blog`,
+    url: `mongodb://mongodb:27017/ant_blog`,
     options: {},
   },
 };
