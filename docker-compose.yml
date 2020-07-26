@@ -7,34 +7,33 @@ services:
     hostname: mongodb
     volumes:
         - ./docker/mongodb/initdb.d/:/docker-entrypoint-initdb.d/:ro
-        - ./docker/mongodb/data/db/:/data/db/
-        - ./docker/mongodb/data/log/:/var/log/mongodb
+        - ~/data/mongodb/db:/data/db/
+        - ~/data/mongodb/log/:/var/log/mongodb
         - ./docker/mongodb/mongod.conf:/etc/mongod.conf
     env_file:
         - .env
     environment:
-        MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-        MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-        MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: root
+        MONGO_INITDB_DATABASE: ant_blog
     ports:
         - "27017:27017"
     command:
-      # - '--auth'
       - '-f'
       - '/etc/mongod.conf'
-    # networks:
-    #   - share-net
-  # redis:
-  #   image: redis:4.0.13 
-  #   container_name: redis
-  #   restart: always
-  #   command: --requirepass 123123 --appendonly yes
-  #   ports:
-  #     - 6379:6379
-  #   volumes:
-  #     - ~/data/mongodb/redis_data:/data
-  #   networks:
-  #     - share-net
+    networks:
+      - share-net
+  redis:
+    image: redis:4.0.13 
+    container_name: redis
+    restart: always
+    command: --requirepass 123123 --appendonly yes
+    ports:
+      - 6379:6379
+    volumes:
+      - ~/data/mongodb/redis_data:/data
+    networks:
+      - share-net
   # server: 
   #   container_name: server
   #   restart: always                        # 重启策略: 容器退出时总是重启容器
