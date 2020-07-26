@@ -1,7 +1,8 @@
 "use strict";
 exports.mongoose = {
   client: {
-    url: `mongodb://mongodb:27017/ant_blog`,
+    // url: `mongodb://mongodb:27017/ant_blog`,
+    url: `mongodb://ant:wl123456@mongodb:27017/ant_blog`, // user: 数据库的用户名 password: 密码.
     options: {},
   },
 };

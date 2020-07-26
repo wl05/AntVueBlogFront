@@ -10,8 +10,6 @@ services:
         - ~/data/mongodb/db:/data/db/
         - ~/data/mongodb/log/:/var/log/mongodb
         - ./docker/mongodb/mongod.conf:/etc/mongod.conf
-    # env_file:
-    #     - .env
     environment:
         MONGO_INITDB_ROOT_USERNAME: root
         MONGO_INITDB_ROOT_PASSWORD: root
@@ -44,7 +42,7 @@ services:
       - mongodb
       - redis
     ports:
-      - "8000:8000"
+      - "7001:7001"
     networks:
       - share-net
   web:                                  # 前端node容器(运行nginx中的Vue项目)

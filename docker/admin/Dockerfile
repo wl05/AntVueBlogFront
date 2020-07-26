@@ -1,5 +1,5 @@
 # node镜像
-FROM node:latest as builder 
+FROM node:13.11.0 as build-stage
 RUN echo "-------------------- admin环境配置 --------------------"
 # 指定接下来的工作路径为/app  - 类似于cd命令
 WORKDIR /app
