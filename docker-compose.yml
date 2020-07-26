@@ -1,16 +1,18 @@
 # yaml 配置
-version: "3.1"
+version: "3.7"
 services:
   mongo:
     image: mongo:4
     restart: always
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=123456
+      MONGO_INITDB_DATABASE: ant_blog
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+      
     volumes: 
-      - ./docker/mongodb/mongo-entrypoint/:/docker-entrypoint-initdb.d/
+      - ./docker/mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - ~/data/mongodb/db:/data/db
-    # command: mongod --auth
+    command: mongod --auth
     ports: 
       - 27017:27017
     # networks:
