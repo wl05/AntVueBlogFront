@@ -1,0 +1,175 @@
+2020-07-26T04:49:07.857+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2020-07-26T04:49:07.871+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+2020-07-26T04:49:07.872+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=mongodb
+2020-07-26T04:49:07.873+0000 I  CONTROL  [initandlisten] db version v4.2.8
+2020-07-26T04:49:07.873+0000 I  CONTROL  [initandlisten] git version: 43d25964249164d76d5e04dd6cf38f6111e21f5f
+2020-07-26T04:49:07.874+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+2020-07-26T04:49:07.874+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2020-07-26T04:49:07.874+0000 I  CONTROL  [initandlisten] modules: none
+2020-07-26T04:49:07.875+0000 I  CONTROL  [initandlisten] build environment:
+2020-07-26T04:49:07.875+0000 I  CONTROL  [initandlisten]     distmod: ubuntu1804
+2020-07-26T04:49:07.876+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2020-07-26T04:49:07.876+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2020-07-26T04:49:07.876+0000 I  CONTROL  [initandlisten] options: { config: "/etc/mongod.conf", net: { bindIp: "*", port: 27017 }, processManagement: { timeZoneInfo: "/usr/share/zoneinfo" }, security: { authorization: "enabled" }, storage: { dbPath: "/data/db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "/var/log/mongodb/mongod.log" } }
+2020-07-26T04:49:07.879+0000 W  STORAGE  [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2020-07-26T04:49:07.883+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2020-07-26T04:49:07.886+0000 W  STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2020-07-26T04:49:07.887+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=482M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2020-07-26T04:49:19.328+0000 I  STORAGE  [initandlisten] WiredTiger message [1595738959:328729][1:0x7f27901b1b00], txn-recover: Main recovery loop: starting at 1/0 to 2/256
+2020-07-26T04:49:19.358+0000 I  STORAGE  [initandlisten] WiredTiger message [1595738959:358004][1:0x7f27901b1b00], txn-recover: Recovering log 1 through 2
+2020-07-26T04:49:19.802+0000 I  STORAGE  [initandlisten] WiredTiger message [1595738959:802740][1:0x7f27901b1b00], file:index-10--4880329802831061758.wt, txn-recover: Recovering log 2 through 2
+2020-07-26T04:49:19.841+0000 I  STORAGE  [initandlisten] WiredTiger message [1595738959:841391][1:0x7f27901b1b00], file:index-10--4880329802831061758.wt, txn-recover: Set global recovery timestamp: (0, 0)
+2020-07-26T04:49:19.880+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2020-07-26T04:49:19.891+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+2020-07-26T04:49:19.902+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2020-07-26T04:49:19.903+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2020-07-26T04:49:19.904+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2020-07-26T04:49:19.904+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2020-07-26T04:49:19.905+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2020-07-26T04:49:19.906+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2020-07-26T04:49:19.909+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2020-07-26T04:49:19.909+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+2020-07-26T04:49:19.910+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+2020-07-26T04:49:19.910+0000 I  NETWORK  [listener] Listening on 0.0.0.0
+2020-07-26T04:49:19.911+0000 I  NETWORK  [listener] waiting for connections on port 27017
+2020-07-26T04:49:19.976+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+2020-07-26T04:49:37.689+0000 I  NETWORK  [listener] connection accepted from 192.168.16.1:35674 #1 (1 connection now open)
+2020-07-26T04:49:37.691+0000 I  NETWORK  [conn1] received client metadata from 192.168.16.1:35674 conn1: { application: { name: "robo3t" }, driver: { name: "MongoDB Internal Client", version: "4.0.5-18-g7e327a9" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "18.0.0" } }
+2020-07-26T04:49:37.730+0000 I  SHARDING [conn1] Marking collection admin.system.users as collection version: <unsharded>
+2020-07-26T04:49:37.780+0000 I  ACCESS   [conn1] Successfully authenticated as principal root on admin from client 192.168.16.1:35674
+2020-07-26T04:50:29.570+0000 I  CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2020-07-26T04:50:29.571+0000 I  NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2020-07-26T04:50:29.572+0000 I  NETWORK  [listener] removing socket file: /tmp/mongodb-27017.sock
+2020-07-26T04:50:29.573+0000 I  -        [signalProcessingThread] Stopping further Flow Control ticket acquisitions.
+2020-07-26T04:50:29.574+0000 I  CONTROL  [signalProcessingThread] Shutting down free monitoring
+2020-07-26T04:50:29.575+0000 I  FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+2020-07-26T04:50:29.579+0000 I  STORAGE  [signalProcessingThread] Deregistering all the collections
+2020-07-26T04:50:29.580+0000 I  STORAGE  [signalProcessingThread] Timestamp monitor shutting down
+2020-07-26T04:50:29.581+0000 I  STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+2020-07-26T04:50:29.581+0000 I  STORAGE  [signalProcessingThread] Shutting down session sweeper thread
+2020-07-26T04:50:29.582+0000 I  STORAGE  [signalProcessingThread] Finished shutting down session sweeper thread
+2020-07-26T04:50:29.582+0000 I  STORAGE  [signalProcessingThread] Shutting down journal flusher thread
+2020-07-26T04:50:29.677+0000 I  STORAGE  [signalProcessingThread] Finished shutting down journal flusher thread
+2020-07-26T04:50:29.678+0000 I  STORAGE  [signalProcessingThread] Shutting down checkpoint thread
+2020-07-26T04:50:29.679+0000 I  STORAGE  [signalProcessingThread] Finished shutting down checkpoint thread
+2020-07-26T04:50:29.704+0000 I  STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2020-07-26T04:50:29.705+0000 I  CONTROL  [signalProcessingThread] now exiting
+2020-07-26T04:50:29.705+0000 I  CONTROL  [signalProcessingThread] shutting down with code:0
+2020-07-26T04:53:05.155+0000 I  CONTROL  [main] ***** SERVER RESTARTED *****
+2020-07-26T04:53:05.159+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2020-07-26T04:53:05.174+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+2020-07-26T04:53:05.175+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=mongodb
+2020-07-26T04:53:05.176+0000 I  CONTROL  [initandlisten] db version v4.2.8
+2020-07-26T04:53:05.176+0000 I  CONTROL  [initandlisten] git version: 43d25964249164d76d5e04dd6cf38f6111e21f5f
+2020-07-26T04:53:05.177+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+2020-07-26T04:53:05.177+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2020-07-26T04:53:05.178+0000 I  CONTROL  [initandlisten] modules: none
+2020-07-26T04:53:05.179+0000 I  CONTROL  [initandlisten] build environment:
+2020-07-26T04:53:05.179+0000 I  CONTROL  [initandlisten]     distmod: ubuntu1804
+2020-07-26T04:53:05.180+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2020-07-26T04:53:05.180+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2020-07-26T04:53:05.181+0000 I  CONTROL  [initandlisten] options: { config: "/etc/mongod.conf", net: { bindIp: "*", port: 27017 }, processManagement: { timeZoneInfo: "/usr/share/zoneinfo" }, security: { authorization: "enabled" }, storage: { dbPath: "/data/db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "/var/log/mongodb/mongod.log" } }
+2020-07-26T04:53:05.189+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2020-07-26T04:53:05.193+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=482M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2020-07-26T04:53:15.578+0000 I  STORAGE  [initandlisten] WiredTiger message [1595739195:578567][1:0x7f45ab0e9b00], txn-recover: Recovering log 2 through 3
+2020-07-26T04:53:16.035+0000 I  STORAGE  [initandlisten] WiredTiger message [1595739196:35336][1:0x7f45ab0e9b00], txn-recover: Recovering log 3 through 3
+2020-07-26T04:53:16.414+0000 I  STORAGE  [initandlisten] WiredTiger message [1595739196:414455][1:0x7f45ab0e9b00], txn-recover: Main recovery loop: starting at 2/5248 to 3/256
+2020-07-26T04:53:16.994+0000 I  STORAGE  [initandlisten] WiredTiger message [1595739196:994033][1:0x7f45ab0e9b00], txn-recover: Recovering log 2 through 3
+2020-07-26T04:53:17.497+0000 I  STORAGE  [initandlisten] WiredTiger message [1595739197:497358][1:0x7f45ab0e9b00], txn-recover: Recovering log 3 through 3
+2020-07-26T04:53:17.532+0000 I  STORAGE  [initandlisten] WiredTiger message [1595739197:532899][1:0x7f45ab0e9b00], txn-recover: Set global recovery timestamp: (0, 0)
+2020-07-26T04:53:17.564+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2020-07-26T04:53:17.580+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+2020-07-26T04:53:17.594+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2020-07-26T04:53:17.607+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2020-07-26T04:53:17.608+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2020-07-26T04:53:17.610+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2020-07-26T04:53:17.626+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2020-07-26T04:53:17.627+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2020-07-26T04:53:17.630+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2020-07-26T04:53:17.631+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+2020-07-26T04:53:17.631+0000 I  NETWORK  [listener] Listening on 0.0.0.0
+2020-07-26T04:53:17.632+0000 I  NETWORK  [listener] waiting for connections on port 27017
+2020-07-26T04:53:17.631+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+2020-07-26T04:53:18.012+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+2020-07-26T04:53:21.418+0000 I  NETWORK  [listener] connection accepted from 192.168.32.1:35212 #1 (1 connection now open)
+2020-07-26T04:53:21.420+0000 I  NETWORK  [conn1] received client metadata from 192.168.32.1:35212 conn1: { application: { name: "robo3t" }, driver: { name: "MongoDB Internal Client", version: "4.0.5-18-g7e327a9" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "18.0.0" } }
+2020-07-26T04:53:21.426+0000 I  SHARDING [conn1] Marking collection admin.system.users as collection version: <unsharded>
+2020-07-26T04:53:21.433+0000 I  ACCESS   [conn1] SASL SCRAM-SHA-1 authentication failed for ant on ant_blog from client 192.168.32.1:35212 ; UserNotFound: Could not find user "ant" for db "ant_blog"
+2020-07-26T04:53:23.054+0000 I  NETWORK  [conn1] end connection 192.168.32.1:35212 (0 connections now open)
+2020-07-26T04:53:28.923+0000 I  NETWORK  [listener] connection accepted from 192.168.32.1:35216 #2 (1 connection now open)
+2020-07-26T04:53:28.924+0000 I  NETWORK  [conn2] received client metadata from 192.168.32.1:35216 conn2: { application: { name: "robo3t" }, driver: { name: "MongoDB Internal Client", version: "4.0.5-18-g7e327a9" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "18.0.0" } }
+2020-07-26T04:53:28.940+0000 I  ACCESS   [conn2] Successfully authenticated as principal root on admin from client 192.168.32.1:35216
+2020-07-26T04:53:28.949+0000 I  NETWORK  [listener] connection accepted from 192.168.32.1:35220 #3 (2 connections now open)
+2020-07-26T04:53:28.950+0000 I  NETWORK  [conn3] received client metadata from 192.168.32.1:35220 conn3: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.0.5-18-g7e327a9" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "18.0.0" } }
+2020-07-26T04:53:28.980+0000 I  ACCESS   [conn3] Successfully authenticated as principal root on admin from client 192.168.32.1:35220
+2020-07-26T04:53:48.963+0000 I  NETWORK  [listener] connection accepted from 192.168.32.1:35224 #4 (3 connections now open)
+2020-07-26T04:53:48.965+0000 I  NETWORK  [conn4] received client metadata from 192.168.32.1:35224 conn4: { application: { name: "robo3t" }, driver: { name: "MongoDB Internal Client", version: "4.0.5-18-g7e327a9" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "18.0.0" } }
+2020-07-26T04:53:48.971+0000 I  ACCESS   [conn4] SASL SCRAM-SHA-1 authentication failed for ant on ant_blog from client 192.168.32.1:35224 ; UserNotFound: Could not find user "ant" for db "ant_blog"
+2020-07-26T04:54:20.146+0000 I  CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2020-07-26T04:54:20.147+0000 I  NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2020-07-26T04:54:20.148+0000 I  NETWORK  [listener] removing socket file: /tmp/mongodb-27017.sock
+2020-07-26T04:54:20.149+0000 I  -        [signalProcessingThread] Stopping further Flow Control ticket acquisitions.
+2020-07-26T04:54:20.150+0000 I  CONTROL  [signalProcessingThread] Shutting down free monitoring
+2020-07-26T04:54:20.150+0000 I  FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+2020-07-26T04:54:20.154+0000 I  STORAGE  [signalProcessingThread] Deregistering all the collections
+2020-07-26T04:54:20.155+0000 I  STORAGE  [signalProcessingThread] Timestamp monitor shutting down
+2020-07-26T04:54:20.155+0000 I  STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+2020-07-26T04:54:20.156+0000 I  STORAGE  [signalProcessingThread] Shutting down session sweeper thread
+2020-07-26T04:54:20.157+0000 I  STORAGE  [signalProcessingThread] Finished shutting down session sweeper thread
+2020-07-26T04:54:20.157+0000 I  STORAGE  [signalProcessingThread] Shutting down journal flusher thread
+2020-07-26T04:54:20.239+0000 I  STORAGE  [signalProcessingThread] Finished shutting down journal flusher thread
+2020-07-26T04:54:20.240+0000 I  STORAGE  [signalProcessingThread] Shutting down checkpoint thread
+2020-07-26T04:54:20.241+0000 I  STORAGE  [signalProcessingThread] Finished shutting down checkpoint thread
+2020-07-26T04:54:20.295+0000 I  STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2020-07-26T04:54:20.296+0000 I  CONTROL  [signalProcessingThread] now exiting
+2020-07-26T04:54:20.296+0000 I  CONTROL  [signalProcessingThread] shutting down with code:0
+2020-07-26T05:10:52.135+0000 I  CONTROL  [main] ***** SERVER RESTARTED *****
+2020-07-26T05:10:52.138+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2020-07-26T05:10:52.149+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+2020-07-26T05:10:52.150+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=mongodb
+2020-07-26T05:10:52.151+0000 I  CONTROL  [initandlisten] db version v4.2.8
+2020-07-26T05:10:52.151+0000 I  CONTROL  [initandlisten] git version: 43d25964249164d76d5e04dd6cf38f6111e21f5f
+2020-07-26T05:10:52.152+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+2020-07-26T05:10:52.152+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2020-07-26T05:10:52.153+0000 I  CONTROL  [initandlisten] modules: none
+2020-07-26T05:10:52.153+0000 I  CONTROL  [initandlisten] build environment:
+2020-07-26T05:10:52.153+0000 I  CONTROL  [initandlisten]     distmod: ubuntu1804
+2020-07-26T05:10:52.154+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2020-07-26T05:10:52.154+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2020-07-26T05:10:52.155+0000 I  CONTROL  [initandlisten] options: { config: "/etc/mongod.conf", net: { bindIp: "*", port: 27017 }, processManagement: { timeZoneInfo: "/usr/share/zoneinfo" }, security: { authorization: "enabled" }, storage: { dbPath: "/data/db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "/var/log/mongodb/mongod.log" } }
+2020-07-26T05:10:52.162+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2020-07-26T05:10:52.166+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=482M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2020-07-26T05:11:03.085+0000 I  STORAGE  [initandlisten] WiredTiger message [1595740263:84995][1:0x7f9fa758db00], txn-recover: Recovering log 1 through 2
+2020-07-26T05:11:03.484+0000 I  STORAGE  [initandlisten] WiredTiger message [1595740263:484823][1:0x7f9fa758db00], txn-recover: Recovering log 2 through 2
+2020-07-26T05:11:03.937+0000 I  STORAGE  [initandlisten] WiredTiger message [1595740263:937056][1:0x7f9fa758db00], txn-recover: Main recovery loop: starting at 1/29952 to 2/256
+2020-07-26T05:11:04.498+0000 I  STORAGE  [initandlisten] WiredTiger message [1595740264:498754][1:0x7f9fa758db00], txn-recover: Recovering log 1 through 2
+2020-07-26T05:11:04.968+0000 I  STORAGE  [initandlisten] WiredTiger message [1595740264:968676][1:0x7f9fa758db00], txn-recover: Recovering log 2 through 2
+2020-07-26T05:11:05.010+0000 I  STORAGE  [initandlisten] WiredTiger message [1595740265:10220][1:0x7f9fa758db00], txn-recover: Set global recovery timestamp: (0, 0)
+2020-07-26T05:11:05.037+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2020-07-26T05:11:05.053+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+2020-07-26T05:11:05.070+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2020-07-26T05:11:05.081+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2020-07-26T05:11:05.082+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2020-07-26T05:11:05.084+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2020-07-26T05:11:05.096+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2020-07-26T05:11:05.097+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2020-07-26T05:11:05.101+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2020-07-26T05:11:05.102+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+2020-07-26T05:11:05.102+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+2020-07-26T05:11:05.104+0000 I  NETWORK  [listener] Listening on 0.0.0.0
+2020-07-26T05:11:05.104+0000 I  NETWORK  [listener] waiting for connections on port 27017
+2020-07-26T05:11:06.010+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+2020-07-26T05:11:12.040+0000 I  NETWORK  [listener] connection accepted from 192.168.176.1:57362 #1 (1 connection now open)
+2020-07-26T05:11:12.042+0000 I  NETWORK  [conn1] received client metadata from 192.168.176.1:57362 conn1: { application: { name: "robo3t" }, driver: { name: "MongoDB Internal Client", version: "4.0.5-18-g7e327a9" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "18.0.0" } }
+2020-07-26T05:11:12.047+0000 I  SHARDING [conn1] Marking collection admin.system.users as collection version: <unsharded>
+2020-07-26T05:11:12.073+0000 I  ACCESS   [conn1] Successfully authenticated as principal ant on ant_blog from client 192.168.176.1:57362
+2020-07-26T05:11:12.127+0000 I  NETWORK  [listener] connection accepted from 192.168.176.1:57366 #2 (2 connections now open)
+2020-07-26T05:11:12.128+0000 I  NETWORK  [conn2] received client metadata from 192.168.176.1:57366 conn2: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.0.5-18-g7e327a9" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "18.0.0" } }
+2020-07-26T05:11:12.159+0000 I  ACCESS   [conn2] Successfully authenticated as principal ant on ant_blog from client 192.168.176.1:57366
+2020-07-26T05:11:12.174+0000 I  ACCESS   [conn1] Unauthorized: not authorized on db to execute command { serverStatus: "1", $db: "db" }
+2020-07-26T05:11:28.930+0000 I  NETWORK  [listener] connection accepted from 192.168.176.1:57370 #3 (3 connections now open)
+2020-07-26T05:11:28.932+0000 I  NETWORK  [conn3] received client metadata from 192.168.176.1:57370 conn3: { application: { name: "robo3t" }, driver: { name: "MongoDB Internal Client", version: "4.0.5-18-g7e327a9" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "18.0.0" } }
+2020-07-26T05:11:28.947+0000 I  ACCESS   [conn3] Successfully authenticated as principal root on admin from client 192.168.176.1:57370
+2020-07-26T05:12:38.945+0000 I  NETWORK  [listener] connection accepted from 192.168.176.1:57374 #4 (4 connections now open)
+2020-07-26T05:12:38.946+0000 I  NETWORK  [conn4] received client metadata from 192.168.176.1:57374 conn4: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.0.5-18-g7e327a9" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "18.0.0" } }
+2020-07-26T05:12:39.040+0000 I  ACCESS   [conn4] Successfully authenticated as principal root on admin from client 192.168.176.1:57374

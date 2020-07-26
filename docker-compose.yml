@@ -1,20 +1,27 @@
 # yaml 配置
 version: "3.7"
 services:
-  mongo:
-    image: mongo:4
-    restart: always
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    hostname: mongodb
+    volumes:
+        - ./docker/mongodb/initdb.d/:/docker-entrypoint-initdb.d/:ro
+        - ./docker/mongodb/data/db/:/data/db/
+        - ./docker/mongodb/data/log/:/var/log/mongodb
+        - ./docker/mongodb/mongod.conf:/etc/mongod.conf
+    env_file:
+        - .env
     environment:
-      MONGO_INITDB_DATABASE: ant_blog
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: 123456
-      
-    volumes: 
-      - ./docker/mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - ~/data/mongodb/db:/data/db
-    command: mongod --auth
-    ports: 
-      - 27017:27017
+        MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+        MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+        MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+    ports:
+        - "27017:27017"
+    command:
+      # - '--auth'
+      - '-f'
+      - '/etc/mongod.conf'
     # networks:
     #   - share-net
   # redis:
