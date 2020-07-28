@@ -1,5 +1,5 @@
 module.exports = {
     NODE_ENV: '"production"',
-    GATEWAY: '"http://localhost/api"',
-    STATIC_DOMAIN: '"http://localhost/api"',
+    GATEWAY: '"http://wangleant.com/api"',
+    STATIC_DOMAIN: '"http://wangleant.com/api"',
 };
